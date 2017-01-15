@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import isEqual from 'lodash.isequal';
 import isobject from 'lodash.isobject';
 import trim from 'lodash.trim';
+import WixComponent from '../WixComponent'
 import isstring from 'lodash.isstring';
 import has from 'lodash.has';
 
@@ -14,7 +15,7 @@ const modulu = (n, m) => {
 
 const NOT_HOVERED_INDEX = -1;
 
-class DropdownLayout extends React.Component {
+class DropdownLayout extends WixComponent {
 
   constructor(props) {
     super(props);
@@ -28,11 +29,19 @@ class DropdownLayout extends React.Component {
     this._onMouseEnter = this._onMouseEnter.bind(this);
     this._onKeyDown = this._onKeyDown.bind(this);
     this._onClose = this._onClose.bind(this);
+    this.onClickOutside = this.onClickOutside.bind(this);
   }
 
   isLegalOption(option) {
     return isobject(option) && has(option, 'id') && trim(option.id).length > 0 &&
         has(option, 'value') && (React.isValidElement(option.value) || (isstring(option.value) && trim(option.value).length > 0));
+  }
+
+  onClickOutside() {
+    const {visible, onClickOutside} = this.props;
+    if (visible && onClickOutside) {
+      this.onClickOutside();
+    }
   }
 
   _onSelect(index) {
@@ -139,7 +148,7 @@ class DropdownLayout extends React.Component {
     });
 
     return (
-      <div tabIndex={tabIndex} className={styles.wrapper} onKeyDown={this._onKeyDown} onBlur={this._onClose} id={id}>
+      <div tabIndex={tabIndex} className={styles.wrapper} onKeyDown={this._onKeyDown} id={id}>
         <div
           className={optionsClassName}
           ref={options => this.options = options}
@@ -231,7 +240,8 @@ DropdownLayout.propTypes = {
     React.PropTypes.string,
     React.PropTypes.number,
   ]),
-  tabIndex: React.PropTypes.number
+  tabIndex: React.PropTypes.number,
+  onClickOutside: React.PropTypes.func
 };
 
 DropdownLayout.defaultProps = {

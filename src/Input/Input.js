@@ -105,7 +105,7 @@ class Input extends Component {
           menuArrow={menuArrow}
           rtl={rtl}
           onClear={onClear}
-          onFocus={this.focus}
+          onFocus={this._onFocus}
           >
           {suffix}
         </InputSuffix>

@@ -9,6 +9,7 @@
 | options | array of option | - | - | Array of Option objects that will be render to the list |
 | onSelect | func | - | - | Callback function called whenever the user selects a different option in the list |
 | onClose | func | - | - | Callback function called whenever the user press escape or click outside the component |
+| onClickOutside | func | - | - | Callback function called whenever the user click outside the component |
 | dropDirectionUp | bool | false | - | Whether the component opens up or down |
 | visible | bool | true | - | Should show or hide the component |
 | selectedId | string/number | - | - | The id of the selected option in the list |

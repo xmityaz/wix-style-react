@@ -1,9 +1,10 @@
 import React from 'react';
+import WixComponent from '../WixComponent'
 import Input from '../Input/Input.js';
 import omit from 'lodash.omit';
 import DropdownLayout from '../DropdownLayout/DropdownLayout';
 
-class InputWithOptions extends React.Component {
+class InputWithOptions extends WixComponent {
 
   // Abstraction
   inputClasses() {}
@@ -13,7 +14,10 @@ class InputWithOptions extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {showOptions: false};
+    this.state = {
+      inputValue: "",
+      showOptions: false
+    };
 
     this._onSelect = this._onSelect.bind(this);
     this._onFocus = this._onFocus.bind(this);
@@ -25,47 +29,44 @@ class InputWithOptions extends React.Component {
     this.hideOptions = this.hideOptions.bind(this);
     this.showOptions = this.showOptions.bind(this);
     this._onManuallyInput = this._onManuallyInput.bind(this);
+    this.renderDropdownLayout = this.renderDropdownLayout.bind(this);
+  }
+
+  onClickOutside() {
+    this.hideOptions();
   }
 
   renderInput() {
-    const {customInput} = this.props;
-
     const inputProps = Object.assign(omit(this.props, Object.keys(DropdownLayout.propTypes).concat(['onChange'])), this.inputAdditionalProps());
-    if (customInput) {
-      return React.cloneElement(customInput, {
-        ref: input => this.input = input,
-        ...inputProps,
-        onChange: this._onChange,
-      });
-    } else {
-      return (
-        <Input
-          menuArrow
-          ref={input => this.input = input}
-          {...inputProps}
-          onChange={this._onChange}
-          />
-      );
-    }
+    const {inputElement} = inputProps;
+    return React.cloneElement(inputElement, {
+      menuArrow: true,
+      ref: input => this.input = input,
+      ...inputProps,
+      onChange: this._onChange
+    });
   }
 
-  render() {
+  renderDropdownLayout() {
     const dropdownProps = Object.assign(omit(this.props, Object.keys(Input.propTypes)), this.dropdownAdditionalProps());
-
-    return (
-      <div>
-        <div onKeyDown={this._onKeyDown} onFocus={this._onFocus} onBlur={this.hideOptions} className={this.inputClasses()}>
-          {this.renderInput()}
-        </div>
-
-        <div className={this.dropdownClasses()} onFocus={this._onFocus}>
-          <DropdownLayout
+    return <DropdownLayout
             ref={dropdownLayout => this.dropdownLayout = dropdownLayout}
             {...dropdownProps}
             visible={this.state.showOptions}
             onClose={this.hideOptions}
             onSelect={this._onSelect}
-            />
+          />
+  }
+
+  render() {
+    return (
+      <div>
+        <div onKeyDown={this._onKeyDown} onFocus={this._onFocus} className={this.inputClasses()}>
+          {this.renderInput()}
+        </div>
+
+        <div className={this.dropdownClasses()} onFocus={this._onFocus}>
+          {this.renderDropdownLayout()}
         </div>
       </div>
     );
@@ -80,13 +81,13 @@ class InputWithOptions extends React.Component {
     this.setState({showOptions: true});
   }
 
-  _onManuallyInput() {
+  _onManuallyInput(inputValue) {
     if (this.props.closeOnSelect) {
       this.hideOptions();
     }
 
     if (this.props.onManuallyInput) {
-      this.props.onManuallyInput(this.props.value);
+      this.props.onManuallyInput(inputValue);
     }
   }
 
@@ -104,6 +105,8 @@ class InputWithOptions extends React.Component {
   }
 
   _onChange(event) {
+    this.setState({inputValue: event.target.value});
+
     if (this.props.onChange) {
       this.props.onChange(event);
     }
@@ -121,7 +124,7 @@ class InputWithOptions extends React.Component {
       switch (event.key) {
         case 'Enter':
         case 'Tab': {
-          this._onManuallyInput();
+          this._onManuallyInput(this.state.inputValue);
           break;
         }
         default:
@@ -148,13 +151,14 @@ InputWithOptions.defaultProps = {
   ...DropdownLayout.defaultProps,
   onSelect: () => {},
   options: [],
-  closeOnSelect: true
+  closeOnSelect: true,
+  inputElement: <Input/>
 };
 
 InputWithOptions.propTypes = {
   ...Input.propTypes,
   ...DropdownLayout.propTypes,
-  customInput: React.PropTypes.element,
+  inputElement: React.PropTypes.element,
   closeOnSelect: React.PropTypes.bool,
   onManuallyInput: React.PropTypes.func
 };

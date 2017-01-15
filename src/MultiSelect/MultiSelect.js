@@ -7,7 +7,8 @@ import difference from 'lodash.difference';
 import uniqueId from 'lodash.uniqueid';
 import remove from 'lodash.remove';
 
-class MultiSelect extends React.Component {
+class MultiSelect extends InputWithOptions {
+
   constructor(props) {
     super(props);
     this.onKeyDown = this.onKeyDown.bind(this);
@@ -22,25 +23,28 @@ class MultiSelect extends React.Component {
     return this.props.options.filter(option => unselectedOptionsIds.includes(option.id));
   }
 
-  render() {
+  dropdownAdditionalProps() {
     const unselectedOptions = this.getUnselectedOptions();
-    const {id, predicate, ...otherProps} = this.props;
-    const desiredProps = omit(otherProps, ['options', 'onKeyDown', 'onSelect', 'onManuallyInput']);
+    return {
+      options: unselectedOptions.filter(this.props.predicate),
+    };
+  }
 
-    return (
-      <div id={id} onClick={() => this.inputWithTags.input.focus()}>
-        <InputWithOptions
-          ref={inputWithTags => this.inputWithTags = inputWithTags}
-          customInput={<InputWithTags/>}
-          closeOnSelect={false}
-          options={unselectedOptions.filter(predicate)}
-          onKeyDown={this.onKeyDown}
-          onSelect={this.onSelect}
-          onManuallyInput={this.onManuallyInput}
-          {...desiredProps}
-          />
-      </div>
-    );
+  inputAdditionalProps() {
+    return {
+      inputElement: <InputWithTags/>,
+      onKeyDown: this.onKeyDown
+    }
+  }
+
+  _onSelect(option) {
+    super._onSelect(option);
+    this.onSelect(option);
+  }
+
+  _onManuallyInput(inputValue) {
+    super._onManuallyInput(inputValue);
+    this.onManuallyInput(inputValue);
   }
 
   onKeyDown(event) {
@@ -71,12 +75,12 @@ class MultiSelect extends React.Component {
     remove(updeatedOptions, option);
     this.setState({unSelectedOptions: updeatedOptions});
 
-    this.inputWithTags.input.focus();
+    this.input.focus();
   }
 
   onManuallyInput(inputValue) {
     if (!inputValue) {
-      this.inputWithTags.input.blur();
+      this.input.blur();
       return;
     }
 
@@ -90,28 +94,7 @@ class MultiSelect extends React.Component {
   }
 }
 
-MultiSelect.propTypes = {
-  id: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  tags: PropTypes.array,
-  value: PropTypes.string,
-  options: PropTypes.array,
-  onRemoveTag: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onSelect: PropTypes.func,
-  onManuallyInput: PropTypes.func,
-  onChange: PropTypes.func,
-  predicate: PropTypes.func,
-};
-
-MultiSelect.defaultProps = {
-  onRemoveTag: () => {},
-  predicate: () => true,
-  tags: [],
-  value: '',
-  options: [],
-};
+MultiSelect.propTypes = InputWithOptions.propTypes;
+MultiSelect.defaultProps = InputWithOptions.defaultProps;
 
 export default MultiSelect;

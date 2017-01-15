@@ -22,12 +22,10 @@ const runInputWithOptionsTest = driverFactory => {
       expect(dropdownLayoutDriver.isShown()).toBeFalsy();
     });
 
-    it('should show DropdownLayout when input get focused and hide it when get blur', () => {
+    it('should show DropdownLayout when input get focused', () => {
       const {driver, dropdownLayoutDriver} = createDriver({options});
       driver.focus();
       expect(dropdownLayoutDriver.isShown()).toBeTruthy();
-      driver.blur();
-      expect(dropdownLayoutDriver.isShown()).toBeFalsy();
     });
 
     it('should show DropdownLayout on any key press', () => {
@@ -36,13 +34,15 @@ const runInputWithOptionsTest = driverFactory => {
       expect(dropdownLayoutDriver.isShown()).toBeTruthy();
     });
 
-    it('should show DropdownLayout on down and up key press', () => {
+    it('should show DropdownLayout on down key', () => {
+      const {driver, dropdownLayoutDriver} = createDriver({options});
+      driver.pressUpKey();
+      expect(dropdownLayoutDriver.isShown()).toBeTruthy();
+    });
+
+    it('should show DropdownLayout on up key', () => {
       const {driver, dropdownLayoutDriver} = createDriver({options});
       driver.pressDownKey();
-      expect(dropdownLayoutDriver.isShown()).toBeTruthy();
-      driver.blur();
-      expect(dropdownLayoutDriver.isShown()).toBeFalsy();
-      driver.pressUpKey();
       expect(dropdownLayoutDriver.isShown()).toBeTruthy();
     });
 
@@ -60,8 +60,9 @@ const runInputWithOptionsTest = driverFactory => {
 
     it('should call onManuallyInput on enter key press', () => {
       const onManuallyInput = jest.fn();
-      const {driver} = createDriver({options, onManuallyInput});
-      driver.setProps({options, onManuallyInput, value: 'my text'});
+      const {driver, inputDriver} = createDriver({options, onManuallyInput});
+      driver.setProps({options, onManuallyInput});
+      inputDriver.enterText('my text');
       driver.pressEnterKey();
       expect(onManuallyInput).toBeCalledWith('my text');
     });

@@ -11,7 +11,7 @@
 | onManuallyInput | func | noop | - | Callback when the user pressed the Enter key or Tab key after he wrote in the Input field - meaning the user selected something not in the list |
 | selectedId | string/number | - | - | The id of the selected option in the list |
 | closeOnSelect | bool | true | - | Should the options container close on selection |
-| customInput | element | - | - | Optional custom input element |
+| inputElement | element | </Input> | - | Set the component input element |
 | ***All of the Input's and DropdownLayout Props are also available for this component*** | | | | |
 
 
