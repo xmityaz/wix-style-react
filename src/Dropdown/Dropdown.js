@@ -1,5 +1,6 @@
 import styles from './Dropdown.scss';
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
+import WixHOCs from '../HOC/WixHOCs';
 
 class Dropdown extends InputWithOptions {
 
@@ -40,4 +41,4 @@ class Dropdown extends InputWithOptions {
 Dropdown.propTypes = InputWithOptions.propTypes;
 Dropdown.defaultProps = InputWithOptions.defaultProps;
 
-export default Dropdown;
+export default WixHOCs(Dropdown);

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import s from './ButtonSelection.scss';
+import WixHOCs from '../HOC/WixHOCs';
 
 class ButtonSelection extends React.Component {
   componentWillMount() {
@@ -42,4 +43,4 @@ ButtonSelection.propTypes = {
 
 ButtonSelection.displayName = 'ButtonSelection';
 
-export default ButtonSelection;
+export default WixHOCs(ButtonSelection);

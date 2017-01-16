@@ -4,8 +4,9 @@ import uniqueId from 'lodash.uniqueid';
 import SliderHandle from './SliderHandle';
 import classNames from 'classnames';
 import './Slider.scss';
+import WixHOCs from '../HOC/WixHOCs';
 
-export default class Slider extends Component {
+class Slider extends Component {
   getRange() {
     const {min, max, step} = this.props;
     const range = [];
@@ -86,3 +87,5 @@ Slider.defaultProps = {
   displayMarks: true,
   rtl: false
 };
+
+export default WixHOCs(Slider);

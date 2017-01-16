@@ -5,6 +5,7 @@ import Ticker from './Ticker';
 import Unit from './Unit';
 import InputPrefix from './InputPrefix';
 import InputSuffix from './InputSuffix';
+import WixHOCs from '../HOC/WixHOCs';
 
 import styles from './Input.scss';
 
@@ -25,7 +26,7 @@ class Input extends Component {
 
   state = {
     focus: false
-  }
+  };
 
   render() {
     const {
@@ -202,4 +203,4 @@ function deprecated(when, oldProp, newProp) {
   ].join(' ');
 }
 
-export default Input;
+export default WixHOCs(Input);

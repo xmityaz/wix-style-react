@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import s from './DataTable.scss';
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
+import WixHOCs from '../HOC/WixHOCs';
 
 class DataTable extends React.Component {
   constructor(props) {
@@ -152,4 +153,4 @@ DataTable.propTypes = {
 
 DataTable.displayName = 'DataTable';
 
-export default DataTable;
+export default WixHOCs(DataTable);

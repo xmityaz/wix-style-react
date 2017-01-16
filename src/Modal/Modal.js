@@ -2,6 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import styles from './Modal.scss';
 import {colors, positions} from './ModalConstants';
+import WixHOCs from '../HOC/WixHOCs';
 
 const Modal = props => {
   //TODO When deprecation ends, _theme won't be needed.
@@ -91,4 +92,4 @@ Modal.defaultProps = {
   verticalPosition: 'start',
 };
 
-export default Modal;
+export default WixHOCs(Modal);

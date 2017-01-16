@@ -5,6 +5,7 @@ import last from 'lodash.last';
 import difference from 'lodash.difference';
 import uniqueId from 'lodash.uniqueid';
 import remove from 'lodash.remove';
+import WixHOCs from '../HOC/WixHOCs';
 
 class MultiSelect extends InputWithOptions {
 
@@ -96,4 +97,4 @@ class MultiSelect extends InputWithOptions {
 MultiSelect.propTypes = InputWithOptions.propTypes;
 MultiSelect.defaultProps = InputWithOptions.defaultProps;
 
-export default MultiSelect;
+export default WixHOCs(MultiSelect);

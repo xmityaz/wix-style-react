@@ -3,6 +3,7 @@ import uniqueId from 'lodash.uniqueid';
 import React from 'react';
 import classNames from 'classnames';
 import SvgV from '../svg/V';
+import WixHOCs from '../HOC/WixHOCs';
 
 class Checkbox extends React.Component {
   render() {
@@ -52,4 +53,4 @@ Checkbox.defaultProps = {
   onChange: () => { }
 };
 
-export default Checkbox;
+export default WixHOCs(Checkbox);

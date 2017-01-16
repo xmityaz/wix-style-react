@@ -7,6 +7,7 @@ import isundefined from 'lodash.isundefined';
 import filter from 'lodash.filter';
 import includes from 'lodash.includes';
 import each from 'lodash.foreach';
+import WixHOCs from '../HOC/WixHOCs';
 
 class GoogleAddressInput extends React.Component {
   constructor(params) {
@@ -47,7 +48,7 @@ class GoogleAddressInput extends React.Component {
     return (
       <div>
         <InputWithOptions
-          ref={autocomplete => this.autocomplete = autocomplete}
+          wixRef={autocomplete => this.autocomplete = autocomplete}
           {...this.props}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
@@ -286,4 +287,4 @@ GoogleAddressInput.propTypes = {
   readOnly: React.PropTypes.bool
 };
 
-export default GoogleAddressInput;
+export default WixHOCs(GoogleAddressInput);

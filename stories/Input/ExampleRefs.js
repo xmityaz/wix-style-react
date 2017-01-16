@@ -12,14 +12,14 @@ class CommandsExample extends React.Component {
     };
 
     const handleClick3 = () => {
-      this.refs.inputtest.focus();
-      this.refs.inputtest.select();
+      this.inputtest.focus();
+      this.inputtest.select();
     };
 
     return (
       <div className="ltr">
         <div style={{width: '400px'}}>
-          <Input ref="inputtest"/>
+          <Input wixRef={inputtest => this.inputtest = inputtest}/>
         </div>
         <TextButton onClick={handleClick1}>Focus</TextButton>
         <TextButton onClick={handleClick2}>Focus &amp; blur 1 second later</TextButton>

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import classnames from 'classnames';
+import WixHOCs from '../HOC/WixHOCs';
 
 import styles from './Loader.scss';
 
@@ -22,4 +23,4 @@ Loader.propTypes = {
   text: PropTypes.string
 };
 
-export default Loader;
+export default WixHOCs(Loader);

@@ -22,11 +22,11 @@ class ControlledInput extends Component {
     const onChange = event => this.setState({value: event.target.value});
     const onClear = event => {
       this.setState({value: ''});
-      this.refs.inputtest.focus();
+      this.inputtest.focus();
     };
 
     return (
-      <Input {...this.props} error={this.state.value === 'Starwars'} value={this.state.value} onChange={onChange} onClear={onClear}/>
+      <Input {...this.props} wixRef={inputtest => this.inputtest = inputtest} error={this.state.value === 'Starwars'} value={this.state.value} onChange={onChange} onClear={onClear}/>
     );
   }
 }

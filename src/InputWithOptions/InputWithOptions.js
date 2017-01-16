@@ -1,10 +1,10 @@
 import React from 'react';
-import WixComponent from '../WixComponent';
 import Input from '../Input/Input.js';
 import omit from 'lodash.omit';
 import DropdownLayout from '../DropdownLayout/DropdownLayout';
+import WixHOCs from '../HOC/WixHOCs';
 
-class InputWithOptions extends WixComponent {
+class InputWithOptions extends React.Component {
 
   // Abstraction
   inputClasses() {}
@@ -41,7 +41,7 @@ class InputWithOptions extends WixComponent {
     const {inputElement} = inputProps;
     return React.cloneElement(inputElement, {
       menuArrow: true,
-      ref: input => this.input = input,
+      wixRef: input => this.input = input,
       ...inputProps,
       onChange: this._onChange
     });
@@ -49,15 +49,13 @@ class InputWithOptions extends WixComponent {
 
   renderDropdownLayout() {
     const dropdownProps = Object.assign(omit(this.props, Object.keys(Input.propTypes)), this.dropdownAdditionalProps());
-    return (
-      <DropdownLayout
-        ref={dropdownLayout => this.dropdownLayout = dropdownLayout}
-        {...dropdownProps}
-        visible={this.state.showOptions}
-        onClose={this.hideOptions}
-        onSelect={this._onSelect}
-        />
-    );
+    return <DropdownLayout
+            wixRef={dropdownLayout => this.dropdownLayout = dropdownLayout}
+            {...dropdownProps}
+            visible={this.state.showOptions}
+            onClose={this.hideOptions}
+            onSelect={this._onSelect}
+          />
   }
 
   render() {
@@ -167,4 +165,4 @@ InputWithOptions.propTypes = {
 
 InputWithOptions.displayName = 'InputWithOptions';
 
-export default InputWithOptions;
+export default WixHOCs(InputWithOptions);

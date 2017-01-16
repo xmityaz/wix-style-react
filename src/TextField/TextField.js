@@ -4,8 +4,9 @@ import Label from '../Label';
 import Input from '../Input';
 import styles from './TextField.scss';
 import {first, last} from 'lodash/fp';
+import WixHOCs from '../HOC/WixHOCs';
 
-export default function TextField(props) {
+function TextField(props) {
   const children = Children.toArray(props.children);
   const {dataHook} = props;
 
@@ -23,3 +24,5 @@ TextField.propTypes = {
   dataHook: React.PropTypes.string,
   children: children(optional(Label), once(Input))
 };
+
+export default WixHOCs(TextField);

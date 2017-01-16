@@ -2,6 +2,7 @@ import css from './SideBar.scss';
 import React from 'react';
 import BottomBar from './BottomBar';
 import Menu from './Menu';
+import WixHOCs from '../HOC/WixHOCs';
 
 class SideBar extends React.Component {
 
@@ -23,4 +24,4 @@ class SideBar extends React.Component {
 SideBar.Menu = Menu;
 SideBar.BottomBar = BottomBar;
 
-export default SideBar;
+export default WixHOCs(SideBar);

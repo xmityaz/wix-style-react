@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import uniqueId from 'lodash.uniqueid';
-
+import WixHOCs from '../HOC/WixHOCs';
 import styles from './ToggleSwitch.scss';
 
 class ToggleSwitch extends React.Component {
@@ -49,4 +49,4 @@ ToggleSwitch.defaultProps = {
   size: 'large'
 };
 
-export default ToggleSwitch;
+export default WixHOCs(ToggleSwitch);

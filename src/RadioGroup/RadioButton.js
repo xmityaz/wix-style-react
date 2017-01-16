@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import uniqueId from 'lodash.uniqueid';
 import styles from './RadioGroup.scss';
 import classNames from 'classnames';
+import WixHOCs from '../HOC/WixHOCs';
 
 class RadioButton extends React.Component {
   constructor(props) {
@@ -57,4 +58,4 @@ RadioButton.propTypes = {
 
 RadioButton.displayName = 'RadioGroup.Button';
 
-export default RadioButton;
+export default WixHOCs(RadioButton);

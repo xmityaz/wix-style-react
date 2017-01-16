@@ -19,7 +19,6 @@ const dropdownLayoutDriverFactory = ({component, wrapper}) => {
     optionsLength: () => options.childNodes.length,
     mouseEnterAtOption: position => ReactTestUtils.Simulate.mouseEnter(optionAt(position)),
     mouseLeaveAtOption: position => ReactTestUtils.Simulate.mouseLeave(optionAt(position)),
-    mouseClickOutside: () => ReactTestUtils.Simulate.blur(options),
     isOptionHovered: position => isClassExists(optionAt(position), 'hovered'),
     isOptionSelected: position => isClassExists(optionAt(position), 'selected'),
     classes: () => options.className,

@@ -1,6 +1,6 @@
 import React, {PropTypes, Component, cloneElement} from 'react';
 import ReactDOM from 'react-dom';
-
+import WixHOCs from '../HOC/WixHOCs';
 import TooltipContent from './TooltipContent';
 import position from './TooltipPosition';
 
@@ -71,7 +71,7 @@ class Tooltip extends Component {
         <TooltipContent
           onMouseEnter={() => this.show()}
           onMouseLeave={() => this._onMouseLeave()}
-          ref={ref => this._tooltipNode = ReactDOM.findDOMNode(ref)}
+          wixRef={ref => this._tooltipNode = ReactDOM.findDOMNode(ref)}
           theme={this.props.theme}
           bounce={this.props.bounce}
           arrowPlacement={arrowPlacement[this.props.placement]}
@@ -261,4 +261,4 @@ class Tooltip extends Component {
 
 }
 
-export default Tooltip;
+export default WixHOCs(Tooltip);

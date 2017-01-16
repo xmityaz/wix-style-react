@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Button.scss';
 import classNames from 'classnames';
+import WixHOCs from '../HOC/WixHOCs';
 
-export default function Button(props) {
+function Button(props) {
 
   const {id, style, hover, active, disabled, height, onClick} = props;
   let {theme} = props; // When deprecation ends. theme should move to const.
@@ -51,3 +52,5 @@ Button.propTypes = {
   onClick: React.PropTypes.func,
   children: React.PropTypes.any
 };
+
+export default WixHOCs(Button);

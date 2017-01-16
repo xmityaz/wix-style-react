@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import classnames from 'classnames';
 import SvgX from '../svg/X.js';
-
+import WixHOCs from '../HOC/WixHOCs';
 import styles from './Toast.scss';
 
 class Toast extends React.Component {
@@ -128,4 +128,4 @@ ToastButton.propTypes = {
 
 Toast.Button = ToastButton;
 
-export default Toast;
+export default WixHOCs(Toast);

@@ -4,9 +4,10 @@ import classNames from 'classnames';
 import isEqual from 'lodash.isequal';
 import isobject from 'lodash.isobject';
 import trim from 'lodash.trim';
-import WixComponent from '../WixComponent';
 import isstring from 'lodash.isstring';
 import has from 'lodash.has';
+import OnClickOutsideHOC from '../HOC/OnClickOutside';
+import WixHOCs from '../HOC/WixHOCs';
 
 const modulu = (n, m) => {
   const remain = n % m;
@@ -15,7 +16,7 @@ const modulu = (n, m) => {
 
 const NOT_HOVERED_INDEX = -1;
 
-class DropdownLayout extends WixComponent {
+class DropdownLayout extends React.Component {
 
   constructor(props) {
     super(props);
@@ -29,7 +30,9 @@ class DropdownLayout extends WixComponent {
     this._onMouseEnter = this._onMouseEnter.bind(this);
     this._onKeyDown = this._onKeyDown.bind(this);
     this._onClose = this._onClose.bind(this);
-    this.onClickOutside = this.onClickOutside.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.hoverNextStep = this.hoverNextStep.bind(this);
+    this.renderItem = this.renderItem.bind(this);
   }
 
   isLegalOption(option) {
@@ -37,7 +40,7 @@ class DropdownLayout extends WixComponent {
         has(option, 'value') && (React.isValidElement(option.value) || (isstring(option.value) && trim(option.value).length > 0));
   }
 
-  onClickOutside() {
+  handleClickOutside(e) {
     const {visible, onClickOutside} = this.props;
     if (visible && onClickOutside) {
       onClickOutside();
@@ -241,7 +244,7 @@ DropdownLayout.propTypes = {
     React.PropTypes.number,
   ]),
   tabIndex: React.PropTypes.number,
-  onClickOutside: React.PropTypes.func
+  onClickOutside: React.PropTypes.func,
 };
 
 DropdownLayout.defaultProps = {
@@ -252,4 +255,5 @@ DropdownLayout.defaultProps = {
 
 DropdownLayout.NONE_SELECTED_ID = NOT_HOVERED_INDEX;
 
-export default DropdownLayout;
+export default WixHOCs(DropdownLayout, OnClickOutsideHOC);
+export {DropdownLayout as PlainDropdownLayout};

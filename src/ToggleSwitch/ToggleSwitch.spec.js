@@ -43,6 +43,7 @@ describe('ToggleSwitch', () => {
       expect(driver.get.isSmall()).toEqual(false);
       expect(driver.get.isLarge()).toEqual(true);
     });
+
     it('should create a small toggle once given size', () => {
       driver.given.size('small');
       driver.when.created();

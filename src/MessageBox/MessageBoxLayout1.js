@@ -5,6 +5,7 @@ import React from 'react';
 import Button from '../Button';
 import * as styles from './MessageBoxLayout1.scss';
 import SvgX from '../svg/X.js';
+import WixHOCs from '../HOC/WixHOCs';
 
 const MessageBoxLayout1 = ({title, content, primaryButtonLabel, secondaryButtonLabel, onPrimaryButtonClick, onSecondaryButtonClick, imageUrl, onClose}) => {
   return (
@@ -52,4 +53,4 @@ MessageBoxLayout1.propTypes = {
   onClose: React.PropTypes.func.isRequired
 };
 
-export default MessageBoxLayout1;
+export default WixHOCs(MessageBoxLayout1);

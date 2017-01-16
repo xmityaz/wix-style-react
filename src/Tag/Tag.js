@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import styles from './Tag.scss';
 import classNames from 'classnames';
+import WixHOCs from '../HOC/WixHOCs';
 
 const Tag = ({id, label, thumb, removable, onRemove, size}) => {
   const className = classNames({
@@ -32,4 +33,4 @@ Tag.defaultProps = {
   removable: true,
 };
 
-export default Tag;
+export default WixHOCs(Tag);

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styles from './MessageBoxLayout2.scss';
 import {HeaderLayout1, FooterLayout1} from './';
+import WixHOCs from '../HOC/WixHOCs';
 
 const MessageBoxLayout2 = ({title, onCancel, onOk, confirmText, children, hideFooter, cancelText, style, theme}) => {
   //TODO When deprecation ends, _theme won't be needed.
@@ -36,4 +37,4 @@ MessageBoxLayout2.propTypes = {
   children: React.PropTypes.any
 };
 
-export default MessageBoxLayout2;
+export default WixHOCs(MessageBoxLayout2);

@@ -3,8 +3,9 @@ import ReactDatepicker from 'react-datepicker';
 import DatePickerInput from './DatePickerInput';
 import moment from 'moment';
 import css from './DatePicker.scss';
+import WixHOCs from '../HOC/WixHOCs';
 
-export default class DatePicker extends Component {
+class DatePicker extends Component {
   static propTypes = {
     style: React.PropTypes.object,
     value: React.PropTypes.object,
@@ -65,3 +66,5 @@ export default class DatePicker extends Component {
     );
   }
 }
+
+export default WixHOCs(DatePicker);
