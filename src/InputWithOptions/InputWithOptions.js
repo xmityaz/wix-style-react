@@ -1,5 +1,5 @@
 import React from 'react';
-import WixComponent from '../WixComponent'
+import WixComponent from '../WixComponent';
 import Input from '../Input/Input.js';
 import omit from 'lodash.omit';
 import DropdownLayout from '../DropdownLayout/DropdownLayout';
@@ -15,7 +15,7 @@ class InputWithOptions extends WixComponent {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: "",
+      inputValue: '',
       showOptions: false
     };
 
@@ -49,13 +49,15 @@ class InputWithOptions extends WixComponent {
 
   renderDropdownLayout() {
     const dropdownProps = Object.assign(omit(this.props, Object.keys(Input.propTypes)), this.dropdownAdditionalProps());
-    return <DropdownLayout
-            ref={dropdownLayout => this.dropdownLayout = dropdownLayout}
-            {...dropdownProps}
-            visible={this.state.showOptions}
-            onClose={this.hideOptions}
-            onSelect={this._onSelect}
-          />
+    return (
+      <DropdownLayout
+        ref={dropdownLayout => this.dropdownLayout = dropdownLayout}
+        {...dropdownProps}
+        visible={this.state.showOptions}
+        onClose={this.hideOptions}
+        onSelect={this._onSelect}
+        />
+    );
   }
 
   render() {

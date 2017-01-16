@@ -1,8 +1,7 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
 import InputWithTags from './InputWithTags';
 import last from 'lodash.last';
-import omit from 'lodash.omit';
 import difference from 'lodash.difference';
 import uniqueId from 'lodash.uniqueid';
 import remove from 'lodash.remove';
@@ -34,7 +33,7 @@ class MultiSelect extends InputWithOptions {
     return {
       inputElement: <InputWithTags/>,
       onKeyDown: this.onKeyDown
-    }
+    };
   }
 
   _onSelect(option) {

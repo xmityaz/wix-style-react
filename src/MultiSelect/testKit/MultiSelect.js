@@ -6,7 +6,7 @@ import $ from 'jquery';
 
 const multiSelectDriverFactory = ({component, wrapper}) => {
 
-  const multiSelectWrapper = component.childNodes[0];
+  // const multiSelectWrapper = component.childNodes[0];
   const {driver, inputDriver, dropdownLayoutDriver} = inputWithOptionsDriverFactory({component, wrapper});
 
   const multiSelectDriver = Object.assign(driver, {

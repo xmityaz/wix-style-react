@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import isEqual from 'lodash.isequal';
 import isobject from 'lodash.isobject';
 import trim from 'lodash.trim';
-import WixComponent from '../WixComponent'
+import WixComponent from '../WixComponent';
 import isstring from 'lodash.isstring';
 import has from 'lodash.has';
 
@@ -40,7 +40,7 @@ class DropdownLayout extends WixComponent {
   onClickOutside() {
     const {visible, onClickOutside} = this.props;
     if (visible && onClickOutside) {
-      this.onClickOutside();
+      onClickOutside();
     }
   }
 

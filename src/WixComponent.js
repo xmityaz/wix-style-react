@@ -19,7 +19,7 @@ class WixComponent extends React.Component {
       if (current === componentNode) {
         return;
       }
-      current = current.parentNode
+      current = current.parentNode;
     }
 
     if (current !== document) {
@@ -35,7 +35,7 @@ class WixComponent extends React.Component {
 
   _supportOnClickOutside() {
     MOUSE_EVENTS_SUPPORTED.forEach(eventName => {
-      document.addEventListener(eventName, this._onMouseEventsHandler, true)
+      document.addEventListener(eventName, this._onMouseEventsHandler, true);
     });
 
     this._boundEvents = MOUSE_EVENTS_SUPPORTED;
@@ -47,7 +47,7 @@ class WixComponent extends React.Component {
       this._addDataHook(dataHook);
     }
 
-    if (typeof this.onClickOutside === "function") {
+    if (typeof this.onClickOutside === 'function') {
       this._supportOnClickOutside();
     }
   }
@@ -55,8 +55,8 @@ class WixComponent extends React.Component {
   componentWillUnmount() {
     if (this._boundEvents) {
       this._boundEvents.forEach(eventName => {
-        document.removeEventListener(eventName, this._onMouseEventsHandler, true)
-      })
+        document.removeEventListener(eventName, this._onMouseEventsHandler, true);
+      });
     }
   }
 }
