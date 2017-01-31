@@ -4,6 +4,7 @@ import Label from './Label';
 
 const labelDriverFactory = ({component, wrapper}) => {
   return {
+    selector: '.wix-style-label',
     exists: () => !!component,
     getTagName: () => component.tagName.toLowerCase(),
     getLabelTextContent: () => component.textContent,

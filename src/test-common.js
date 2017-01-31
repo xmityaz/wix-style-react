@@ -16,8 +16,15 @@ export const testkitFactoryCreator = driverFactory => ({wrapper, dataHook}) => {
 };
 
 // enzyme
-export const enzymeTestkitFactoryCreator = driverFactory => ({wrapper, dataHook}) => {
-  const component = wrapper.findWhere(n => {
+export const enzymeTestkitFactoryCreator = driverFactory => ({wrapper, dataHook, predicate}) => {
+  const matchingElements = driverFactory.hasOwnPropery('selector') ?
+    wrapper.find(driverFactory.selector) :
+    wrapper;
+
+  const component = matchingElements.findWhere((n, index) => {
+    if (predicate) {
+      return predicate(n, index);
+    }
     if (n.props().dataHook) {
       return false;
     } else {

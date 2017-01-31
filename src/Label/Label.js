@@ -7,7 +7,7 @@ class Label extends WixComponent {
     const {appearance, id, children, for: forAttr} = this.props;
     const className = typography[convertFromUxLangToCss(appearance)];
     return (
-      <label className={className} id={id} htmlFor={forAttr}>
+      <label className={`${className} wix-style-label`} id={id} htmlFor={forAttr}>
         {children}
       </label>
     );
