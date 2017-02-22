@@ -5,6 +5,7 @@ import RichTextEditorToolbar from './RichTextAreaToolbar';
 import htmlSerializer from './htmlSerializer';
 
 class RichTextArea extends WixComponent {
+  /* eslint-disable react/prop-types */
   schema = {
     nodes: {
       'unordered-list': props => <ul {...props.attributes}>{props.children}</ul>,
@@ -23,6 +24,7 @@ class RichTextArea extends WixComponent {
       }
     }
   };
+  /* eslint-disable */
 
   constructor(props) {
     super(props);
@@ -32,7 +34,7 @@ class RichTextArea extends WixComponent {
   }
 
   setEditorState = editorState => {
-    this.setState({editorState}, this.triggerChange)
+    this.setState({editorState}, this.triggerChange);
   };
 
   triggerChange() {

@@ -1,4 +1,3 @@
-import React from 'react';
 import {Raw} from 'slate';
 import htmlSerializer from './htmlSerializer';
 
@@ -11,14 +10,14 @@ describe('HTML serializer', () => {
           kind: 'block',
           type: 'paragraph',
           nodes: [
-            { kind: 'text', text: 'noop' }
+            {kind: 'text', text: 'noop'}
           ]
         },
         {
           kind: 'block',
           type: 'paragraph',
           nodes: [
-            { kind: 'text', text: 'Hello' }
+            {kind: 'text', text: 'Hello'}
           ]
         },
         {
@@ -31,20 +30,20 @@ describe('HTML serializer', () => {
                 {
                   text: 'bold text',
                   marks: [
-                    { type: 'bold' }
+                    {type: 'bold'}
                   ]
                 },
                 {
                   text: 'italic',
                   marks: [
-                    { type: 'italic' }
+                    {type: 'italic'}
                   ]
                 },
                 {
                   text: 'and underlined',
                   marks: [
-                    { type: 'underline' },
-                    { type: 'italic' }
+                    {type: 'underline'},
+                    {type: 'italic'}
                   ]
                 }
               ]
@@ -80,7 +79,7 @@ describe('HTML serializer', () => {
     };
 
     const deserialized = htmlSerializer.deserialize(text);
-    expect(Raw.serialize(deserialized, { terse: true })).toEqual(expected);
+    expect(Raw.serialize(deserialized, {terse: true})).toEqual(expected);
   });
 
   it('should correctly serialize slate object to HTML string', () => {
@@ -126,20 +125,20 @@ describe('HTML serializer', () => {
                 {
                   text: 'bold text',
                   marks: [
-                    { type: 'bold' }
+                    {type: 'bold'}
                   ]
                 },
                 {
                   text: 'italic',
                   marks: [
-                    { type: 'italic' }
+                    {type: 'italic'}
                   ]
                 },
                 {
                   text: 'and underlined',
                   marks: [
-                    { type: 'underline' },
-                    { type: 'italic' }
+                    {type: 'underline'},
+                    {type: 'italic'}
                   ]
                 }
               ]
@@ -150,6 +149,6 @@ describe('HTML serializer', () => {
     };
 
     const deserialized = htmlSerializer.deserialize(text);
-    expect(Raw.serialize(deserialized, { terse: true })).toEqual(expected);
+    expect(Raw.serialize(deserialized, {terse: true})).toEqual(expected);
   });
 });

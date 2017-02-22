@@ -32,12 +32,12 @@ describe('RichTextArea', () => {
       'italic',
       'underlined',
     ];
-    const driver = createComponent({ buttons });
+    const driver = createComponent({buttons});
     expect(driver.getButtonTypes()).toEqual(buttons);
   });
 
   it('should handle bold button click', () => {
-    const driver = createComponent({ buttons: ['bold'] });
+    const driver = createComponent({buttons: ['bold']});
     driver.clickBoldButton();
     driver.enterText('test');
 

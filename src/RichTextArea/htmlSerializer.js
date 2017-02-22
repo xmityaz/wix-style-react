@@ -18,39 +18,53 @@ const rules = [
   {
     deserialize(el, next) {
       const type = BLOCK_TAGS[el.tagName];
-      if (!type) return;
+      if (!type) {
+        return;
+      }
+
       return {
         kind: 'block',
-        type: type,
+        type,
         nodes: next(el.children)
       };
     },
     serialize(object, children) {
-      if (object.kind !== 'block') return;
+      if (object.kind !== 'block') {
+        return;
+      }
+
       switch (object.type) {
         case 'paragraph': return <p>{children}</p>;
         case 'list-item': return <li>{children}</li>;
         case 'ordered-list': return <ol>{children}</ol>;
         case 'unordered-list': return <ul>{children}</ul>;
+        default: return {children};
       }
     }
   },
   {
     deserialize(el, next) {
       const type = MARK_TAGS[el.tagName];
-      if (!type) return;
+      if (!type) {
+        return;
+      }
+
       return {
         kind: 'mark',
-        type: type,
+        type,
         nodes: next(el.children)
       };
     },
     serialize(object, children) {
-      if (object.kind !== 'mark') return;
+      if (object.kind !== 'mark') {
+        return;
+      }
+
       switch (object.type) {
         case 'bold': return <strong>{children}</strong>;
         case 'italic': return <em>{children}</em>;
         case 'underline': return <u>{children}</u>;
+        default: return {children};
       }
     }
   }

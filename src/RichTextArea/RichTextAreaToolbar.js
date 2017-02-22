@@ -12,7 +12,13 @@ class RichTextAreaToolbar extends WixComponent {
     const {onClick} = this.props;
     return (
       <div>
-        <button data-hook="rich-text-area-button-bold" onMouseDown={event => {event.preventDefault(); onClick('bold')}}>B</button>
+        <button
+          data-hook="rich-text-area-button-bold"
+          onMouseDown={event => {
+            event.preventDefault();
+            onClick('bold');
+          }}
+          >B</button>
         <button data-hook="rich-text-area-button-italic" onClick={onClick}/>
         <button data-hook="rich-text-area-button-underlined" onClick={onClick}/>
       </div>
