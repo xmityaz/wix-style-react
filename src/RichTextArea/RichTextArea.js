@@ -30,11 +30,14 @@ class RichTextArea extends WixComponent {
     };
   }
 
-  onChange = state => {
-    const {onChange} = this.props;
-    this.setState({editorState: state});
-    onChange && onChange(htmlSerializer.serialize(state));
+  setEditorState = editorState => {
+    this.setState({editorState}, this.triggerChange)
   };
+
+  triggerChange() {
+    const {onChange} = this.props;
+    onChange && onChange(htmlSerializer.serialize(this.state.editorState));
+  }
 
   render = () => {
     return (
@@ -42,7 +45,7 @@ class RichTextArea extends WixComponent {
         <Editor
           schema={this.schema}
           state={this.state.editorState}
-          onChange={this.onChange}
+          onChange={this.setEditorState}
           />
       </div>
     );

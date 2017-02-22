@@ -4,7 +4,7 @@ import richTextAreaDriverFactory from './RichTextArea.driver';
 import RichTextArea from './RichTextArea';
 
 describe('RichTextArea', () => {
-  // let currentValue;
+  let currentValue;
 
   it('should exist', () => {
     const driver = createComponent();
@@ -23,12 +23,12 @@ describe('RichTextArea', () => {
     const driver = createComponent();
     const text = 'testing';
     driver.enterText(text);
-    // expect(currentValue).toBe(`<p>${text}</p>`);
+    expect(currentValue).toBe(`<p>${text}</p>`);
   });
 
   const createDriver = createDriverFactory(richTextAreaDriverFactory);
   function createComponent(props) {
-    // const onChange = newValue => currentValue = newValue;
-    return createDriver(<RichTextArea {...props}/>);
+    const onChange = newValue => currentValue = newValue;
+    return createDriver(<RichTextArea onChange={onChange} {...props}/>);
   }
 });
