@@ -13,6 +13,8 @@ const richTextAreaDriverFactory = ({component, componentInstance, wrapper}) => {
     exists: () => !!component,
     getButtonTypes: () => getButtons().map(getButtonType),
     clickBoldButton: clickButtonByType('bold'),
+    clickItalicButton: clickButtonByType('italic'),
+    clickUnderlineButton: clickButtonByType('underline'),
     getContent: () => component.childNodes[1].textContent,
     focus: () => {
       const editorState = componentInstance.state.editorState;

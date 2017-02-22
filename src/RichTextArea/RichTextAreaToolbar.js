@@ -2,25 +2,20 @@ import React, {PropTypes} from 'react';
 import WixComponent from '../WixComponent';
 
 class RichTextAreaToolbar extends WixComponent {
-  updateEditorState(editorState) {
-    this.setState({editorState}, () => {
-      this.props.onChange(editorState);
-    });
+  getMouseDownHandler(type) {
+    return event => {
+      const {onClick} = this.props;
+      event.preventDefault();
+      onClick && onClick(type);
+    };
   }
 
   render() {
-    const {onClick} = this.props;
     return (
       <div>
-        <button
-          data-hook="rich-text-area-button-bold"
-          onMouseDown={event => {
-            event.preventDefault();
-            onClick('bold');
-          }}
-          >B</button>
-        <button data-hook="rich-text-area-button-italic" onClick={onClick}/>
-        <button data-hook="rich-text-area-button-underlined" onClick={onClick}/>
+        <button data-hook="rich-text-area-button-bold" onMouseDown={this.getMouseDownHandler('bold')}>B</button>
+        <button data-hook="rich-text-area-button-italic" onMouseDown={this.getMouseDownHandler('italic')}>I</button>
+        <button data-hook="rich-text-area-button-underline" onMouseDown={this.getMouseDownHandler('underline')}>U</button>
       </div>
     );
   }

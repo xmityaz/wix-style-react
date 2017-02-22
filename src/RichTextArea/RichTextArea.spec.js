@@ -30,7 +30,7 @@ describe('RichTextArea', () => {
     const buttons = [
       'bold',
       'italic',
-      'underlined',
+      'underline',
     ];
     const driver = createComponent({buttons});
     expect(driver.getButtonTypes()).toEqual(buttons);
@@ -42,6 +42,22 @@ describe('RichTextArea', () => {
     driver.enterText('test');
 
     expect(currentValue).toEqual('<p><strong>test</strong></p>');
+  });
+
+  it('should handle italic button click', () => {
+    const driver = createComponent({buttons: ['italic']});
+    driver.clickItalicButton();
+    driver.enterText('test');
+
+    expect(currentValue).toEqual('<p><em>test</em></p>');
+  });
+
+  it('should handle underline button click', () => {
+    const driver = createComponent({buttons: ['underline']});
+    driver.clickUnderlineButton();
+    driver.enterText('test');
+
+    expect(currentValue).toEqual('<p><u>test</u></p>');
   });
 
   const createDriver = createDriverFactory(richTextAreaDriverFactory);
