@@ -2,9 +2,10 @@ import React from 'react';
 import {Html} from 'slate';
 
 const BLOCK_TAGS = {
-  blockquote: 'quote',
   p: 'paragraph',
-  pre: 'code'
+  ul: 'unordered-list',
+  li: 'list-item',
+  ol: 'ordered-list',
 };
 
 const MARK_TAGS = {
@@ -26,10 +27,12 @@ const rules = [
     },
     serialize(object, children) {
       if (object.kind !== 'block') return;
+      console.log('object', object.type);
       switch (object.type) {
-        case 'code': return <pre><code>{children}</code></pre>;
         case 'paragraph': return <p>{children}</p>;
-        case 'quote': return <blockquote>{children}</blockquote>;
+        case 'list-item': return <li>{children}</li>;
+        case 'ordered-list': return <ol>{children}</ol>;
+        case 'unordered-list': return <ul>{children}</ul>;
       }
     }
   },

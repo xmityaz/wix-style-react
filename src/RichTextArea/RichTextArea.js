@@ -6,9 +6,9 @@ import htmlSerializer from './htmlSerializer';
 class RichTextArea extends WixComponent {
   schema = {
     nodes: {
-      'bulleted-list': props => <ul {...props.attributes}>{props.children}</ul>,
+      'unordered-list': props => <ul {...props.attributes}>{props.children}</ul>,
       'list-item': props => <li {...props.attributes}>{props.children}</li>,
-      'numbered-list': props => <ol {...props.attributes}>{props.children}</ol>,
+      'ordered-list': props => <ol {...props.attributes}>{props.children}</ol>,
     },
     marks: {
       bold: {
