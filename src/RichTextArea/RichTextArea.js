@@ -4,6 +4,25 @@ import WixComponent from '../WixComponent';
 import htmlSerializer from './htmlSerializer';
 
 class RichTextArea extends WixComponent {
+  schema = {
+    nodes: {
+      'bulleted-list': props => <ul {...props.attributes}>{props.children}</ul>,
+      'list-item': props => <li {...props.attributes}>{props.children}</li>,
+      'numbered-list': props => <ol {...props.attributes}>{props.children}</ol>,
+    },
+    marks: {
+      bold: {
+        fontWeight: 'bold'
+      },
+      italic: {
+        fontStyle: 'italic'
+      },
+      underlined: {
+        textDecoration: 'underline'
+      }
+    }
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +40,7 @@ class RichTextArea extends WixComponent {
     return (
       <div>
         <Editor
+          schema={this.schema}
           state={this.state.editorState}
           onChange={this.onChange}
           />
