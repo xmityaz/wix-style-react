@@ -16,7 +16,6 @@ const MARK_TAGS = {
 const rules = [
   {
     deserialize(el, next) {
-      console.log('deserialize??! +++ ');
       const type = BLOCK_TAGS[el.tagName];
       if (!type) return;
       return {
@@ -26,7 +25,6 @@ const rules = [
       };
     },
     serialize(object, children) {
-      console.log('??! +++ ');
       if (object.kind !== 'block') return;
       switch (object.type) {
         case 'code': return <pre><code>{children}</code></pre>;
@@ -37,7 +35,6 @@ const rules = [
   },
   {
     deserialize(el, next) {
-      console.log('deserialize??! --- ');
       const type = MARK_TAGS[el.tagName];
       if (!type) return;
       return {
@@ -47,7 +44,6 @@ const rules = [
       };
     },
     serialize(object, children) {
-      console.log('??! ---- ');
       if (object.kind !== 'mark') return;
       switch (object.type) {
         case 'bold': return <strong>{children}</strong>;
