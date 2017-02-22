@@ -27,7 +27,6 @@ const rules = [
     },
     serialize(object, children) {
       if (object.kind !== 'block') return;
-      console.log('object', object.type);
       switch (object.type) {
         case 'paragraph': return <p>{children}</p>;
         case 'list-item': return <li>{children}</li>;
