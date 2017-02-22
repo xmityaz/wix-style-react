@@ -26,9 +26,29 @@ describe('RichTextArea', () => {
     expect(currentValue).toBe(`<p>${text}</p>`);
   });
 
+  it('should render buttons specified in props.buttons', () => {
+    const buttons = [
+      'bold',
+      'italic',
+      'underlined',
+    ];
+    const driver = createComponent({ buttons });
+    expect(driver.getButtonTypes()).toEqual(buttons);
+  });
+
+  it('should handle bold button click', () => {
+    const driver = createComponent({ buttons: ['bold'] });
+    driver.clickBoldButton();
+    driver.enterText('test');
+
+    expect(currentValue).toEqual('<p><strong>test</strong></p>');
+  });
+
   const createDriver = createDriverFactory(richTextAreaDriverFactory);
   function createComponent(props) {
-    const onChange = newValue => currentValue = newValue;
-    return createDriver(<RichTextArea onChange={onChange} {...props}/>);
+    const mergedProps = Object.assign({
+      onChange: newValue => currentValue = newValue,
+    }, props);
+    return createDriver(<RichTextArea {...mergedProps}/>);
   }
 });

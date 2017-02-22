@@ -9,18 +9,19 @@ class RichTextAreaToolbar extends WixComponent {
   }
 
   render() {
+    const {onClick} = this.props;
     return (
       <div>
-        <button data-hook="rich-text-area-button-bold"/>
-        <button data-hook="rich-text-area-button-italic"/>
-        <button data-hook="rich-text-area-button-underlined"/>
+        <button data-hook="rich-text-area-button-bold" onMouseDown={event => {event.preventDefault(); onClick('bold')}}>B</button>
+        <button data-hook="rich-text-area-button-italic" onClick={onClick}/>
+        <button data-hook="rich-text-area-button-underlined" onClick={onClick}/>
       </div>
     );
   }
 }
 
 RichTextAreaToolbar.propTypes = {
-  editorState: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default RichTextAreaToolbar;

@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Editor} from 'slate';
 import WixComponent from '../WixComponent';
+import RichTextEditorToolbar from './RichTextAreaToolbar';
 import htmlSerializer from './htmlSerializer';
 
 class RichTextArea extends WixComponent {
@@ -39,9 +40,19 @@ class RichTextArea extends WixComponent {
     onChange && onChange(htmlSerializer.serialize(this.state.editorState));
   }
 
+  handleMarkButtonClick = type => {
+    const editorState = this.state.editorState
+      .transform()
+      .toggleMark(type)
+      .apply();
+
+    this.setEditorState(editorState);
+  };
+
   render = () => {
     return (
       <div>
+        <RichTextEditorToolbar onClick={this.handleMarkButtonClick}/>
         <Editor
           schema={this.schema}
           state={this.state.editorState}
@@ -55,6 +66,7 @@ class RichTextArea extends WixComponent {
 RichTextArea.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
+  buttons: PropTypes.arrayOf(PropTypes.string), // TODO: use PropTypes.oneOf()
 };
 
 RichTextArea.defaultProps = {
