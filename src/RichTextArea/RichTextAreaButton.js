@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import classNames from 'classnames';
 import Tooltip from '../Tooltip';
 import {Bold, Italic, Underline, UnorderedList, OrderedList} from '../Icons';
 import styles from './RichTextAreaButton.scss';
@@ -43,8 +44,11 @@ class RichTextAreaButton extends Component {
   };
 
   render() {
-    const {type} = this.props;
+    const {type, isActive} = this.props;
     const tooltipContent = <p className={styles.tooltipContent}>{buttons[type].tooltipText}</p>;
+    const className = classNames(styles.button, {
+      [styles.isActive]: isActive,
+    });
     return (
       <Tooltip
         content={tooltipContent}
@@ -54,11 +58,13 @@ class RichTextAreaButton extends Component {
         moveBy={{x: 2, y: 2}}
         >
         <button
-          className={styles.button}
+          className={className}
           onMouseDown={this.handleMouseDown}
           data-hook={`rich-text-area-button-${type}`}
           >
-          {this.renderIcon()}
+          <span className={styles.wrapper}>
+            {this.renderIcon()}
+          </span>
         </button>
       </Tooltip>
     );
@@ -73,6 +79,7 @@ class RichTextAreaButton extends Component {
 RichTextAreaButton.propTypes = {
   type: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  isActive: PropTypes.bool,
 };
 
 export default RichTextAreaButton;
