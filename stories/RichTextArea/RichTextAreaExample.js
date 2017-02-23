@@ -9,6 +9,7 @@ class RichTextAreaExample extends Component {
     type: '',
     error: false,
     errorMessage: '',
+    placeholder: 'You can add some $$ rich $$ text here'
   };
 
   render() {

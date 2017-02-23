@@ -75,8 +75,12 @@ describe('RichTextArea', () => {
 
   it('should show error indicator', () => {
     const driver = createComponent({error: true});
-
     expect(driver.isErrorIndicatorVisible()).toBeTruthy();
+  });
+
+  it('should render placeholder', () => {
+    const driver = createComponent({placeholder: 'HELLO'});
+    expect(driver.getContent()).toBe('HELLO');
   });
 
   const createDriver = createDriverFactory(richTextAreaDriverFactory);

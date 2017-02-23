@@ -106,3 +106,7 @@ ol li {
     content: counter(step-counter) ".";
   }
 }
+
+.placeholder {
+  @extend .t2_1;
+}

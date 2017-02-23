@@ -36,6 +36,7 @@ class RichTextArea extends WixComponent {
     super(props);
     this.state = {
       editorState: htmlSerializer.deserialize(props.value),
+      placeholder: props.placeholder
     };
   }
 
@@ -138,7 +139,7 @@ class RichTextArea extends WixComponent {
   };
 
   render = () => {
-    const {editorState} = this.state;
+    const {editorState, placeholder} = this.state;
     const {error} = this.props;
     const className = classNames(styles.container, {
       [styles.withError]: error,
@@ -157,11 +158,12 @@ class RichTextArea extends WixComponent {
         </div>
         <div className={styles.editorWrapper}>
           <Editor
+            placeholder={placeholder}
+            placeholderClassName={styles.placeholder}
             className={styles.editor}
             schema={this.schema}
             state={editorState}
-            onChange={this.setEditorState}
-            />
+            onChange={this.setEditorState}/>
           {this.renderError()}
         </div>
       </div>
@@ -192,6 +194,7 @@ RichTextArea.propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.string), // TODO: use PropTypes.oneOf(),
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 RichTextArea.defaultProps = {
