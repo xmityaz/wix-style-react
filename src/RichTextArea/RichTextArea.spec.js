@@ -6,11 +6,6 @@ import RichTextArea from './RichTextArea';
 describe('RichTextArea', () => {
   let currentValue;
 
-  it('should exist', () => {
-    const driver = createComponent();
-    expect(driver.exists()).toBeTruthy();
-  });
-
   it('should render value as text', () => {
     const text = 'text content';
     const driver = createComponent({
@@ -59,6 +54,12 @@ describe('RichTextArea', () => {
     driver.enterText('test');
 
     expect(currentValue).toEqual('<p><u>test</u></p>');
+  });
+
+  it('should show error indicator', () => {
+    const driver = createComponent({error: true});
+
+    expect(driver.isErrorIndicatorVisible()).toBeTruthy();
   });
 
   const createDriver = createDriverFactory(richTextAreaDriverFactory);

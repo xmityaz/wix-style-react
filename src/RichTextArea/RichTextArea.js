@@ -1,9 +1,15 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 import {Editor} from 'slate';
 import WixComponent from '../WixComponent';
+import Tooltip from '../Tooltip';
+import SvgExclamation from '../svg/Exclamation.js';
 import RichTextEditorToolbar from './RichTextAreaToolbar';
 import htmlSerializer from './htmlSerializer';
-const DEFAULT_NODE = 'paragraph'
+import styles from './RichTextArea.scss';
+
+const DEFAULT_NODE = 'paragraph';
+
 class RichTextArea extends WixComponent {
   /* eslint-disable react/prop-types */
   schema = {
@@ -119,15 +125,40 @@ class RichTextArea extends WixComponent {
   };
 
   render = () => {
+    const {error} = this.props;
+    const className = classNames(styles.container, {
+      [styles.withError]: error,
+    });
+
     return (
-      <div>
+      <div className={className}>
         <RichTextEditorToolbar onClick={this.handleButtonClick}/>
-        <Editor
-          schema={this.schema}
-          state={this.state.editorState}
-          onChange={this.setEditorState}
-          />
+        <div className={styles.editor}>
+          <Editor
+            schema={this.schema}
+            state={this.state.editorState}
+            onChange={this.setEditorState}
+            />
+          {this.renderError()}
+        </div>
       </div>
+    );
+  };
+
+  renderError = () => {
+    const {errorMessage} = this.props;
+
+    return (
+      <Tooltip
+        disabled={!errorMessage}
+        placement="top"
+        moveBy={{x: 2, y: 0}}
+        alignment="center"
+        content={errorMessage}
+        theme="dark"
+        >
+        <div className={styles.exclamation}><SvgExclamation width={2} height={11}/></div>
+      </Tooltip>
     );
   };
 }
@@ -135,11 +166,14 @@ class RichTextArea extends WixComponent {
 RichTextArea.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
-  buttons: PropTypes.arrayOf(PropTypes.string), // TODO: use PropTypes.oneOf()
+  buttons: PropTypes.arrayOf(PropTypes.string), // TODO: use PropTypes.oneOf(),
+  error: PropTypes.bool,
+  errorMessage: PropTypes.string,
 };
 
 RichTextArea.defaultProps = {
   value: '<p></p>',
+  errorMessage: '',
 };
 
 export default RichTextArea;

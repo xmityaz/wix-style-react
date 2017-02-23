@@ -1,0 +1,32 @@
+@import '../common';
+
+$minWidth: 319px;
+$minHeight: 132px;
+
+.container {
+  width: 500px; //TODO: remove
+  min-width: $minWidth;
+  min-height: $minHeight;
+}
+
+.editor {
+  position: relative;
+}
+
+.exclamation {
+  $size: 20px;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: $paletteR1;
+
+  .withError  & {
+    display: flex;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }
+}
