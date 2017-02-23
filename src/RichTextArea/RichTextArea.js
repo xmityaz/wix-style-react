@@ -53,6 +53,19 @@ class RichTextArea extends WixComponent {
     return editorState.blocks.some(node => node.type == type);
   };
 
+  hasListBlock = type => {
+    const { editorState } = this.state;
+    return editorState.blocks.some(node => {
+      const parent = editorState.document.getParent(node.key);
+      return parent && parent.type === type;
+    });
+  };
+
+  hasMark = type => {
+    const { editorState } = this.state;
+    return editorState.marks.some(mark => mark.type == type);
+  };
+
   handleButtonClick = (action, type) => {
     switch (action) {
       case 'mark':
@@ -135,7 +148,12 @@ class RichTextArea extends WixComponent {
     return (
       <div className={className}>
         <div className={styles.toolbar}>
-          <RichTextEditorToolbar onClick={this.handleButtonClick}/>
+          <RichTextEditorToolbar
+            onClick={this.handleButtonClick}
+            hasBlock={this.hasBlock}
+            hasMark={this.hasMark}
+            hasListBlock={this.hasListBlock}
+            />
         </div>
         <div className={styles.editorWrapper}>
           <Editor
