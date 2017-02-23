@@ -19,7 +19,7 @@ class RichTextArea extends WixComponent {
       italic: {
         fontStyle: 'italic'
       },
-      underlined: {
+      underline: {
         textDecoration: 'underline'
       }
     }

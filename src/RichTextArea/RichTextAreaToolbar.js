@@ -16,6 +16,7 @@ class RichTextAreaToolbar extends WixComponent {
         <button data-hook="rich-text-area-button-bold" onMouseDown={this.getMouseDownHandler('bold')}>B</button>
         <button data-hook="rich-text-area-button-italic" onMouseDown={this.getMouseDownHandler('italic')}>I</button>
         <button data-hook="rich-text-area-button-underline" onMouseDown={this.getMouseDownHandler('underline')}>U</button>
+        <button data-hook="rich-text-area-button-unordered-list" onMouseDown={this.getMouseDownHandler('unordered-list')}>UL</button>
       </div>
     );
   }
