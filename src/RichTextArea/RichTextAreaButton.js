@@ -1,37 +1,38 @@
 import React, {Component, PropTypes} from 'react';
+import Tooltip from '../Tooltip';
 import {Bold, Italic, Underline, UnorderedList, OrderedList} from '../Icons';
 import styles from './RichTextAreaButton.scss';
 
-const icons = {
+const buttons = {
   bold: {
-    component: Bold,
+    icon: Bold,
     tooltipText: 'Bold',
-    width: 11,
-    height: 14,
+    iconWidth: 11,
+    iconHeight: 14,
   },
   italic: {
-    component: Italic,
+    icon: Italic,
     tooltipText: 'Italic',
-    width: 8,
-    height: 14,
+    iconWidth: 8,
+    iconHeight: 14,
   },
   underline: {
-    component: Underline,
+    icon: Underline,
     tooltipText: 'Underline',
-    width: 15,
-    height: 15,
+    iconWidth: 15,
+    iconHeight: 15,
   },
   'unordered-list': {
-    component: UnorderedList,
+    icon: UnorderedList,
     tooltipText: 'Bulletted list',
-    width: 15,
-    height: 15,
+    iconWidth: 15,
+    iconHeight: 15,
   },
   'ordered-list': {
-    component: OrderedList,
+    icon: OrderedList,
     tooltipText: 'Numbered list',
-    width: 15,
-    height: 16,
+    iconWidth: 15,
+    iconHeight: 16,
   },
 };
 
@@ -42,20 +43,24 @@ class RichTextAreaButton extends Component {
   };
 
   render() {
+    const {type} = this.props;
+    const tooltipContent = <p className={styles.tooltipContent}>{buttons[type].tooltipText}</p>;
     return (
-      <button
-        className={styles.button}
-        onMouseDown={this.handleMouseDown}
-        data-hook={`rich-text-area-button-${this.props.type}`}
-        >
-        {this.renderIcon()}
-      </button>
+      <Tooltip content={tooltipContent} overlay="" theme="dark" alignment="center">
+        <button
+          className={styles.button}
+          onMouseDown={this.handleMouseDown}
+          data-hook={`rich-text-area-button-${type}`}
+          >
+          {this.renderIcon()}
+        </button>
+      </Tooltip>
     );
   }
 
   renderIcon() {
-    const {component: Icon, width, height} = icons[this.props.type];
-    return <Icon width={`${width}px`} height={`${height}px`}/>;
+    const {icon: Icon, iconWidth, iconHeight} = buttons[this.props.type];
+    return <Icon width={`${iconWidth}px`} height={`${iconHeight}px`}/>;
   }
 }
 
