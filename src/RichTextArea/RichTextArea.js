@@ -137,8 +137,9 @@ class RichTextArea extends WixComponent {
         <div className={styles.toolbar}>
           <RichTextEditorToolbar onClick={this.handleButtonClick}/>
         </div>
-        <div className={styles.editor}>
+        <div className={styles.editorWrapper}>
           <Editor
+            className={styles.editor}
             schema={this.schema}
             state={editorState}
             onChange={this.setEditorState}
