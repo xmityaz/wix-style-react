@@ -5,14 +5,22 @@ import styles from './RichTextAreaToolbar.scss';
 
 class RichTextAreaToolbar extends WixComponent {
   render() {
-    const {onClick} = this.props;
     return (
       <div className={styles.container}>
-        <RichTextAreaButton onClick={() => onClick('mark', 'bold')} type="bold"/>
-        <RichTextAreaButton onClick={() => onClick('mark', 'italic')} type="italic"/>
-        <RichTextAreaButton onClick={() => onClick('mark', 'underline')} type="underline"/>
-        <RichTextAreaButton onClick={() => onClick('block', 'unordered-list')} type="unordered-list"/>
-        <RichTextAreaButton onClick={() => onClick('block', 'ordered-list')} type="ordered-list"/>
+        {this.renderButton('mark', 'bold')}
+        {this.renderButton('mark', 'italic')}
+        {this.renderButton('mark', 'underline')}
+        {this.renderButton('block', 'unordered-list')}
+        {this.renderButton('block', 'ordered-list')}
+      </div>
+    );
+  }
+
+  renderButton(action, type) {
+    const {onClick} = this.props;
+    return (
+      <div className={styles.button}>
+        <RichTextAreaButton onClick={() => onClick(action, type)} type={type}/>
       </div>
     );
   }

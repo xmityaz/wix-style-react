@@ -46,7 +46,13 @@ class RichTextAreaButton extends Component {
     const {type} = this.props;
     const tooltipContent = <p className={styles.tooltipContent}>{buttons[type].tooltipText}</p>;
     return (
-      <Tooltip content={tooltipContent} overlay="" theme="dark" alignment="center">
+      <Tooltip
+        content={tooltipContent}
+        overlay=""
+        theme="dark"
+        alignment="center"
+        moveBy={{x: 2, y: 2}}
+        >
         <button
           className={styles.button}
           onMouseDown={this.handleMouseDown}
