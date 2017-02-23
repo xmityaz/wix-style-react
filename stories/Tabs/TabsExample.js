@@ -1,13 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 import RadioGroup from '../../src/RadioGroup';
 import Label from '../../src/Label';
+import Input from '../../src/Input';
 import TabsTemplate from './TabsTemplate';
 import styles from './TabsExample.scss';
+import TextField from '../../src/TextField';
 
 class TabsExample extends Component {
   state = {
     type: '',
     hasDivider: true,
+    width: 30
   };
 
   render() {
@@ -28,6 +31,46 @@ class TabsExample extends Component {
             </RadioGroup>
           </div>
         </div>
+        {
+          this.state.type === 'uniformSide' ?
+            <div className={styles.option}>
+              <div className={styles.column} style={{width: '100px'}}>
+                <br/>
+                <TextField>
+                  <Label
+                    appearance="T1.1"
+                    for="firstName"
+                  >
+                    Tab Width
+                  </Label>
+                  <Input
+                    errorMessage=""
+                    id="firstName"
+                    placeholder="e.g. 100"
+                    size="normal"
+                    onChange={e => this.setState({width: e.target.value})}
+                    value={this.state.width}
+                    suffix={
+                      <Input.Group>
+                        <Input.Unit value="px" />
+                        <Input.Ticker
+                          onDown={() => {
+                            this.setState({width: (this.state.width - 1)})
+                          }}
+                          onUp={() => {
+                            this.setState({width: (this.state.width + 1)})
+                          }}
+                          />
+                      </Input.Group>}
+                    theme="normal"
+                    type="number"
+                  />
+                </TextField>
+                <br/>
+              </div>
+            </div> :
+            null
+        }
         <div className={styles.controlGroup}>
           <Label>Divider</Label>
           <div className={styles.radioGroup}>
@@ -46,6 +89,7 @@ class TabsExample extends Component {
             onChange={this.props.onChange}
             type={this.state.type}
             hasDivider={this.state.hasDivider}
+            width={this.state.width}
             />
         </div>
       </div>
