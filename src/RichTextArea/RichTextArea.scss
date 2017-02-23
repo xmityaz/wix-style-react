@@ -31,6 +31,7 @@ $borderRadius: 6px;
 .editor {
   flex: 1;
   position: relative;
+  padding: 6px 12px;
   border: $border;
   border-bottom-left-radius: $borderRadius;
   border-bottom-right-radius: $borderRadius;
