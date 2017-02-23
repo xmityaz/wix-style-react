@@ -8,6 +8,10 @@ $borderColorFocused: $B20;
 $borderColorError: $R10;
 $border: 1px solid $B30;
 $borderRadius: 6px;
+$paddingTop: 6px;
+$marginTop: $paddingTop;
+$paddingLeft: 12px;
+$marginLeft: $paddingLeft;
 
 .container {
   display: flex;
@@ -55,7 +59,7 @@ $borderRadius: 6px;
 .editor {
   @extend .t1;
   flex: 1;
-  padding: 6px 12px;
+  padding: $paddingTop $paddingLeft;
 }
 
 .exclamation {
@@ -73,5 +77,32 @@ $borderRadius: 6px;
     position: absolute;
     top: 6px;
     right: 6px;
+  }
+}
+
+ul,
+ol {
+  margin: $marginTop 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    position: relative;
+    margin: 0 0 0 $marginLeft - 1px;
+    padding-left: 10px;
+
+    &:before {
+      position: absolute;
+      content: '\2022';
+      left: -$marginLeft;
+    }
+  }
+}
+
+ol li {
+  counter-increment: step-counter;
+
+  &:before {
+    content: counter(step-counter) ".";
   }
 }

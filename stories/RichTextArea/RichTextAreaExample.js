@@ -43,7 +43,7 @@ class RichTextAreaExample extends Component {
         <div className={styles.preview}>
           <RichTextAreaTemplate
             onChange={this.props.onChange}
-            value={'<p>$$$ Rich text area</p><strong>bold text here</strong>'}
+            value={'<p>$$$ Rich text area</p><strong>bold text here</strong><ul><li>The amazing fox lives in Lithuania</li></ul>'}
             {...this.state}
             />
         </div>
