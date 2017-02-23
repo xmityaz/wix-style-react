@@ -57,13 +57,13 @@ class ControlledExample extends Component {
           <div className={styles.button}><Button height="medium" suffixIcon={<ArrowDownThin />} onClick={onClick(2)} theme="fullblue">Click On Me Too</Button></div>
           <div className={styles.button}><Button height="medium" suffixIcon={<ArrowDownThin />} onClick={onClick(3)} theme="fullblue">Click On Me Now</Button></div>
         </div>
-        <div className={`ltr ${styles.dropdown_a}`}>
+        <div className={`${styles.dropdown_a}`}>
           <DropdownLayout visible={this.state.visible === 1} options={options} maxHeightPixels={100} onClose={onClose} onClickOutside={onClose}/>
         </div>
-        <div className={`ltr ${styles.dropdown_b}`}>
+        <div className={`${styles.dropdown_b}`}>
           <DropdownLayout visible={this.state.visible === 2} options={longOptions} maxHeightPixels={1000} onClose={onClose} onClickOutside={onClose}/>
         </div>
-        <div className={`ltr ${styles.dropdown_c}`}>
+        <div className={`${styles.dropdown_c}`}>
           <DropdownLayout visible={this.state.visible === 3} options={options} onClose={onClose} onClickOutside={onClose}/>
         </div>
       </div>

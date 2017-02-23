@@ -97,22 +97,14 @@ $content_container_height: 260px;
   cursor:pointer;
 
   width:100%;
+
+  text-align: start;
+  padding-inline-start: 24px;
+  padding-inline-end: 20px;
 }
 
 .disabled {
   color: $D50;
-}
-
-:global(.ltr) .option {
-  text-align: left;
-  padding-left: 24px;
-  padding-right: 20px;
-}
-
-:global(.rtl) .option {
-  text-align: right;
-  padding-right: 24px;
-  padding-left: 20px;
 }
 
 .option.hovered {
