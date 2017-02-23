@@ -125,18 +125,22 @@ class RichTextArea extends WixComponent {
   };
 
   render = () => {
+    const {editorState} = this.state;
     const {error} = this.props;
     const className = classNames(styles.container, {
       [styles.withError]: error,
+      [styles.isFocused]: editorState.isFocused,
     });
 
     return (
       <div className={className}>
-        <RichTextEditorToolbar onClick={this.handleButtonClick}/>
+        <div className={styles.toolbar}>
+          <RichTextEditorToolbar onClick={this.handleButtonClick}/>
+        </div>
         <div className={styles.editor}>
           <Editor
             schema={this.schema}
-            state={this.state.editorState}
+            state={editorState}
             onChange={this.setEditorState}
             />
           {this.renderError()}

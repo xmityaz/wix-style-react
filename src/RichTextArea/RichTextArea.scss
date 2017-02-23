@@ -2,15 +2,51 @@
 
 $minWidth: 319px;
 $minHeight: 132px;
+$borderColorNormal: $B30;
+$borderColorFocused: $B20;
+$borderColorError: $R10;
+$border: 1px solid $B30;
+$borderRadius: 6px;
 
 .container {
+  display: flex;
+  flex-direction: column;
   width: 500px; //TODO: remove
   min-width: $minWidth;
   min-height: $minHeight;
+  background: $D80;
+}
+
+.toolbar {
+  border: $border;
+  border-bottom: 0;
+  border-top-left-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
+
+  .withError & {
+    border-color: $borderColorError;
+  }
 }
 
 .editor {
+  flex: 1;
   position: relative;
+  border: $border;
+  border-bottom-left-radius: $borderRadius;
+  border-bottom-right-radius: $borderRadius;
+
+  .withError & {
+    border-color: $borderColorError;
+    border-top-color: $borderColorNormal;
+  }
+
+  .isFocused:not(.withError) & {
+    border-color: $borderColorFocused;
+  }
+
+  &:hover {
+    background: $B50;
+  }
 }
 
 .exclamation {
@@ -21,7 +57,7 @@ $minHeight: 132px;
   display: none;
   align-items: center;
   justify-content: center;
-  background-color: $paletteR1;
+  background-color: $R10;
 
   .withError  & {
     display: flex;
