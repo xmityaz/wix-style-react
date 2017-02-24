@@ -16,7 +16,7 @@ const buttons = {
 class RichTextAreaButtonLink extends Component {
   state = {};
   hideForm = () => {
-    this.state.showForm = false;
+    this.setState({showForm: false});
   };
 
   getTooltipContent = () => {
@@ -25,7 +25,7 @@ class RichTextAreaButtonLink extends Component {
     }
     return (
       <form><input type="text" value="ADSG"/></form>
-    )
+    );
   };
 
   handleMouseDown = event => {
@@ -35,7 +35,6 @@ class RichTextAreaButtonLink extends Component {
     this.setState({showForm});
   };
 
-
   render() {
     const {type, isActive} = this.props;
 
@@ -44,25 +43,25 @@ class RichTextAreaButtonLink extends Component {
     });
 
     return (
-        <Tooltip
-          content={this.getTooltipContent()}
-          overlay=""
-          theme="dark"
-          alignment="center"
-          moveBy={{x: 2, y: 2}}
-          onActiveChange={this.hideForm()}
-          onClickOutside={this.hideForm()}
+      <Tooltip
+        content={this.getTooltipContent()}
+        overlay=""
+        theme="dark"
+        alignment="center"
+        moveBy={{x: 2, y: 2}}
+        onActiveChange={this.hideForm}
+        onClickOutside={this.hideForm}
         >
-          <button
-            className={className}
-            onMouseDown={this.handleMouseDown}
-            data-hook={`rich-text-area-button-${type}`}
+        <button
+          className={className}
+          onMouseDown={this.handleMouseDown}
+          data-hook={`rich-text-area-button-${type}`}
           >
-            <span className={styles.wrapper}>
-              {this.renderIcon()}
-            </span>
-          </button>
-        </Tooltip>
+          <span className={styles.wrapper}>
+            {this.renderIcon()}
+          </span>
+        </button>
+      </Tooltip>
     );
   }
 
