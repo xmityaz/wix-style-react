@@ -34,10 +34,13 @@ class RichTextArea extends WixComponent {
 
   constructor(props) {
     super(props);
+
+    const editorState = htmlSerializer.deserialize(props.value);
     this.state = {
-      editorState: htmlSerializer.deserialize(props.value),
+      editorState,
       placeholder: props.placeholder
     };
+    this.lastValue = htmlSerializer.serialize(editorState);
   }
 
   setEditorState = editorState => {
@@ -46,7 +49,12 @@ class RichTextArea extends WixComponent {
 
   triggerChange() {
     const {onChange} = this.props;
-    onChange && onChange(htmlSerializer.serialize(this.state.editorState));
+    const serialized = htmlSerializer.serialize(this.state.editorState);
+
+    if (this.lastValue !== serialized) {
+      this.lastValue = serialized;
+      onChange && onChange(serialized);
+    }
   }
 
   hasBlock = type => {
