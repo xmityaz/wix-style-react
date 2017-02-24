@@ -38,7 +38,6 @@ class RichTextArea extends WixComponent {
     const editorState = htmlSerializer.deserialize(props.value);
     this.state = {
       editorState,
-      placeholder: props.placeholder
     };
     this.lastValue = htmlSerializer.serialize(editorState);
   }
@@ -147,8 +146,8 @@ class RichTextArea extends WixComponent {
   };
 
   render = () => {
-    const {editorState, placeholder} = this.state;
-    const {error} = this.props;
+    const {editorState} = this.state;
+    const {error, placeholder} = this.props;
     const className = classNames(styles.container, {
       [styles.withError]: error,
       [styles.isFocused]: editorState.isFocused,

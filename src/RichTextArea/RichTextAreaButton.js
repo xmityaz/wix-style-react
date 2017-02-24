@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip';
-import {Bold, Italic, Underline, UnorderedList, OrderedList} from '../Icons';
+import {Bold, Italic, Underline, UnorderedList, OrderedList, Link} from '../Icons';
 import styles from './RichTextAreaButton.scss';
 
 const buttons = {
@@ -32,6 +32,12 @@ const buttons = {
   'ordered-list': {
     icon: OrderedList,
     tooltipText: 'Numbered list',
+    iconWidth: 15,
+    iconHeight: 16,
+  },
+  link: {
+    icon: Link,
+    tooltipText: 'Link',
     iconWidth: 15,
     iconHeight: 16,
   },

@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import WixComponent from '../WixComponent';
 import RichTextAreaButton from './RichTextAreaButton';
+import RichTextAreaButtonLink from './RichTextAreaButtonLink';
 import styles from './RichTextAreaToolbar.scss';
 
 class RichTextAreaToolbar extends WixComponent {
@@ -12,6 +13,7 @@ class RichTextAreaToolbar extends WixComponent {
         {this.renderButton('mark', 'underline')}
         {this.renderButton('block', 'unordered-list')}
         {this.renderButton('block', 'ordered-list')}
+        {this.renderLinkButton()}
       </div>
     );
   }
@@ -26,6 +28,22 @@ class RichTextAreaToolbar extends WixComponent {
           onClick={() => onClick(action, type)}
           type={type}
           isActive={isActive(type)}
+          />
+      </div>
+    );
+  }
+
+  renderLinkButton() {
+    const {onClick, hasMark} = this.props;
+    const type = 'link';
+    const action = type;
+
+    return (
+      <div className={styles.button}>
+        <RichTextAreaButtonLink
+          onClick={() => onClick(action, type)}
+          type={type}
+          isActive={hasMark(type)}
           />
       </div>
     );
