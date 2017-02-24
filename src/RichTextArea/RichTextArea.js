@@ -17,6 +17,11 @@ class RichTextArea extends WixComponent {
       'unordered-list': props => <ul {...props.attributes}>{props.children}</ul>,
       'list-item': props => <li {...props.attributes}>{props.children}</li>,
       'ordered-list': props => <ol {...props.attributes}>{props.children}</ol>,
+      link: props => {
+        const { data } = props.node;
+        const href = data.get('href');
+        return <a {...props.attributes} href={href}>{props.children}</a>;
+      }
     },
     marks: {
       bold: {
@@ -74,6 +79,11 @@ class RichTextArea extends WixComponent {
     return editorState.marks.some(mark => mark.type == type);
   };
 
+  hasLink = () => {
+    const { editorState } = this.state;
+    return editorState.inlines.some(inline => inline.type === 'link');
+  };
+
   handleButtonClick = (action, type) => {
     switch (action) {
       case 'mark':
@@ -81,8 +91,7 @@ class RichTextArea extends WixComponent {
       case 'block':
         return this.handleBlockButtonClick(type);
       case 'link':
-        // @TODO: implement
-        return;
+        return this.handleLinkButtonClick(type);
     }
   };
 
@@ -142,6 +151,30 @@ class RichTextArea extends WixComponent {
     }
 
     editorState = transform.apply();
+    this.setState({editorState});
+  };
+
+  handleLinkButtonClick = ({href, text}) => {
+    const {editorState} = this.state;
+    const transform = editorState.transform();
+    if (this.hasLink()) {
+      transform
+        .unwrapInline('link')
+        .apply()
+    }
+
+    else {
+      transform
+        .insertText(text)
+        .extendBackward(text.length)
+        .wrapInline({
+          type: 'link',
+          data: { href }
+        })
+        .collapseToEnd()
+        .apply()
+    }
+
     this.setState({editorState});
   };
 
