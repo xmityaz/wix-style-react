@@ -34,15 +34,13 @@ class RichTextAreaToolbar extends WixComponent {
   }
 
   renderLinkButton() {
-    const {onClick, hasLink} = this.props;
-    const type = 'link';
-    const action = type;
+    const {onLinkButtonClick, hasLink} = this.props;
 
     return (
       <div className={styles.button}>
         <RichTextAreaLinkButton
-          onClick={() => onClick(action, type)}
-          type={type}
+          onClick={onLinkButtonClick}
+          type="link"
           isActive={hasLink()}
           />
       </div>
@@ -52,6 +50,7 @@ class RichTextAreaToolbar extends WixComponent {
 
 RichTextAreaToolbar.propTypes = {
   onClick: PropTypes.func,
+  onLinkButtonClick: PropTypes.func,
   hasMark: PropTypes.func.isRequired,
   hasListBlock: PropTypes.func.isRequired,
   hasLink: PropTypes.func.isRequired,

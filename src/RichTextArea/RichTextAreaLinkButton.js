@@ -26,6 +26,8 @@ class RichTextAreaLinkButton extends Component {
 
   render() {
     const {isFormVisible} = this.state;
+    const {isActive, onClick} = this.props;
+
     return (
       <Tooltip
         content={this.getTooltipContent()}
@@ -34,11 +36,17 @@ class RichTextAreaLinkButton extends Component {
         placement="bottom"
         showTrigger="custom"
         hideTrigger="custom"
+        hideDelay={0}
         moveBy={{x: 2, y: 0}}
         active={isFormVisible}
         onClickOutside={this.hideForm}
         >
-        <RichTextAreaButton onClick={this.toggleForm} type="link" isTooltipDisabled={isFormVisible} isActive={this.props.isActive}/>
+        <RichTextAreaButton
+          onClick={isActive ? onClick : this.toggleForm}
+          type="link"
+          isActive={isActive}
+          isTooltipDisabled={isFormVisible}
+          />
       </Tooltip>
     );
   }

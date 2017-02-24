@@ -145,26 +145,24 @@ class RichTextArea extends WixComponent {
     this.setState({editorState});
   };
 
-  handleLinkButtonClick = ({href, text}) => {
+  handleLinkButtonClick = ({href, text} = {}) => {
     const {editorState} = this.state;
     const transform = editorState.transform();
     if (this.hasLink()) {
       transform
-        .unwrapInline('link')
-        .apply()
+        .unwrapInline('link');
     } else {
       transform
         .insertText(text)
         .extendBackward(text.length)
         .wrapInline({
           type: 'link',
-          data: { href }
+          data: {href}
         })
-        .collapseToEnd()
-        .apply()
+        .collapseToEnd();
     }
 
-    this.setState({editorState});
+    this.setState({editorState: transform.apply()});
   };
 
   render = () => {
@@ -180,11 +178,10 @@ class RichTextArea extends WixComponent {
         <div className={styles.toolbar}>
           <RichTextEditorToolbar
             onClick={this.handleButtonClick}
-            hasBlock={this.hasBlock}
+            onLinkButtonClick={this.handleLinkButtonClick}
             hasMark={this.hasMark}
             hasListBlock={this.hasListBlock}
             hasLink={this.hasLink}
-            selectedText={this.state.editorState.selectedText}
             />
         </div>
         <div className={styles.editorWrapper}>
