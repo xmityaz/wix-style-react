@@ -38,7 +38,7 @@ const richTextAreaDriverFactory = ({component, componentInstance, wrapper}) => {
       componentInstance.setEditorState(newEditorState);
     },
     isErrorIndicatorVisible: () => Boolean(component.classList.contains(styles.withError)),
-    isDisabled: () => componentInstance.state.disabled === true,
+    isDisabled: () => component.childNodes[0].classList.contains(styles.disabled),
     setProps: props => render(
       <div ref={r => component = r.childNodes[0]}>
         <RichTextArea ref={r => componentInstance = r} {...props}/>
