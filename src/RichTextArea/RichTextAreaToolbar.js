@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import classNames from 'classnames';
 import WixComponent from '../WixComponent';
 import RichTextAreaButton from './RichTextAreaButton';
 import RichTextAreaLinkButton from './RichTextAreaLinkButton';
@@ -19,12 +20,13 @@ class RichTextAreaToolbar extends WixComponent {
   }
 
   renderButton(action, type) {
-    const {onClick, hasMark, hasListBlock} = this.props;
+    const {onClick, hasMark, hasListBlock, disabled} = this.props;
     const isActive = (action === 'mark') ? hasMark : hasListBlock;
 
     return (
-      <div className={styles.button}>
+      <div className={classNames(styles.button, {[styles.disabled]: disabled})}>
         <RichTextAreaButton
+          disabled={disabled}
           onClick={() => onClick(action, type)}
           type={type}
           isActive={isActive(type)}
@@ -34,11 +36,12 @@ class RichTextAreaToolbar extends WixComponent {
   }
 
   renderLinkButton() {
-    const {onLinkButtonClick, hasLink} = this.props;
+    const {onLinkButtonClick, hasLink, disabled} = this.props;
 
     return (
-      <div className={styles.button}>
+      <div className={classNames(styles.button, {[styles.disabled]: disabled})}>
         <RichTextAreaLinkButton
+          disabled={disabled}
           onClick={onLinkButtonClick}
           type="link"
           isActive={hasLink()}
@@ -54,6 +57,7 @@ RichTextAreaToolbar.propTypes = {
   hasMark: PropTypes.func.isRequired,
   hasListBlock: PropTypes.func.isRequired,
   hasLink: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
 };
 
 export default RichTextAreaToolbar;

@@ -46,14 +46,17 @@ const buttons = {
 class RichTextAreaButton extends Component {
   handleMouseDown = event => {
     event.preventDefault();
-    this.props.onClick();
+    if (!this.props.disabled) {
+      this.props.onClick();
+    }
   };
 
   render() {
-    const {type, isActive, isTooltipDisabled} = this.props;
+    const {type, isActive, isTooltipDisabled, disabled} = this.props;
     const tooltipContent = <p className={styles.tooltipContent}>{buttons[type].tooltipText}</p>;
     const className = classNames(styles.button, {
       [styles.isActive]: isActive,
+      [styles.disabled]: disabled
     });
     return (
       <Tooltip

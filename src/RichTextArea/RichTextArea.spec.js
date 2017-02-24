@@ -84,6 +84,11 @@ describe('RichTextArea', () => {
     expect(driver.getContent()).toBe('HELLO');
   });
 
+  it('should be disabled', () => {
+    const driver = createComponent({disabled: true});
+    expect(driver.isDisabled()).toBeTruthy();
+  });
+
   const createDriver = createDriverFactory(richTextAreaDriverFactory);
   function createComponent(props) {
     const mergedProps = Object.assign({

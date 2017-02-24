@@ -1,4 +1,5 @@
 @import '../common';
+@import '../Typography/Typography';
 
 .button {
   padding: 0;
@@ -6,13 +7,19 @@
   background: transparent;
   color: $D30;
 
-  &:hover,
-  &.isActive {
-    color: $B10;
+  &:not(.disabled) {
+    &:hover,
+    &.isActive {
+      color: $B10;
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 
-  &:focus {
-    outline: 0;
+  &.disabled {
+    @extend .t2_1;
   }
 }
 

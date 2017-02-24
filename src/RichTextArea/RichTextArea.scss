@@ -31,6 +31,10 @@ $marginLeft: $paddingLeft;
   .withError & {
     border-color: $borderColorError;
   }
+
+  &.disabled {
+    border-color: $D60;
+  }
 }
 
 .editorWrapper {
@@ -51,8 +55,16 @@ $marginLeft: $paddingLeft;
     border-color: $borderColorFocused;
   }
 
-  &:hover {
+  &:not(.disabled) :hover {
     background: $B50;
+  }
+
+  &.disabled {
+    border-color: $D60;
+
+    &:hover {
+      border-color: $GR20;
+    }
   }
 }
 
@@ -109,4 +121,16 @@ ol li {
 
 .placeholder {
   @extend .t2_1;
+}
+
+.link {
+  @extend .t1_3;
+}
+
+.disabled {
+  @extend .t2_1;
+
+  .link {
+    @extend .t1_4;
+  }
 }

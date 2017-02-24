@@ -50,11 +50,25 @@ class RichTextAreaExample extends Component {
             </div>
           </div>
           {this.renderErrorMessageInput()}
+          <div className={styles.controlGroup}>
+            <Label>Disabled</Label>
+            <div className={styles.radioGroup}>
+              <RadioGroup
+                display="horizontal"
+                value={this.state.disabled}
+                onChange={disabled => this.setState({disabled})}
+                >
+                <RadioGroup.Radio value={false}>False</RadioGroup.Radio>
+                <RadioGroup.Radio value={true}>True</RadioGroup.Radio>
+              </RadioGroup>
+            </div>
+          </div>
         </div>
         <div className={styles.preview}>
           <RichTextAreaTemplate
             onTemplateChange={this.props.onChange}
             onChange={this.handleRichTextAreaChange}
+            disabled={this.state.disabled ? 'true' : ''}
             {...this.state}
             />
           <div className={styles.output}>

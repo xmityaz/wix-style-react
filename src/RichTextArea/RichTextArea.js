@@ -20,7 +20,7 @@ class RichTextArea extends WixComponent {
       link: props => {
         const {data} = props.node;
         const href = data.get('href');
-        return <a {...props.attributes} href={href}>{props.children}</a>;
+        return <a className={styles.link} {...props.attributes} href={href}>{props.children}</a>;
       }
     },
     marks: {
@@ -167,7 +167,7 @@ class RichTextArea extends WixComponent {
 
   render = () => {
     const {editorState} = this.state;
-    const {error, placeholder} = this.props;
+    const {error, placeholder, disabled} = this.props;
     const className = classNames(styles.container, {
       [styles.withError]: error,
       [styles.isFocused]: editorState.isFocused,
@@ -175,8 +175,9 @@ class RichTextArea extends WixComponent {
 
     return (
       <div className={className}>
-        <div className={styles.toolbar}>
+        <div className={classNames(styles.toolbar, {[styles.disabled]: disabled})}>
           <RichTextEditorToolbar
+            disabled={disabled}
             onClick={this.handleButtonClick}
             onLinkButtonClick={this.handleLinkButtonClick}
             hasMark={this.hasMark}
@@ -184,11 +185,12 @@ class RichTextArea extends WixComponent {
             hasLink={this.hasLink}
             />
         </div>
-        <div className={styles.editorWrapper}>
+        <div className={classNames(styles.editorWrapper, {[styles.disabled]: disabled})}>
           <Editor
+            readOnly={disabled}
             placeholder={placeholder}
             placeholderClassName={styles.placeholder}
-            className={styles.editor}
+            className={classNames(styles.editor, {[styles.disabled]: disabled})}
             schema={this.schema}
             state={editorState}
             onChange={this.setEditorState}/>
@@ -223,6 +225,7 @@ RichTextArea.propTypes = {
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 RichTextArea.defaultProps = {

@@ -15,7 +15,7 @@ class RichTextAreaTemplate extends Component {
     const props = {...this.props};
     delete props.onTemplateChange;
 
-    return <RichTextArea {...props}/>;
+    return <RichTextArea disabled={props.disabled} {...props}/>;
   }
 
   render() {

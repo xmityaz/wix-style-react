@@ -42,6 +42,7 @@ class RichTextAreaLinkButton extends Component {
         onClickOutside={this.hideForm}
         >
         <RichTextAreaButton
+          disabled={this.props.disabled}
           onClick={isActive ? onClick : this.toggleForm}
           type="link"
           isActive={isActive}
@@ -55,6 +56,7 @@ class RichTextAreaLinkButton extends Component {
 RichTextAreaLinkButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   isActive: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export default RichTextAreaLinkButton;
