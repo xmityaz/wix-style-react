@@ -18,7 +18,7 @@ class RichTextArea extends WixComponent {
       'list-item': props => <li {...props.attributes}>{props.children}</li>,
       'ordered-list': props => <ol {...props.attributes}>{props.children}</ol>,
       link: props => {
-        const { data } = props.node;
+        const {data} = props.node;
         const href = data.get('href');
         return <a {...props.attributes} href={href}>{props.children}</a>;
       }
@@ -61,28 +61,19 @@ class RichTextArea extends WixComponent {
     }
   }
 
-  hasBlock = type => {
-    const { editorState } = this.state;
-    return editorState.blocks.some(node => node.type == type);
-  };
+  hasBlock = type => this.state.editorState.blocks.some(node => node.type == type);
 
   hasListBlock = type => {
-    const { editorState } = this.state;
+    const {editorState} = this.state;
     return editorState.blocks.some(node => {
       const parent = editorState.document.getParent(node.key);
       return parent && parent.type === type;
     });
   };
 
-  hasMark = type => {
-    const { editorState } = this.state;
-    return editorState.marks.some(mark => mark.type == type);
-  };
+  hasMark = type => this.state.editorState.marks.some(mark => mark.type == type);
 
-  hasLink = () => {
-    const { editorState } = this.state;
-    return editorState.inlines.some(inline => inline.type === 'link');
-  };
+  hasLink = () => this.state.editorState.inlines.some(inline => inline.type === 'link');
 
   handleButtonClick = (action, type) => {
     switch (action) {
@@ -161,9 +152,7 @@ class RichTextArea extends WixComponent {
       transform
         .unwrapInline('link')
         .apply()
-    }
-
-    else {
+    } else {
       transform
         .insertText(text)
         .extendBackward(text.length)
@@ -194,6 +183,7 @@ class RichTextArea extends WixComponent {
             hasBlock={this.hasBlock}
             hasMark={this.hasMark}
             hasListBlock={this.hasListBlock}
+            hasLink={this.hasLink}
             selectedText={this.state.editorState.selectedText}
             />
         </div>

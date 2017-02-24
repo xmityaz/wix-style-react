@@ -38,7 +38,7 @@ class RichTextAreaLinkButton extends Component {
         active={isFormVisible}
         onClickOutside={this.hideForm}
         >
-        <RichTextAreaButton onClick={this.toggleForm} type="link" isTooltipDisabled={isFormVisible}/>
+        <RichTextAreaButton onClick={this.toggleForm} type="link" isTooltipDisabled={isFormVisible} isActive={this.props.isActive}/>
       </Tooltip>
     );
   }

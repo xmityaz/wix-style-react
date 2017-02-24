@@ -13,7 +13,7 @@ class RichTextAreaExample extends Component {
     error: false,
     errorMessage: '',
     placeholder: 'You can add some $$ rich $$ text here',
-    value: '<p>$$$ Rich text area</p><strong>bold text here</strong><ul><li>The amazing fox lives in Lithuania</li></ul>'
+    value: '<p>$$$ Rich text area</p><strong>bold text here</strong><ul><li>The amazing fox lives in <a href="wix.com">Lithuania</a></li></ul>'
   };
 
   handleRichTextAreaChange = value => {

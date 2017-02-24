@@ -11,9 +11,9 @@ class RichTextAreaToolbar extends WixComponent {
         {this.renderButton('mark', 'bold')}
         {this.renderButton('mark', 'italic')}
         {this.renderButton('mark', 'underline')}
+        {this.renderLinkButton()}
         {this.renderButton('block', 'unordered-list')}
         {this.renderButton('block', 'ordered-list')}
-        {this.renderLinkButton()}
       </div>
     );
   }
@@ -34,7 +34,7 @@ class RichTextAreaToolbar extends WixComponent {
   }
 
   renderLinkButton() {
-    const {onClick, hasMark} = this.props;
+    const {onClick, hasLink} = this.props;
     const type = 'link';
     const action = type;
 
@@ -43,7 +43,7 @@ class RichTextAreaToolbar extends WixComponent {
         <RichTextAreaLinkButton
           onClick={() => onClick(action, type)}
           type={type}
-          isActive={hasMark(type)}
+          isActive={hasLink()}
           />
       </div>
     );
@@ -54,6 +54,7 @@ RichTextAreaToolbar.propTypes = {
   onClick: PropTypes.func,
   hasMark: PropTypes.func.isRequired,
   hasListBlock: PropTypes.func.isRequired,
+  hasLink: PropTypes.func.isRequired,
 };
 
 export default RichTextAreaToolbar;

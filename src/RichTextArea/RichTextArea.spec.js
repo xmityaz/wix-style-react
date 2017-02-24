@@ -26,9 +26,9 @@ describe('RichTextArea', () => {
       'bold',
       'italic',
       'underline',
+      'link',
       'unordered-list',
       'ordered-list',
-      'link',
     ];
     const driver = createComponent({buttons});
     expect(driver.getButtonTypes()).toEqual(buttons);
