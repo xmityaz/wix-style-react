@@ -50,7 +50,7 @@ class RichTextAreaButton extends Component {
   };
 
   render() {
-    const {type, isActive} = this.props;
+    const {type, isActive, isTooltipDisabled} = this.props;
     const tooltipContent = <p className={styles.tooltipContent}>{buttons[type].tooltipText}</p>;
     const className = classNames(styles.button, {
       [styles.isActive]: isActive,
@@ -62,6 +62,7 @@ class RichTextAreaButton extends Component {
         theme="dark"
         alignment="center"
         moveBy={{x: 2, y: 2}}
+        disabled={isTooltipDisabled}
         >
         <button
           className={className}
@@ -86,6 +87,7 @@ RichTextAreaButton.propTypes = {
   type: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   isActive: PropTypes.bool,
+  isTooltipDisabled: PropTypes.bool,
 };
 
 export default RichTextAreaButton;

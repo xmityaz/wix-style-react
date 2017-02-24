@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
+import RichTextAreaButton from './RichTextAreaButton';
 import Tooltip from '../Tooltip';
 import {Link} from '../Icons';
 import styles from './RichTextAreaButton.scss';
@@ -14,53 +15,45 @@ const buttons = {
 };
 
 class RichTextAreaButtonLink extends Component {
-  state = {};
+  state = {
+    isFormVisible: false,
+  };
+
+  toggleForm = () => {
+    this.state.isFormVisible ?
+      this.hideForm() :
+      this.showForm();
+  };
+
+  showForm = () => {
+    this.setState({isFormVisible: true});
+  };
+
   hideForm = () => {
-    this.setState({showForm: false});
+    this.setState({isFormVisible: false});
   };
 
   getTooltipContent = () => {
-    if (!this.state.showForm) {
-      return 'LINK';
-    }
     return (
-      <form><input type="text" value="ADSG"/></form>
+      <div><input type="text" value="ADSG"/></div>
     );
   };
 
-  handleMouseDown = event => {
-    event.preventDefault();
-    //this.props.onClick();
-    const showForm = !this.state.showForm;
-    this.setState({showForm});
-  };
-
   render() {
-    const {type, isActive} = this.props;
-
-    const className = classNames(styles.button, {
-      [styles.isActive]: isActive,
-    });
-
+    const {isFormVisible} = this.state;
     return (
       <Tooltip
         content={this.getTooltipContent()}
         overlay=""
-        theme="dark"
         alignment="center"
-        moveBy={{x: 2, y: 2}}
-        onActiveChange={this.hideForm}
+        placement="bottom"
+        showTrigger="custom"
+        hideTrigger="custom"
+        moveBy={{x: 2, y: 0}}
+        active={isFormVisible}
         onClickOutside={this.hideForm}
         >
-        <button
-          className={className}
-          onMouseDown={this.handleMouseDown}
-          data-hook={`rich-text-area-button-${type}`}
-          >
-          <span className={styles.wrapper}>
-            {this.renderIcon()}
-          </span>
-        </button>
+        <RichTextAreaButton onClick={this.toggleForm} type="link" isTooltipDisabled={isFormVisible}/>
       </Tooltip>
     );
   }
