@@ -194,6 +194,7 @@ class RichTextArea extends WixComponent {
             hasBlock={this.hasBlock}
             hasMark={this.hasMark}
             hasListBlock={this.hasListBlock}
+            selectedText={this.state.editorState.selectedText}
             />
         </div>
         <div className={styles.editorWrapper}>

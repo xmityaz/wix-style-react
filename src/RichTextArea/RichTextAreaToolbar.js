@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import WixComponent from '../WixComponent';
 import RichTextAreaButton from './RichTextAreaButton';
-import RichTextAreaButtonLink from './RichTextAreaButtonLink';
+import RichTextAreaLinkButton from './RichTextAreaLinkButton';
 import styles from './RichTextAreaToolbar.scss';
 
 class RichTextAreaToolbar extends WixComponent {
@@ -40,7 +40,7 @@ class RichTextAreaToolbar extends WixComponent {
 
     return (
       <div className={styles.button}>
-        <RichTextAreaButtonLink
+        <RichTextAreaLinkButton
           onClick={() => onClick(action, type)}
           type={type}
           isActive={hasMark(type)}

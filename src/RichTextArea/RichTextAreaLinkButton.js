@@ -1,20 +1,9 @@
 import React, {Component, PropTypes} from 'react';
-import classNames from 'classnames';
-import RichTextAreaButton from './RichTextAreaButton';
 import Tooltip from '../Tooltip';
-import {Link} from '../Icons';
-import styles from './RichTextAreaButton.scss';
+import RichTextAreaLinkForm from './RichTextAreaLinkForm';
+import RichTextAreaButton from './RichTextAreaButton';
 
-const buttons = {
-  link: {
-    icon: Link,
-    tooltipText: 'Link',
-    iconWidth: 15,
-    iconHeight: 16,
-  },
-};
-
-class RichTextAreaButtonLink extends Component {
+class RichTextAreaLinkButton extends Component {
   state = {
     isFormVisible: false,
   };
@@ -33,11 +22,7 @@ class RichTextAreaButtonLink extends Component {
     this.setState({isFormVisible: false});
   };
 
-  getTooltipContent = () => {
-    return (
-      <div><input type="text" value="ADSG"/></div>
-    );
-  };
+  getTooltipContent = () => <RichTextAreaLinkForm onCancel={this.hideForm}/>;
 
   render() {
     const {isFormVisible} = this.state;
@@ -57,17 +42,11 @@ class RichTextAreaButtonLink extends Component {
       </Tooltip>
     );
   }
-
-  renderIcon() {
-    const {icon: Icon, iconWidth, iconHeight} = buttons[this.props.type];
-    return <Icon width={`${iconWidth}px`} height={`${iconHeight}px`}/>;
-  }
 }
 
-RichTextAreaButtonLink.propTypes = {
-  type: PropTypes.string.isRequired,
+RichTextAreaLinkButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   isActive: PropTypes.bool,
 };
 
-export default RichTextAreaButtonLink;
+export default RichTextAreaLinkButton;
