@@ -69,7 +69,7 @@ describe('HTML serializer', () => {
           kind: 'block',
           type: 'paragraph',
           nodes: [
-            {kind: 'text', 'text': ''},
+            {kind: 'text', text: ''},
             {
               kind: 'inline',
               type: 'link',
@@ -83,7 +83,7 @@ describe('HTML serializer', () => {
                 },
               ]
             },
-            {kind: 'text', 'text': ''},
+            {kind: 'text', text: ''},
           ]
         },
       ],
