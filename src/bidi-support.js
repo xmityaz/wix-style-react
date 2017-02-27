@@ -4,9 +4,8 @@ const postcss = require('postcss');
 const fs = require('fs');
 const bidi = require('postcss-bidirection');
 const path = require('path');
-const supportedComponent = ['DropdownLayout'];
 
-let watcher = null;
+const supportedComponent = ['DropdownLayout'];
 
 function findFilesInDir(startPath, filter) {
 
@@ -41,25 +40,14 @@ function buildAllBidiCSS() {
 }
 
 function buildBidiCSS(path) {
-  if (watcher) {
-    console.log('*********************************************************STOP WATCHING******************************************************');
-    let watchedPaths = watcher.getWatched();
-    console.log('***************************************************************************************************************' + JSON.stringify(watchedPaths));
-    watcher.close();
-    watchedPaths = watcher.getWatched();
-    console.log('***************************************************************************************************************' + JSON.stringify(watchedPaths));
-  }
-
   fs.readFile(path, (err, css) => {
     if (err) {
       console.log(err);
     } else {
       postcss([bidi]).process(css).then(result => {
-        fs.writeFile(path, result.css.replace('html[dir="', '[dir="'), err => {
+        fs.writeFile(path, result.css, err => {
           if (err) {
             console.log(err);
-          } else {
-            watchIfNeeded(path);
           }
         });
       });
@@ -67,29 +55,23 @@ function buildBidiCSS(path) {
   });
 }
 
-function watchAllIfNeeded() {
-  if (process.argv.indexOf('--watch') > -1) {
-    console.log('*********************************************************WATCHING******************************************************');
-    supportedComponent.forEach(elem => {
-      const dir = `dist/src/${elem}/`;
-      findFilesInDir(dir, '.scss').forEach(cssFile => {
-        watchIfNeeded(cssFile);
-      });
+function watchAll() {
+  supportedComponent.forEach(elem => {
+    const dir = `dist/src/${elem}/`;
+    findFilesInDir(dir, '.scss').forEach(cssFile => {
+      watch(cssFile);
     });
-  }
+  });
 }
 
-function watchIfNeeded(path) {
-  if (process.argv.indexOf('--watch') > -1) {
-    watcher = chokidar.watch(path, {ignoreInitial: true}).on('change', path => {
-      console.log('***** ' + JSON.stringify(watcher.getWatched()));
-      buildBidiCSS(path);
-    });
-  }
+function watch(path) {
+  const onChange = path => buildBidiCSS(path);
+  chokidar.watch(path, {ignoreInitial: true}).on('change', onChange);
+  chokidar.watch(path, {ignoreInitial: true}).on('add', onChange);
 }
 
-if (process.argv.indexOf('--watch') === -1) {
-  buildAllBidiCSS();
-} else {
-  watchAllIfNeeded();
+if (process.argv.indexOf('--watch') !== -1) {
+  watchAll();
 }
+
+console.log("*************************************************************************************************************************************************");
