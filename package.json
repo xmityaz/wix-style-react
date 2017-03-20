@@ -12,11 +12,15 @@
   "scripts": {
     "test": "npm run test:unit",
     "test:unit": "yoshi test --jest",
-    "test:e2e": "yoshi test --protractor",
+    "test:e2e": "yoshi test --protractor && npm run clean-output-folder",
     "build": "yoshi lint && svg2react-icon && yoshi build && build-storybook",
     "start": "svg2react-icon-once && yoshi start & npm run storybook",
     "release": "yoshi release && gh-pages-auto-release --dist=storybook-static",
     "storybook": "start-storybook -p 6006",
+    "test-storybook": "build-storybook -c .storybook -o ./test/e2e/static && npm run e2e-tests",
+    "e2e-tests": "concurrently 'npm run start-dev-server' 'npm run test:e2e' --kill-others",
+    "start-dev-server": "express-dev-server 6006 ./test/e2e/static",
+    "clean-output-folder": "rm -rf ./test/e2e/static",
     "lint": "yoshi lint"
   },
   "yoshi": {
@@ -69,6 +73,7 @@
     "sinon": "^1.17.6",
     "svg2react-icon": "^1.0.0",
     "wait-for-cond": "^1.0.3",
+    "express-dev-server": "^0.2.1",
     "yoshi": "latest"
   },
   "peerDependencies": {

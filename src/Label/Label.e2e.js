@@ -1,17 +1,18 @@
+import {labelTestkitFactory} from '../../testkit/protractor';
 import eyes from 'eyes.it';
-// import {labelTestkitFactory} from '../../testkit/protractor';
 
 describe('Label', () => {
   eyes.it('should focus on the input when clicked', () => {
-    // const driver = labelTestkitFactory({dataHook: 'label'});
+    const dataHook = 'label';
+    const driver = labelTestkitFactory({dataHook});
 
-    browser.get('iframe.html?selectedKind=7.%20Labels&selectedStory=7.1%20Standard');
+    browser.get('iframe.html?selectedKind=Core&selectedStory=Label');
 
-    // const EC = protractor.ExpectedConditions;
-    // browser.wait(EC.visibilityOf(driver.element()), 15000);
-
-    // driver.click();
-
-    // expect(browser.driver.switchTo().activeElement().getAttribute('id')).toEqual(driver.getAssociatedInput().then(input => input.getAttribute('id')));
+    const EC = protractor.ExpectedConditions;
+    browser.wait(EC.visibilityOf(driver.element(), 15000))
+      .then(() => {
+        driver.click();
+        expect(browser.driver.switchTo().activeElement().getAttribute('id')).toEqual(driver.getAssociatedInput().then(input => input.getAttribute('id')));
+      });
   });
 });

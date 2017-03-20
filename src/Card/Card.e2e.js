@@ -5,7 +5,7 @@ describe('Card and Grid', () => {
 
     const element = $('[data-hook="card-example"]');
 
-    browser.get('iframe.html?selectedKind=4.%20Layouts&selectedStory=4.5%20Grid%20with%20card%20layout');
+    browser.get('iframe.html?selectedKind=Common&selectedStory=Grid%20with%20card%20layout');
 
     const EC = protractor.ExpectedConditions;
     browser.wait(EC.visibilityOf(element), 15000);
