@@ -10,7 +10,7 @@ describe('Button', () => {
 
     browser.get(storyUrl);
   
-    waitForVisibilityOf(driver.element(), 10000, 'Cant find Button')
+    waitForVisibilityOf(driver.element(), 'Cant find Button')
       .then(() => {
         expect(driver.element().isDisplayed()).toBeTruthy();
         expect(driver.getButtonText()).toBe('Click Me!');

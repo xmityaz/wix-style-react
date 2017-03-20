@@ -7,6 +7,9 @@ export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFa
 import buttonDriverFactory from '../src/Button/Button.protractor.driver';
 export const buttonTestkitFactory = protractorTestkitFactoryCreator(buttonDriverFactory);
 
+import buttonSelectionDriverFactory from '../src/ButtonSelection/ButtonSelection.protractor.driver';
+export const buttonSelectionTestkitFactory = protractorTestkitFactoryCreator(buttonSelectionDriverFactory);
+
 import textAreaDriverFactory from '../src/TextArea/TextArea.protractor.driver';
 export const textAreaTestkitFactory = protractorTestkitFactoryCreator(textAreaDriverFactory);
 

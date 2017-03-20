@@ -10,7 +10,7 @@ describe('Label', () => {
 
     browser.get(storyUrl);
 
-    waitForVisibilityOf(driver.element(), 10000, 'Cant find Label')
+    waitForVisibilityOf(driver.element(), 'Cant find Label')
       .then(() => {
         expect(driver.getLabelText()).toBe('Label text');
       });
@@ -21,7 +21,7 @@ describe('Label', () => {
 
     browser.get(storyUrl);
 
-    waitForVisibilityOf(driver.element(), 10000, 'Cant find Label')
+    waitForVisibilityOf(driver.element(), 'Cant find Label')
       .then(() => {
         driver.click();
         expect(browser.driver.switchTo().activeElement().getAttribute('id'))

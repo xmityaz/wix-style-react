@@ -30,6 +30,6 @@ export const protractorTestkitFactoryCreator = driverFactory => ({dataHook}) => 
 
 export const getStoryUrl = (kind, story) => `iframe.html?selectedKind=${kind}&selectedStory=${story}`;
 
-export const waitForVisibilityOf = (element, timeout = 5000, msg) => {
-	return browser.wait(protractor.ExpectedConditions.visibilityOf(element), timeout, msg);
+export const waitForVisibilityOf = (element, errorMsg, timeout = 10000) => {
+	return browser.wait(protractor.ExpectedConditions.visibilityOf(element), timeout, errorMsg);
 };
