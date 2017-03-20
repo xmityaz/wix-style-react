@@ -10,6 +10,12 @@ export const buttonTestkitFactory = protractorTestkitFactoryCreator(buttonDriver
 import buttonSelectionDriverFactory from '../src/ButtonSelection/ButtonSelection.protractor.driver';
 export const buttonSelectionTestkitFactory = protractorTestkitFactoryCreator(buttonSelectionDriverFactory);
 
+import breadcrumbsDriverFactory from '../src/Breadcrumbs/Breadcrumbs.protractor.driver';
+export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(breadcrumbsDriverFactory);
+
+import autoCompleteDriverFactory from '../src/AutoComplete/AutoComplete.protractor.driver';
+export const autoCompleteTestkitFactory = protractorTestkitFactoryCreator(autoCompleteDriverFactory);
+
 import textAreaDriverFactory from '../src/TextArea/TextArea.protractor.driver';
 export const textAreaTestkitFactory = protractorTestkitFactoryCreator(textAreaDriverFactory);
 
