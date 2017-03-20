@@ -27,3 +27,9 @@ export const enzymeTestkitFactoryCreator = driverFactory => ({wrapper, dataHook}
 
 // protractor
 export const protractorTestkitFactoryCreator = driverFactory => ({dataHook}) => driverFactory($(`[data-hook='${dataHook}']`));
+
+export const getStoryUrl = (kind, story) => `iframe.html?selectedKind=${kind}&selectedStory=${story}`;
+
+export const waitForVisibilityOf = (element, timeout = 5000, msg) => {
+	return browser.wait(protractor.ExpectedConditions.visibilityOf(element), timeout, msg);
+};

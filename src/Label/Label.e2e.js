@@ -1,18 +1,32 @@
-import {labelTestkitFactory} from '../../testkit/protractor';
+import {labelTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
 import eyes from 'eyes.it';
 
 describe('Label', () => {
-  eyes.it('should focus on the input when clicked', () => {
-    const dataHook = 'label';
+  const storyUrl = getStoryUrl('Core', 'Label');
+  const dataHook = 'story-label';
+
+  eyes.it('should show the label correctly', () => {
     const driver = labelTestkitFactory({dataHook});
 
-    browser.get('iframe.html?selectedKind=Core&selectedStory=Label');
+    browser.get(storyUrl);
 
-    const EC = protractor.ExpectedConditions;
-    browser.wait(EC.visibilityOf(driver.element(), 15000))
+    waitForVisibilityOf(driver.element(), 10000, 'Cant find Label')
+      .then(() => {
+        expect(driver.getLabelText()).toBe('Label text');
+      });
+  });
+
+  eyes.it('should focus on the input when clicked', () => {
+    const driver = labelTestkitFactory({dataHook});
+
+    browser.get(storyUrl);
+
+    waitForVisibilityOf(driver.element(), 10000, 'Cant find Label')
       .then(() => {
         driver.click();
-        expect(browser.driver.switchTo().activeElement().getAttribute('id')).toEqual(driver.getAssociatedInput().then(input => input.getAttribute('id')));
+        expect(browser.driver.switchTo().activeElement().getAttribute('id'))
+          .toEqual(driver.getAssociatedInput()
+            .then(input => input.getAttribute('id')));
       });
   });
 });
