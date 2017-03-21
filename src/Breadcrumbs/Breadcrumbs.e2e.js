@@ -1,7 +1,7 @@
 import eyes from 'eyes.it';
 import {breadcrumbsTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
 
-describe('Breadcrumbs', () => {
+xdescribe('Breadcrumbs', () => {
 	const storyUrl = getStoryUrl('Core', 'Breadcrumbs');
 
 	eyes.it('should display breadcrumbs', () => {

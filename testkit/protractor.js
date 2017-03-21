@@ -13,6 +13,21 @@ export const buttonSelectionTestkitFactory = protractorTestkitFactoryCreator(but
 import dataTableDriverFactory from '../src/DataTable/DataTable.protractor.driver';
 export const dataTableTestkitFactory = protractorTestkitFactoryCreator(dataTableDriverFactory);
 
+import breadcrumbsDriverFactory from '../src/Breadcrumbs/Breadcrumbs.protractor.driver';
+export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(breadcrumbsDriverFactory);
+
+import autoCompleteDriverFactory from '../src/AutoComplete/AutoComplete.protractor.driver';
+export const autoCompleteTestkitFactory = protractorTestkitFactoryCreator(autoCompleteDriverFactory);
+
+import checkboxDriverFactory from '../src/Checkbox/Checkbox.protractor.driver';
+export const checkboxTestkitFactory = protractorTestkitFactoryCreator(checkboxDriverFactory);
+
+import dropdownDriverFactory from '../src/Dropdown/Dropdown.protractor.driver';
+export const dropdownTestkitFactory = protractorTestkitFactoryCreator(dropdownDriverFactory);
+
+import filePickerDriverFactory from '../src/FilePicker/FilePicker.protractor.driver';
+export const filePickerTestkitFactory = protractorTestkitFactoryCreator(filePickerDriverFactory);
+
 import textAreaDriverFactory from '../src/TextArea/TextArea.protractor.driver';
 export const textAreaTestkitFactory = protractorTestkitFactoryCreator(textAreaDriverFactory);
 
