@@ -1,7 +1,7 @@
 import eyes from 'eyes.it';
 import {dropdownTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
 
-fdescribe('Dropdown', () => {
+describe('Dropdown', () => {
 	const storyUrl = getStoryUrl('Core', 'Dropdown');
 	const dataHook = 'story-dropdown';
 
