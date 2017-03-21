@@ -141,7 +141,8 @@
       "react/jsx-handler-names": 0,
       "react/no-find-dom-node": 0,
       "react/no-string-refs": 0,
-      "react/jsx-boolean-value": 0
+      "react/jsx-boolean-value": 0,
+      "indent": ["error", 2]
     }
   }
 }

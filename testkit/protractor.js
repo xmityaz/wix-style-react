@@ -1,4 +1,5 @@
 import {protractorTestkitFactoryCreator} from '../src/test-common';
+/*eslint no-duplicate-imports: 0*/
 export {getStoryUrl, waitForVisibilityOf} from '../src/test-common';
 
 import labelDriverFactory from '../src/Label/Label.protractor.driver';

@@ -2,42 +2,42 @@ import eyes from 'eyes.it';
 import {autoCompleteTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
 
 describe('AutoComplete', () => {
-	const storyUrl = getStoryUrl('Core', 'AutoComplete');
-	const dataHook = 'story-autocomplete';
+  const storyUrl = getStoryUrl('Core', 'AutoComplete');
+  const dataHook = 'story-autocomplete';
 
-	eyes.it('should open autocomplete when it focused', () => {
-		const driver = autoCompleteTestkitFactory({dataHook});
+  eyes.it('should open autocomplete when it focused', () => {
+    const driver = autoCompleteTestkitFactory({dataHook});
 
-		browser.get(storyUrl);
+    browser.get(storyUrl);
 
-		waitForVisibilityOf(driver.element(), 'Cannot find AutoComplete')
-			.then(() => {
-				expect(driver.getDropdown().isDisplayed()).toBe(false);
+    waitForVisibilityOf(driver.element(), 'Cannot find AutoComplete')
+    .then(() => {
+      expect(driver.getDropdown().isDisplayed()).toBe(false);
 
-				driver.click();
-				browser.sleep(500);
+      driver.click();
+      browser.sleep(500);
 
-				expect(driver.getDropdown().isDisplayed()).toBe(true);
-				expect(driver.getDropdownItemsCount()).toEqual(5);
+      expect(driver.getDropdown().isDisplayed()).toBe(true);
+      expect(driver.getDropdownItemsCount()).toEqual(5);
 
-				driver.getInput().sendKeys('first');
-				expect(driver.getDropdownItemsCount()).toEqual(1);
+      driver.getInput().sendKeys('first');
+      expect(driver.getDropdownItemsCount()).toEqual(1);
 
-				expect(driver.getDropdownItem(0)).toBe('First option');
-			});
-	});
+      expect(driver.getDropdownItem(0)).toBe('First option');
+    });
+  });
 
-	eyes.it('should choose one of autocomplete items', () => {
-		const driver = autoCompleteTestkitFactory({dataHook});
+  eyes.it('should choose one of autocomplete items', () => {
+    const driver = autoCompleteTestkitFactory({dataHook});
 
-		browser.get(storyUrl);
+    browser.get(storyUrl);
 
-		waitForVisibilityOf(driver.element(), 'Cannot find AutoComplete')
-			.then(() => {
-				driver.click();
-				driver.getDropdownItem(2).click();
+    waitForVisibilityOf(driver.element(), 'Cannot find AutoComplete')
+    .then(() => {
+      driver.click();
+      driver.getDropdownItem(2).click();
 
-				expect(driver.getInput().getAttribute('value')).toBe('Third option');
-			});
-	});
+      expect(driver.getInput().getAttribute('value')).toBe('Third option');
+    });
+  });
 });
