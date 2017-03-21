@@ -16,6 +16,9 @@ export const breadcrumbsTestkitFactory = protractorTestkitFactoryCreator(breadcr
 import autoCompleteDriverFactory from '../src/AutoComplete/AutoComplete.protractor.driver';
 export const autoCompleteTestkitFactory = protractorTestkitFactoryCreator(autoCompleteDriverFactory);
 
+import checkboxDriverFactory from '../src/Checkbox/Checkbox.protractor.driver';
+export const checkboxTestkitFactory = protractorTestkitFactoryCreator(checkboxDriverFactory);
+
 import textAreaDriverFactory from '../src/TextArea/TextArea.protractor.driver';
 export const textAreaTestkitFactory = protractorTestkitFactoryCreator(textAreaDriverFactory);
 
