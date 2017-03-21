@@ -48,29 +48,24 @@ buttonTestkit.click();
 If you are using Protractor:
 
 ```javascript
-
-import eyes from 'eyes.it';
 import {buttonTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
 
-//It is important to use eyes.it in order to support Screenshot testing
-eyes.it('should click a button', () => {
-  const dataHook = 'story-button';
+const dataHook = 'story-button';
 
-  //Pass the data hook and expose the driver API
-  const driver = buttonTestkitFactory({dataHook}); 
+//Pass the data hook and expose the driver API
+const driver = buttonTestkitFactory({dataHook}); 
 
-  //Go to your app URL which has the component in it
-  browser.get(appUrl);
+//Go to your app URL which has the component in it
+browser.get(appUrl);
 
-  //waitForVisibilityOf() waits untill the element appears, and starts the tests. 
-  //Otherwise it will timeout and print the 2nd arg as error message.
-  waitForVisibilityOf(driver.element(), 'Cant find Button')
-    .then(() => {
+//waitForVisibilityOf() waits untill the element appears, and starts the tests. 
+//Otherwise it will timeout and print the 2nd arg as error message.
+waitForVisibilityOf(driver.element(), 'Cant find Button')
+  .then(() => {
 
-      //Do actual tests here
-      expect(driver.getButtonText()).toBe('Click Me!');
-      driver.click();
-      expect(driver.getButtonText()).toBe('Clicked!');
-    });
-});
+    //Do actual tests here
+    expect(driver.getButtonText()).toBe('Click Me!');
+    driver.click();
+    expect(driver.getButtonText()).toBe('Clicked!');
+  });
 ```
