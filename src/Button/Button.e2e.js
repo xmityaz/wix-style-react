@@ -9,13 +9,13 @@ describe('Button', () => {
     const driver = buttonTestkitFactory({dataHook});
 
     browser.get(storyUrl);
-
-    waitForVisibilityOf(driver.element(), 'Cant find Button')
+  
+    waitForVisibilityOf(driver.element(), 'Cannot find Button')
       .then(() => {
         expect(driver.element().isDisplayed()).toBeTruthy();
-        expect(driver.getButtonText()).toBe('Click Me!');
+        expect(driver.getButtonTextContent()).toBe('Click Me!');
         driver.click();
-        expect(driver.getButtonText()).toBe('Clicked!');
+        expect(driver.getButtonTextContent()).toBe('Clicked!');
       });
   });
 });
