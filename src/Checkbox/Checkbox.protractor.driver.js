@@ -1,5 +1,3 @@
-import _ from 'lodash/fp';
-
 const checkboxDriverFactory = component => ({
 	click: () => component.click(),
 	getLabel: () => component.$(`label`),

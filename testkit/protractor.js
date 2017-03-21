@@ -22,6 +22,9 @@ export const checkboxTestkitFactory = protractorTestkitFactoryCreator(checkboxDr
 import dropdownDriverFactory from '../src/Dropdown/Dropdown.protractor.driver';
 export const dropdownTestkitFactory = protractorTestkitFactoryCreator(dropdownDriverFactory);
 
+import filePickerDriverFactory from '../src/FilePicker/FilePicker.protractor.driver';
+export const filePickerTestkitFactory = protractorTestkitFactoryCreator(filePickerDriverFactory);
+
 import textAreaDriverFactory from '../src/TextArea/TextArea.protractor.driver';
 export const textAreaTestkitFactory = protractorTestkitFactoryCreator(textAreaDriverFactory);
 

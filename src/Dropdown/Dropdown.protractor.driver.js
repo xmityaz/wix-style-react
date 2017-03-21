@@ -1,5 +1,3 @@
-import _ from 'lodash/fp';
-
 const dropdownDriverFactory = component => ({
 	click: () => component.click(),
 	getInput: () => component.$(`input`),
