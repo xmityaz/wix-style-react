@@ -11,6 +11,7 @@
 | defaultValue | string | - | - | Default value for those who wants to use this component un-controlled |
 | tabIndex  | number | - | - | Standard component tabIndex |
 | placeholder  | string | - | - | Placeholder to display |
+| textOverflow | string | clip | - | Text overflow behaviour |
 | readOnly  | bool | false | - | Sets the input to readOnly |
 | error  | bool | false | - | Is input value erroneous |
 | errorMessage | string | - | - | The error message to display when hovering the error icon, if not given or empty there will be no tooltip |
@@ -21,6 +22,7 @@
 | menuArrow | bool | false | - | Should the component include a menu arrow |
 | rtl  | bool | false | - | Flip the magnify glass image so it be more suitable to rtl |
 | autoFocus | bool | false  | - | Standard React Input autoFocus (focus the element on mount) |
+| maxLength | number | 524288 | - | Input max length |
 | autoSelect | bool | false | - | Standard React Input autoSelect (select the entire text of the element on focus) |
 | onChange  | func | - | - | Standard input onChange callback |
 | onBlur | func | - | -  | Standard input onBlur callback |

@@ -57,7 +57,9 @@ class Input extends Component {
       errorMessage,
       roundInput,
       noLeftBorderRadius,
-      noRightBorderRadius
+      maxLength,
+      noRightBorderRadius,
+      textOverflow
     } = this.props;
 
     let classes = {
@@ -155,6 +157,7 @@ class Input extends Component {
         { prefixes.length > 0 && <InputPrefix prefixes={prefixes}/> }
 
         <input
+          style={{textOverflow}}
           ref={input => this.input = input}
           className={inputClassNames}
           id={id}
@@ -162,6 +165,7 @@ class Input extends Component {
           defaultValue={defaultValue}
           value={value}
           onChange={this._onChange}
+          maxLength={maxLength}
           onFocus={this._onFocus}
           onBlur={this._onBlur}
           onKeyDown={this._onKeyDown}
@@ -241,7 +245,9 @@ Input.defaultProps = {
   size: 'normal',
   errorMessage: '',
   helpMessage: '',
-  roundInput: false
+  roundInput: false,
+  textOverflow: 'clip',
+  maxLength: 524288
 };
 
 Input.propTypes = {
@@ -276,11 +282,13 @@ Input.propTypes = {
   prefix: PropTypes.node,
   suffix: PropTypes.node,
   type: PropTypes.node,
+  maxLength: PropTypes.number,
   errorMessage: PropTypes.string,
   roundInput: PropTypes.bool,
   noLeftBorderRadius: PropTypes.string,
   noRightBorderRadius: PropTypes.string,
   help: PropTypes.bool,
+  textOverflow: PropTypes.string,
   helpMessage: PropTypes.string
 };
 
