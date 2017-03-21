@@ -9,14 +9,14 @@ import ExampleControlledRaw from '!raw!./ExampleControlled';
 
 storiesOf('Core', module)
   .add('Button', () => (
-    <div>
-      <Markdown source={Readme}/>
+      <div>
+        <Markdown source={Readme}/>
 
-      <h1>Example</h1>
+        <h1>Example</h1>
 
-      <CodeExample title="Controlled" code={ExampleControlledRaw}>
-        <ExampleControlled/>
-      </CodeExample>
+        <CodeExample title="Controlled" code={ExampleControlledRaw}>
+          <ExampleControlled/>
+        </CodeExample>
 
-    </div>
+      </div>
   ));

@@ -9,7 +9,7 @@ describe('Button Selection', () => {
     const driver = buttonSelectionTestkitFactory({dataHook});
 
     browser.get(storyUrl);
-  
+
     waitForVisibilityOf(driver.element(), 'Cant find Button Selection Component')
       .then(() => {
         expect(driver.getSelectedButtonText()).toBe('Button 3');

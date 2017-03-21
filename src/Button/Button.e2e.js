@@ -9,7 +9,7 @@ describe('Button', () => {
     const driver = buttonTestkitFactory({dataHook});
 
     browser.get(storyUrl);
-  
+
     waitForVisibilityOf(driver.element(), 'Cant find Button')
       .then(() => {
         expect(driver.element().isDisplayed()).toBeTruthy();
