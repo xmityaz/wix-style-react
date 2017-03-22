@@ -30,7 +30,12 @@ export const protractorTestkitFactoryCreator = driverFactory => ({dataHook}) => 
 
 export const getStoryUrl = (kind, story) => `iframe.html?selectedKind=${kind}&selectedStory=${story}`;
 
-export const scrollToElement = element => browser.actions().mouseMove(element).perform();
+export const scrollToElement = el => {
+  browser.executeScript(el => {
+    const offset = el.offsetTop;
+    window.scroll(0, offset);
+  }, el.getWebElement());
+};
 
 export const waitForVisibilityOf = (element, errorMsg, timeout = 10000) => {
   return browser.wait(protractor.ExpectedConditions.visibilityOf(element), timeout, errorMsg);

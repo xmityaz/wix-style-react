@@ -35,6 +35,7 @@ describe('AutoComplete', () => {
 
     waitForVisibilityOf(driver.element(), 'Cannot find AutoComplete')
     .then(() => {
+      scrollToElement(driver.element());
       driver.click();
       driver.getDropdownItem(2).click();
 
