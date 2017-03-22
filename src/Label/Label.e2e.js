@@ -1,4 +1,4 @@
-import {labelTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
+import {labelTestkitFactory, getStoryUrl, scrollToElement, waitForVisibilityOf} from '../../testkit/protractor';
 import eyes from 'eyes.it';
 
 describe('Label', () => {
@@ -12,6 +12,8 @@ describe('Label', () => {
 
     waitForVisibilityOf(driver.element(), 'Cant find Label')
       .then(() => {
+        scrollToElement(driver.element());
+
         expect(driver.getLabelText()).toBe('Label text');
       });
   });
@@ -23,6 +25,8 @@ describe('Label', () => {
 
     waitForVisibilityOf(driver.element(), 'Cant find Label')
       .then(() => {
+        scrollToElement(driver.element());
+
         driver.click();
         expect(browser.driver.switchTo().activeElement().getAttribute('id'))
           .toEqual(driver.getAssociatedInput()

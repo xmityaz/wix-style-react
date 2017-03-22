@@ -1,6 +1,6 @@
 import {protractorTestkitFactoryCreator} from '../src/test-common';
 /*eslint no-duplicate-imports: 0*/
-export {getStoryUrl, waitForVisibilityOf} from '../src/test-common';
+export {getStoryUrl, waitForVisibilityOf, scrollToElement} from '../src/test-common';
 
 import labelDriverFactory from '../src/Label/Label.protractor.driver';
 export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFactory);

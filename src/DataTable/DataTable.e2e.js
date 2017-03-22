@@ -1,5 +1,5 @@
 import eyes from 'eyes.it';
-import {dataTableTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
+import {dataTableTestkitFactory, getStoryUrl, scrollToElement, waitForVisibilityOf} from '../../testkit/protractor';
 
 describe('Data Table', () => {
   const storyUrl = getStoryUrl('Core', 'DataTable');
@@ -14,6 +14,8 @@ describe('Data Table', () => {
 
     waitForVisibilityOf(driver.element(), 'Cant find Data Table Component')
       .then(() => {
+        scrollToElement(driver.element());
+
         const rowData = driver.getRowTextByIndex(indexToClick);
         expect(rowData).toBe(`#${indexToClick + 1} ${name}`);
         driver.clickRowByIndex(indexToClick);
@@ -36,6 +38,8 @@ describe('Data Table', () => {
 
     waitForVisibilityOf(driver.element(), 'Cant find Data Table Component')
       .then(() => {
+        scrollToElement(driver.element());
+
         expect(driver.getFirstHighlightedRow()).toBe(`#${indexToClick + 1} ${name}`);
       });
   });

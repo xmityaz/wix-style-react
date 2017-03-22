@@ -1,6 +1,6 @@
 import eyes from 'eyes.it';
 import path from 'path';
-import {filePickerTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
+import {filePickerTestkitFactory, getStoryUrl, scrollToElement, waitForVisibilityOf} from '../../testkit/protractor';
 
 describe('FilePicker', () => {
   const storyUrl = getStoryUrl('Core', 'FilePicker');
@@ -12,6 +12,8 @@ describe('FilePicker', () => {
     browser.get(storyUrl);
     waitForVisibilityOf(driver.element(), 'Cannot find FilePicker')
     .then(() => {
+      scrollToElement(driver.element());
+
       const imagePath = '../../test/assets/surf-musa.png';
       const absolutePath = path.resolve(__dirname, imagePath);
 
