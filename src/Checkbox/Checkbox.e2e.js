@@ -13,9 +13,11 @@ describe('Checkbox', () => {
       .then(() => {
         scrollToElement(driver.element());
         driver.getLabel().click();
+        browser.sleep(200);
         expect(driver.getInput().isSelected()).toBe(true);
 
         driver.getLabel().click();
+        browser.sleep(200);
         expect(driver.getInput().isSelected()).toBe(false);
       });
   });
@@ -29,9 +31,11 @@ describe('Checkbox', () => {
       .then(() => {
         scrollToElement(driver.element());
         driver.getLabel().click();
+        browser.sleep(200);
         expect(driver.getInput().isSelected()).toBe(true);
 
         driver.getLabel().click();
+        browser.sleep(200);
         expect(driver.getInput().isSelected()).toBe(false);
       });
   });
@@ -45,12 +49,15 @@ describe('Checkbox', () => {
       .then(() => {
         scrollToElement(driver.element());
         driver.getLabel().click();
+        browser.sleep(200);
         expect(driver.getInput().isSelected()).toBe(true);
 
         driver.getLabel().click();
+        browser.sleep(200);
         expect(driver.getInput().isSelected()).toBe(true);
 
         driver.getLabel().click();
+        browser.sleep(200);
         expect(driver.getInput().isSelected()).toBe(false);
       });
   });
