@@ -12,6 +12,7 @@ const modalDriverFactory = ({element, wrapper, component}) => {
     exists: () => !!(getPortal()) && !!element,
     isOpen: () => !!(getContent()),
     isThemeExist: theme => !!getPortal().querySelector(`.${theme}`),
+    hasPortalClassName: name => getPortal().classList.contains(name),
     getChildBySelector: selector => getPortal().querySelector(selector),
     clickOnOverlay: () => {
       const overlay = getOverlay();

@@ -96,6 +96,14 @@ describe('Modal', () => {
     });
   });
 
+  describe('portalClassName', () => {
+    it('should allow adding a custom class name on the portal', () => {
+      const customClassName = 'custom-portal-class';
+      const driver = createDriver(<Modal {...props} portalClassName={customClassName}/>);
+      expect(driver.hasPortalClassName(customClassName));
+    });
+  });
+
   describe('testkit', () => {
     it('should exist', () => {
       expect(isTestkitExists(<Modal {...props}/>, modalTestkitFactory)).toBe(true);
