@@ -281,6 +281,15 @@ describe('Input', () => {
       driver.focus();
       expect(driver.isFocus()).toBeTruthy();
     });
+
+    it.skip('calling focus should call onFocus prop', () => {
+      const onFocus = jest.fn();
+
+      const driver = createDriver(<Input onFocus={onFocus}/>);
+
+      driver.focus();
+      expect(onFocus).toBeCalled();
+    });
   });
 
   describe('theme attribute', () => {
