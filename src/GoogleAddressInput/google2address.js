@@ -1,5 +1,6 @@
 /*eslint camelcase: off*/
-import {includes, omitBy, isUndefined} from 'lodash';
+
+import {includes, omitBy, isUndefined} from 'lodash-es';
 
 export function google2address(google) {
   const components = {};
