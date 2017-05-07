@@ -1,12 +1,12 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import Markdown from '../utils/Components/Markdown';
-import CodeExample from '../utils/Components/CodeExample';
-import Readme from '../../src/Backoffice/TextLink/README.md';
-import ReadmeTestkit from '../../src/Backoffice/TextLink/README.TESTKIT.md';
-import ReadmeAccessibility from '../../src/Backoffice/TextLink/README.ACCESSIBILITY.md';
+import Markdown from '../../utils/Components/Markdown';
+import CodeExample from '../../utils/Components/CodeExample';
+import Readme from '../../../src/Viewer/TextLink/README.md';
+import ReadmeTestkit from '../../../src/Viewer/TextLink/README.TESTKIT.md';
+import ReadmeAccessibility from '../../../src/Viewer/TextLink/README.ACCESSIBILITY.md';
 
-import TabbedView from '../utils/Components/TabbedView';
+import TabbedView from '../../utils/Components/TabbedView';
 
 import ExampleStandard from './ExampleStandard';
 import ExampleStandardRaw from '!raw!./ExampleStandard';
@@ -28,7 +28,7 @@ const example =
   </div>;
 
 storiesOf('Core', module)
-  .add('TextLink', () => (
+  .add('TextLinkViewer', () => (
     <TabbedView tabs={['API', 'Testkit', 'Accessibility']}>
       <div>
         <Markdown source={Readme}/>

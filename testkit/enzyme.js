@@ -45,10 +45,10 @@ export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriver
 import buttonDriverFactory from '../src/Button/Button.driver';
 export const buttonTestkitFactory = enzymeTestkitFactoryCreator(buttonDriverFactory);
 
-import textLinkDriverFactory from '../src/TextLink/TextLink.driver';
+import textLinkDriverFactory from '../src/BaseComponents/TextLink/TextLink.driver';
 export const textLinkTestkitFactory = enzymeTestkitFactoryCreator(textLinkDriverFactory);
 
-import textLinkLayoutDriverFactory from '../src/TextLinkLayout/TextLinkLayout.driver';
+import textLinkLayoutDriverFactory from '../src/BaseComponents/TextLinkLayout/TextLinkLayout.driver';
 export const textLinkLayoutTestkitFactory = enzymeTestkitFactoryCreator(textLinkLayoutDriverFactory);
 
 import dataTableDriverFactory from '../src/DataTable/DataTable.driver';

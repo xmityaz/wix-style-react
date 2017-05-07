@@ -35,6 +35,7 @@ function loadStories() {
   require('../stories/Slider');
   require('../stories/Tag');
   require('../stories/TextLink');
+  require('../stories/Viewer/TextLink');
   require('../stories/TimeInput');
   // require('../stories/Toast'); DEPRECATED
   require('../stories/ToggleSwitch');

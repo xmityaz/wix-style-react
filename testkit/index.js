@@ -45,10 +45,10 @@ export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactor
 import buttonDriverFactory from '../src/Button/Button.driver';
 export const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
 
-import textLinkDriverFactory from '../src/TextLink/TextLink.driver';
+import textLinkDriverFactory from '../src/BaseComponents/TextLink/TextLink.driver';
 export const textLinkTestkitFactory = testkitFactoryCreator(textLinkDriverFactory);
 
-import textLinkLayoutDriverFactory from '../src/TextLinkLayout/TextLinkLayout.driver';
+import textLinkLayoutDriverFactory from '../src/BaseComponents/TextLinkLayout/TextLinkLayout.driver';
 export const textLinkLayoutTestkitFactory = testkitFactoryCreator(textLinkLayoutDriverFactory);
 
 import dataTableDriverFactory from '../src/DataTable/DataTable.driver';
