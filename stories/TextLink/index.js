@@ -8,13 +8,16 @@ import ReadmeAccessibility from '../../src/Backoffice/TextLink/README.ACCESSIBIL
 
 import TabbedView from '../utils/Components/TabbedView';
 
-import ExampleStandard from './ExampleStandard';
-import ExampleStandardRaw from '!raw!./ExampleStandard';
+import ExampleStandard from './Backoffice/ExampleStandard';
+import ExampleStandardRaw from '!raw!./Backoffice/ExampleStandard';
 
-import ExampleDark from './ExampleDark';
-import ExampleDarkRaw from '!raw!./ExampleDark';
+import {ExampleStandard as ViewerExampleStandard} from './Viewer/ExampleStandard';
+import {ExampleStandardRaw as ViewerExampleStandardRaw} from '!raw!./Viewer/ExampleStandard';
 
-const example =
+import ExampleDark from './Backoffice/ExampleDark';
+import ExampleDarkRaw from '!raw!./Backoffice/ExampleDark';
+
+const exampleBackoffice =
   <div>
     <h1>Example</h1>
 
@@ -27,19 +30,45 @@ const example =
     </CodeExample>
   </div>;
 
+const exampleViewer =
+  <div>
+    <h1>Example</h1>
+
+    <CodeExample title="Standard" code={ViewerExampleStandardRaw}>
+      <ViewerExampleStandard/>
+    </CodeExample>
+  </div>;
+
 storiesOf('Core', module)
   .add('TextLink', () => (
     <TabbedView tabs={['API', 'Testkit', 'Accessibility']}>
       <div>
         <Markdown source={Readme}/>
-        {example}
+        {exampleBackoffice}
       </div>
       <div>
         <Markdown source={ReadmeTestkit}/>
       </div>
       <div>
         <Markdown source={ReadmeAccessibility}/>
-        {example}
+        {exampleBackoffice}
+      </div>
+    </TabbedView>
+  ));
+
+storiesOf('Viewer', module)
+  .add('TextLink', () => (
+    <TabbedView tabs={['API', 'Testkit', 'Accessibility']}>
+      <div>
+        <Markdown source={Readme}/>
+        {exampleViewer}
+      </div>
+      <div>
+        <Markdown source={ReadmeTestkit}/>
+      </div>
+      <div>
+        <Markdown source={ReadmeAccessibility}/>
+        {exampleViewer}
       </div>
     </TabbedView>
   ));
