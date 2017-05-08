@@ -2,8 +2,8 @@ import React from 'react';
 import {bool, node, string} from 'prop-types';
 import classNames from 'classnames';
 import styles from './LinkHeader.scss';
-import TextLink from '../../../src/Backoffice/TextLink';
-import WixComponent from '../../../src/BaseComponents/WixComponent';
+import {TextLink} from '../../../src/Backoffice';
+import WixComponent from '../../WixComponent';
 
 class LinkHeader extends WixComponent {
 
