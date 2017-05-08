@@ -1,9 +1,6 @@
 import React from 'react';
-import {
-  SideMenu,
-  Button
-} from 'wix-style-react';
-
+import {SideMenu} from 'wix-style-react';
+import {Button} from 'wix-style-react/Backoffice';
 import HelpIcon from '../../src/Icons/dist/components/Help';
 import TrashIcon from '../../src/Icons/dist/components/Trash3';
 import ChatIcon from '../../src/Icons/dist/components/Chat';
