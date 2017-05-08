@@ -9,7 +9,7 @@ function loadStories() {
   // Core
   require('../stories/AutoComplete');
   require('../stories/Breadcrubms');
-  require('../stories/Backoffice/Button');
+  require('../stories/BackOffice/Button');
   require('../stories/ButtonLayout');
   require('../stories/ButtonSelection');
   require('../stories/Checkbox');
@@ -35,7 +35,7 @@ function loadStories() {
   require('../stories/Slider');
   require('../stories/Tag');
   require('../stories/Viewer/TextLink');
-  require('../stories/Backoffice/TextLink');
+  require('../stories/BackOffice/TextLink');
   require('../stories/TimeInput');
   // require('../stories/Toast'); DEPRECATED
   require('../stories/ToggleSwitch');
@@ -55,7 +55,7 @@ function loadStories() {
   require('../stories/Range');
   require('../stories/AutoCompleteComposite');
   require('../stories/GoogleAddressInputWithLabel');
-  require('../stories/Backoffice/Button/CompositeStory');
+  require('../stories/BackOffice/Button/CompositeStory');
   require('../stories/Breadcrubms/CompositeStory');
   require('../stories/Tabs');
   require('../stories/Tooltip/Composite/CompositeStory');
