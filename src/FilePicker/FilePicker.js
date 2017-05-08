@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import styles from './FilePicker.scss';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import {Add} from '../Icons/dist';
 
 class FilePicker extends WixComponent {

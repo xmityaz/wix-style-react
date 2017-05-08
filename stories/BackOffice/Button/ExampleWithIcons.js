@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Button from 'wix-style-react/Button';
-import {Close} from '../../src/Icons/dist';
+import {Button} from 'wix-style-react/Backoffice';
+import {Close} from '../../../src/Icons/dist';
 
 const style = {
   display: 'inline-block',

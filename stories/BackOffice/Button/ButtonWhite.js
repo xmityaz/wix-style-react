@@ -1,16 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 
 import Template from './Template';
-import RadioGroup from '../../src/RadioGroup';
-import Label from '../../src/Label';
-import Input from '../../src/Input';
-import ToggleSwitch from '../../src/ToggleSwitch';
+import RadioGroup from '../../../src/RadioGroup';
+import Label from '../../../src/Label';
+import Input from '../../../src/Input';
+import ToggleSwitch from '../../../src/ToggleSwitch';
 import IconChooser from './IconChooser';
-import * as Icons from '../../src/Icons/dist';
+import * as Icons from '../../../src/Icons/dist';
 
 import styles from './ExampleButton.scss';
 
-class ButtonPremium extends Component {
+class ButtonWhite extends Component {
 
   static propTypes = {
     onChange: PropTypes.func
@@ -18,7 +18,7 @@ class ButtonPremium extends Component {
 
   state = {
     disabled: false,
-    theme: 'fullpurple',
+    theme: 'whiteblueprimary',
     text: 'Click On Me'
   };
 
@@ -35,8 +35,8 @@ class ButtonPremium extends Component {
                 value={this.state.theme}
                 onChange={theme => this.setState({theme})}
               >
-                <RadioGroup.Radio value="fullpurple">Primary</RadioGroup.Radio>
-                <RadioGroup.Radio value="emptypurple">Secondary</RadioGroup.Radio>
+                <RadioGroup.Radio value="whiteblueprimary">Primary</RadioGroup.Radio>
+                <RadioGroup.Radio value="whitebluesecondary">Secondary</RadioGroup.Radio>
               </RadioGroup>
             </div>
           </div>
@@ -83,7 +83,7 @@ class ButtonPremium extends Component {
 
         </div>
 
-        <div className={styles.output}>
+        <div className={styles['output-darkblue']}>
           <div className={`${styles[this.state.theme]} ${styles.exampleWrapper}`}>
             <Template {...this.state} onChange={this.props.onChange}/>
           </div>
@@ -93,4 +93,4 @@ class ButtonPremium extends Component {
   }
 }
 
-export default ButtonPremium;
+export default ButtonWhite;

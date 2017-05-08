@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import styles from './Tag.scss';
 import classNames from 'classnames';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 
 class Tag extends WixComponent {
   render() {

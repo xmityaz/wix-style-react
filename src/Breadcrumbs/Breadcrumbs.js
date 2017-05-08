@@ -3,7 +3,7 @@ import {arrayOf, func, oneOf, oneOfType, node, number, shape, string, any} from 
 import styles from './Breadcrumbs.scss';
 import classNames from 'classnames';
 import Label from '../Label';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import BreadcrumbsPathFactory from './BreadcrumbsPathFactory';
 
 class Breadcrumbs extends WixComponent {

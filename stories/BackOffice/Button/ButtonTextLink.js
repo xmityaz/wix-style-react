@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 
 import Template from './TextLinkTemplate';
-import RadioGroup from '../../src/RadioGroup';
-import Label from '../../src/Label';
-import Checkbox from '../../src/Checkbox';
-import Input from '../../src/Input';
+import RadioGroup from '../../../src/RadioGroup';
+import Label from '../../../src/Label';
+import Checkbox from '../../../src/Checkbox';
+import Input from '../../../src/Input';
 
 import styles from './ExampleButton.scss';
 

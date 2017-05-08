@@ -1,7 +1,7 @@
 import React, {Children} from 'react';
 import head from 'lodash.head';
 import last from 'lodash.last';
-import WixComponent from '../../WixComponent';
+import WixComponent from '../../BaseComponents/WixComponent';
 import styles from './InputAreaWithLabelComposite.scss';
 
 class InputAreaWithLabelComposite extends WixComponent {

@@ -1,17 +1,17 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import Markdown from '../utils/Components/Markdown';
-import TabbedView from '../utils/Components/TabbedView';
-import CodeExample from '../utils/Components/CodeExample';
-import Readme from '../../src/Button/README.md';
-import ReadmeTestKit from '../../src/Button/README.TESTKIT.md';
+import Markdown from '../../utils/Components/Markdown';
+import TabbedView from '../../utils/Components/TabbedView';
+import CodeExample from '../../utils/Components/CodeExample';
+import Readme from '../../../src/Backoffice/Button/README.md';
+import ReadmeTestKit from '../../../src/Backoffice/Button/README.TESTKIT.md';
 
 import ExampleControlled from './ExampleControlled';
 import ExampleControlledRaw from '!raw!./ExampleControlled';
 import IconsExample from './ExampleWithIcons';
 import IconsExampleRaw from '!raw!./ExampleWithIcons';
 
-storiesOf('Core', module)
+storiesOf('Backoffice', module)
   .add('Button', () => (
     <TabbedView tabs={['API Documentation', 'TestKits Documentation']}>
       <div>

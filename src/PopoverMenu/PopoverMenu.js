@@ -1,5 +1,5 @@
 import React from 'react';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import styles from './PopoverMenu.scss';
 
 class PopoverMenu extends WixComponent {

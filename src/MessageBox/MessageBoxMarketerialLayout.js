@@ -1,8 +1,8 @@
 import React from 'react';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import classNames from 'classnames';
 
-import Button from '../Button';
+import {Button} from '../Backoffice';
 import SvgX from '../svg/X.js';
 
 import * as styles from './MessageBoxMarketerialLayout.scss';

@@ -1,9 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 
 import Template from './Template';
-import RadioGroup from '../../src/RadioGroup';
-import Label from '../../src/Label';
-import ToggleSwitch from '../../src/ToggleSwitch';
+import RadioGroup from '../../../src/RadioGroup';
+import Label from '../../../src/Label';
+import ToggleSwitch from '../../../src/ToggleSwitch';
 
 import styles from './ExampleButton.scss';
 

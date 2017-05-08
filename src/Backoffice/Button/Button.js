@@ -1,8 +1,8 @@
 import React from 'react';
 import {any, func, node, string} from 'prop-types';
 import styles from './Button.scss';
-import WixComponent from '../WixComponent';
-import ButtonLayout from '../ButtonLayout/ButtonLayout';
+import WixComponent from '../../BaseComponents/WixComponent';
+import ButtonLayout from '../../BaseComponents/ButtonLayout/ButtonLayout';
 import omit from 'lodash.omit';
 
 class Button extends WixComponent {

@@ -1,16 +1,15 @@
 import React, {Component, PropTypes} from 'react';
 
 import Template from './Template';
-import RadioGroup from '../../src/RadioGroup';
-import Label from '../../src/Label';
-import Input from '../../src/Input';
-import ToggleSwitch from '../../src/ToggleSwitch';
+import Label from '../../../src/Label';
+import Input from '../../../src/Input';
+import ToggleSwitch from '../../../src/ToggleSwitch';
 import IconChooser from './IconChooser';
-import * as Icons from '../../src/Icons/dist';
+import * as Icons from '../../../src/Icons/dist';
 
 import styles from './ExampleButton.scss';
 
-class ButtonWhite extends Component {
+class ButtonTransparent extends Component {
 
   static propTypes = {
     onChange: PropTypes.func
@@ -18,7 +17,8 @@ class ButtonWhite extends Component {
 
   state = {
     disabled: false,
-    theme: 'whiteblueprimary',
+    height: 'small',
+    theme: 'transparent',
     text: 'Click On Me'
   };
 
@@ -26,20 +26,6 @@ class ButtonWhite extends Component {
     return (
       <from className={styles.form}>
         <div className={styles.input}>
-
-          <div className={styles.option}>
-            <Label>Type</Label>
-            <div className={styles.flex}>
-              <RadioGroup
-                display="horizontal"
-                value={this.state.theme}
-                onChange={theme => this.setState({theme})}
-              >
-                <RadioGroup.Radio value="whiteblueprimary">Primary</RadioGroup.Radio>
-                <RadioGroup.Radio value="whitebluesecondary">Secondary</RadioGroup.Radio>
-              </RadioGroup>
-            </div>
-          </div>
 
           <div className={styles.option}>
             <Label>Disabled</Label>
@@ -83,7 +69,7 @@ class ButtonWhite extends Component {
 
         </div>
 
-        <div className={styles['output-darkblue']}>
+        <div className={styles.output}>
           <div className={`${styles[this.state.theme]} ${styles.exampleWrapper}`}>
             <Template {...this.state} onChange={this.props.onChange}/>
           </div>
@@ -93,4 +79,4 @@ class ButtonWhite extends Component {
   }
 }
 
-export default ButtonWhite;
+export default ButtonTransparent;

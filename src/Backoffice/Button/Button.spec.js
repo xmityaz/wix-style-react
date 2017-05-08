@@ -2,11 +2,11 @@ import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 import buttonDriverFactory from './Button.driver';
 import Button from './Button';
-import {createDriverFactory} from '../test-common';
-import {buttonTestkitFactory} from '../../testkit';
-import {buttonTestkitFactory as enzymeButtonTestkitFactory} from '../../testkit/enzyme';
+import {createDriverFactory} from '../../test-common';
+import {buttonTestkitFactory} from '../../../testkit';
+import {buttonTestkitFactory as enzymeButtonTestkitFactory} from '../../../testkit/enzyme';
 import {mount} from 'enzyme';
-import {Close} from '../Icons/dist';
+import {Close} from '../../Icons/dist';
 
 describe('Button', () => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import typography, {convertFromUxLangToCss} from '../Typography';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 
 class Label extends WixComponent {
   render() {

@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import styles from './PopoverMenuItem.scss';
 import typography from '../../src/Typography';
 import classNames from 'classnames';

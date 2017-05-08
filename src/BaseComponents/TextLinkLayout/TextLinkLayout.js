@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import typography from '../Typography';
-import WixComponent from '../WixComponent';
+import WixComponent from '../../BaseComponents/WixComponent';
 
 export default class TextLinkLayout extends WixComponent {
 

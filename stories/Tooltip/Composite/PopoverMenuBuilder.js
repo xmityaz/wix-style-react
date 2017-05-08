@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
-import IconChooser from '../../Button/IconChooser';
+import IconChooser from '../../Backoffice/Button/IconChooser';
 import Input from 'wix-style-react/Input';
-import Button from 'wix-style-react/Button';
+import {Button} from 'wix-style-react/Backoffice';
 
 class PopoverMenuBuilder extends React.Component {
   static propTypes = {

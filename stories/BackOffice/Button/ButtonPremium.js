@@ -1,15 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 
 import Template from './Template';
-import Label from '../../src/Label';
-import Input from '../../src/Input';
-import ToggleSwitch from '../../src/ToggleSwitch';
+import RadioGroup from '../../../src/RadioGroup';
+import Label from '../../../src/Label';
+import Input from '../../../src/Input';
+import ToggleSwitch from '../../../src/ToggleSwitch';
 import IconChooser from './IconChooser';
-import * as Icons from '../../src/Icons/dist';
+import * as Icons from '../../../src/Icons/dist';
 
 import styles from './ExampleButton.scss';
 
-class ButtonTransparent extends Component {
+class ButtonPremium extends Component {
 
   static propTypes = {
     onChange: PropTypes.func
@@ -17,8 +18,7 @@ class ButtonTransparent extends Component {
 
   state = {
     disabled: false,
-    height: 'small',
-    theme: 'transparent',
+    theme: 'fullpurple',
     text: 'Click On Me'
   };
 
@@ -26,6 +26,20 @@ class ButtonTransparent extends Component {
     return (
       <from className={styles.form}>
         <div className={styles.input}>
+
+          <div className={styles.option}>
+            <Label>Type</Label>
+            <div className={styles.flex}>
+              <RadioGroup
+                display="horizontal"
+                value={this.state.theme}
+                onChange={theme => this.setState({theme})}
+              >
+                <RadioGroup.Radio value="fullpurple">Primary</RadioGroup.Radio>
+                <RadioGroup.Radio value="emptypurple">Secondary</RadioGroup.Radio>
+              </RadioGroup>
+            </div>
+          </div>
 
           <div className={styles.option}>
             <Label>Disabled</Label>
@@ -79,4 +93,4 @@ class ButtonTransparent extends Component {
   }
 }
 
-export default ButtonTransparent;
+export default ButtonPremium;

@@ -2,7 +2,7 @@ import React, {PropTypes, Children} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
 import css from './Notification.scss';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import {children, once, optional, any} from '../../src/Composite';
 import CloseButton from './CloseButton';
 import TextLabel from './TextLabel';

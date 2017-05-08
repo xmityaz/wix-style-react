@@ -1,1 +1,1 @@
-export {default} from '../Backoffice/TextLink';
+export {TextLink} from '../Backoffice';

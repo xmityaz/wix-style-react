@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import RichTextAreaButton from './RichTextAreaButton';
 import RichTextAreaLinkButton from './RichTextAreaLinkButton';
 import styles from './RichTextAreaToolbar.scss';

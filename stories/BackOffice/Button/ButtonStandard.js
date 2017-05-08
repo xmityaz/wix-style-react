@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 
 import Template from './Template';
-import RadioGroup from '../../src/RadioGroup';
-import Label from '../../src/Label';
-import Input from '../../src/Input';
-import ToggleSwitch from '../../src/ToggleSwitch';
+import RadioGroup from '../../../src/RadioGroup';
+import Label from '../../../src/Label';
+import Input from '../../../src/Input';
+import ToggleSwitch from '../../../src/ToggleSwitch';
 import IconChooser from './IconChooser';
-import * as Icons from '../../src/Icons/dist';
+import * as Icons from '../../../src/Icons/dist';
 
 import styles from './ExampleButton.scss';
 

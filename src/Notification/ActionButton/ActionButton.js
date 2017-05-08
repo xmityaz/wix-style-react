@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
-import Button from '../../Button';
-import TextLink from '../../Backoffice/TextLink';
+import {Button, TextLink} from '../../Backoffice';
 
 const ActionButton = ({children, onClick, type, link}) => {
   const commonProps = {

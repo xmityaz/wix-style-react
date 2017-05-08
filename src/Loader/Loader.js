@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import classnames from 'classnames';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 
 import styles from './Loader.scss';
 

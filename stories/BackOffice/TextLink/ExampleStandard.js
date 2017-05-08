@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TextLink from 'wix-style-react/Backoffice';
+import {TextLink} from 'wix-style-react/Backoffice';
 
 const style = {
   display: 'inline-block',

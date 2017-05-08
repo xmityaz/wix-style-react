@@ -42,7 +42,7 @@ export const tagTestkitFactory = testkitFactoryCreator(tagDriverFactory);
 import checkboxDriverFactory from '../src/Checkbox/Checkbox.driver';
 export const checkboxTestkitFactory = testkitFactoryCreator(checkboxDriverFactory);
 
-import buttonDriverFactory from '../src/Button/Button.driver';
+import buttonDriverFactory from '../src/Backoffice/Button/Button.driver';
 export const buttonTestkitFactory = testkitFactoryCreator(buttonDriverFactory);
 
 import textLinkDriverFactory from '../src/BaseComponents/TextLink/TextLink.driver';

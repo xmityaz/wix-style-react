@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@kadira/storybook';
-import InteractiveCodeExample from '../utils/Components/InteractiveCodeExample';
+import InteractiveCodeExample from '../../utils/Components/InteractiveCodeExample';
 import ButtonStandard from './ButtonStandard';
 import ButtonWhite from './ButtonWhite';
 import ButtonIcon from './ButtonIcon';

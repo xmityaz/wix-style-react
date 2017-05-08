@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import TextLink from 'wix-style-react/Backoffice/TextLink';
+import {TextLink} from 'wix-style-react/Backoffice';
 
 export class Form extends Component {
 

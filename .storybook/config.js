@@ -9,7 +9,7 @@ function loadStories() {
   // Core
   require('../stories/AutoComplete');
   require('../stories/Breadcrubms');
-  require('../stories/Button');
+  require('../stories/Backoffice/Button');
   require('../stories/ButtonLayout');
   require('../stories/ButtonSelection');
   require('../stories/Checkbox');
@@ -55,7 +55,7 @@ function loadStories() {
   require('../stories/Range');
   require('../stories/AutoCompleteComposite');
   require('../stories/GoogleAddressInputWithLabel');
-  require('../stories/Button/CompositeStory');
+  require('../stories/Backoffice/Button/CompositeStory');
   require('../stories/Breadcrubms/CompositeStory');
   require('../stories/Tabs');
   require('../stories/Tooltip/Composite/CompositeStory');
