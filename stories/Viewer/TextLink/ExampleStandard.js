@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TextLink from 'wix-style-react/Viewer/TextLink';
+import TextLink from 'wix-style-react/Viewer';
 
 const style = {
   display: 'inline-block',
