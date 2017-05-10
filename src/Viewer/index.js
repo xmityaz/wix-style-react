@@ -1,1 +1,7 @@
-export {default} from './TextLink/TextLink.js';
+import TextLink from './TextLink/TextLink.js';
+import Divider from './Divider/Divider.js';
+
+export {
+  TextLink,
+  Divider
+}

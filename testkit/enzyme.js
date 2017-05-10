@@ -125,3 +125,5 @@ export const imageViewerTestkitFactory = enzymeTestkitFactoryCreator(imageViewer
 import textDriverFactory from '../src/Text/Text.driver';
 export const textTestkitFactory = enzymeTestkitFactoryCreator(textDriverFactory);
 
+import dividerDriverFactory from '../src/Viewer/Divider/Divider.driver';
+export const dividerTestkitFactory = enzymeTestkitFactoryCreator(dividerDriverFactory);

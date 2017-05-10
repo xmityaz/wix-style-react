@@ -121,3 +121,6 @@ import textDriverFactory from '../src/Text/Text.driver';
 export const textTestkitFactory = testkitFactoryCreator(textDriverFactory);
 
 export {toastTestkitFactory} from '../src/Toast/testkit/Toast';
+
+import dividerDriverFactory from '../src/Viewer/Divider/Divider.driver';
+export const dividerTestkitFactory = testkitFactoryCreator(dividerDriverFactory);

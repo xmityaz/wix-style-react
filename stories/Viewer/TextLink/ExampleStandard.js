@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TextLink from 'wix-style-react/Viewer';
+import {TextLink} from 'wix-style-react/Viewer';
 
 const style = {
   display: 'inline-block',
@@ -20,7 +20,7 @@ class ControlledExample extends Component {
         <TextLink link="http://www.wix.com">Wix link</TextLink>
         <TextLink underlineStyle="always" link="http://www.wix.com">Wix link underline</TextLink>
         <TextLink underlineStyle="never" link="http://www.wix.com">Wix link without underline</TextLink>
-        <TextLink size='small' ariaLabel="wix.com site" link="http://www.wix.com">Samll link with ariaLabel</TextLink>
+        <TextLink size='small' ariaLabel="wix.com site" link="http://www.wix.com">Small link with ariaLabel</TextLink>
       </div>
 
 
