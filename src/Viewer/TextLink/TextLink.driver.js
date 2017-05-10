@@ -8,7 +8,7 @@ const viewerTextLinkDriverFactory = ({element, wrapper, component}) => {
   let extendsFunc = {
     hoverLink: () => ReactTestUtils.Simulate.mouseEnter(element.children[0]),
     leaveLink: () => ReactTestUtils.Simulate.mouseLeave(element.children[0]),
-    getColor: () => element.children[0].style._values.color,
+    getColor: () => element.children[0].style._values.color
   };
 
   return Object.assign(textLinkDriverFactory({element, wrapper, component}), extendsFunc);

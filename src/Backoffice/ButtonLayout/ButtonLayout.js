@@ -22,6 +22,11 @@ const ButtonLayout = props => {
       display: 'inline-block'
     }
   );
+  debugger;
+  if(height === 'small') {
+
+  }
+
 
   if (React.Children.count(children) === 1) {
     return React.cloneElement(

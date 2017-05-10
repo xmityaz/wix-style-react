@@ -2,7 +2,7 @@ import React from 'react';
 import {any, func, node, string} from 'prop-types';
 import styles from './Button.scss';
 import WixComponent from '../../BaseComponents/WixComponent';
-import ButtonLayout from '../../BaseComponents/ButtonLayout/ButtonLayout';
+import ButtonLayout from '../../ButtonLayout/ButtonLayout';
 import omit from 'lodash.omit';
 
 class Button extends WixComponent {
@@ -13,10 +13,10 @@ class Button extends WixComponent {
     prefixIcon: node,
     suffixIcon: node,
     type: string,
-    onClick: func,
+    onClick: func
   }
 
-  static defaultProps = ButtonLayout.defaultProps
+  static defaultProps = ButtonLayout.defaultProps;
 
   constructor(props) {
     super(props);

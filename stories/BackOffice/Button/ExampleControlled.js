@@ -21,7 +21,7 @@ class ControlledExample extends Component {
       <div>
         <div className="ltr" style={style}>
           Enabled<br/>
-          <Button id="button" dataHook="story-button-enabled" onClick={onClick}>{this.state.clicked ? 'Clicked!' : 'Click Me!'}</Button>
+          <Button id="button" dataHook="story-button-enabled" onClick={onClick} >{this.state.clicked ? 'Clicked!' : 'Click Me!'}</Button>
         </div>
         <div className="ltr" style={style}>
           Disabled<br/>
