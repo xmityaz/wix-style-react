@@ -1,6 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import {TextLink} from 'wix-style-react/Viewer';
+const Color = require('color');
 
 export class Form extends Component {
 
@@ -14,6 +15,9 @@ export class Form extends Component {
 
   getComponent() {
     const link = 'http://www.wix.com';
+    let color = this.getValidColor(this.props.color);
+    let hover = this.getValidColor(this.props.hover);
+
     return (
       <TextLink
         link={link}
@@ -26,12 +30,23 @@ export class Form extends Component {
         size={this.props.size}
         disabled={this.props.disabled}
         ariaLabel={this.props.ariaLabel}
-        color={this.props.color}
-        hover={this.props.hover}
+        color={color}
+        hover={hover}
       >
         Wix Link
       </TextLink>
     );
+  }
+
+  getValidColor(color) {
+    let colorObj;
+    try {
+      colorObj = Color(color);
+      //color valid, do nothing
+    } catch (e) {
+      color = '';
+    }
+    return color;
   }
 
   render() {
