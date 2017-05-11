@@ -1,8 +1,8 @@
 import eyes from 'eyes.it';
-import {buttonTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
+import {buttonTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../../testkit/protractor';
 
 describe('Button', () => {
-  const storyUrl = getStoryUrl('Core', 'Button');
+  const storyUrl = getStoryUrl('Backoffice', 'Button');
   const beforeClickState = 'Click Me!';
   const clickedState = 'Clicked!';
 

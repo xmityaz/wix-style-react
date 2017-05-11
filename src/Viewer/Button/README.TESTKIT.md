@@ -18,8 +18,8 @@
 > Unit Testing Example
 ```javascript
   import React from 'react';
-  import {buttonTestkitFactory} from 'wix-style-react/dist/testkit';
-  import {buttonTestkitFactory as enzymeButtonTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
+  import {viewerButtonTestkitFactory} from 'wix-style-react/dist/testkit';
+  import {viewerButtonTestkitFactory as enzymeButtonTestkitFactory} from 'wix-style-react/dist/testkit/enzyme';
 
   /***************
    enzyme example
@@ -41,7 +41,7 @@
   const wrapper = div.appendChild(
     ReactTestUtils.renderIntoDocument(<div/><Button dataHook={dataHook}/></div>, {dataHook})
   );
-  const testkit = buttonTestkitFactory({wrapper, dataHook});
+  const testkit = viewerButtonTestkitFactory({wrapper, dataHook});
 
   //Do tests
   expect(testkit.exists()).toBeTruthy();
@@ -57,10 +57,10 @@
    Protractor example
   **********************/
 
-  import {buttonTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
+  import {viewerButtonTestkitFactory, waitForVisibilityOf} from 'wix-style-react/dist/testkit/protractor';
 
   //Create an element testkit via the data-hook attribute
-  const testkit = buttonTestkitFactory({dataHook: 'myDataHook'});
+  const testkit = viewerButtonTestkitFactory({dataHook: 'myDataHook'});
 
   browser.get(appUrl);  //Your application url
 

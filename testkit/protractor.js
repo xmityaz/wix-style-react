@@ -5,8 +5,11 @@ export {getStoryUrl, waitForVisibilityOf, scrollToElement} from '../src/test-com
 import labelDriverFactory from '../src/Label/Label.protractor.driver';
 export const labelTestkitFactory = protractorTestkitFactoryCreator(labelDriverFactory);
 
-import buttonDriverFactory from '../src/Button/Button.protractor.driver';
+import buttonDriverFactory from '../src/Backoffice/Button/Button.protractor.driver';
 export const buttonTestkitFactory = protractorTestkitFactoryCreator(buttonDriverFactory);
+
+import viewerButtonDriverFactory from '../src/Viewer/Button/Button.protractor.driver';
+export const viewerButtonTestkitFactory = protractorTestkitFactoryCreator(viewerButtonDriverFactory);
 
 import buttonSelectionDriverFactory from '../src/ButtonSelection/ButtonSelection.protractor.driver';
 export const buttonSelectionTestkitFactory = protractorTestkitFactoryCreator(buttonSelectionDriverFactory);

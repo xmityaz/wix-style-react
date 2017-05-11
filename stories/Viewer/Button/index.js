@@ -8,8 +8,6 @@ import ReadmeTestKit from '../../../src/Viewer/Button/README.TESTKIT.md';
 
 import ExampleControlled from './ExampleControlled';
 import ExampleControlledRaw from '!raw!./ExampleControlled';
-import IconsExample from './ExampleWithIcons';
-import IconsExampleRaw from '!raw!./ExampleWithIcons';
 
 storiesOf('Viewer', module)
   .add('Button', () => (

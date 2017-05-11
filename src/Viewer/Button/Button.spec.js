@@ -5,8 +5,8 @@ import Button from './Button';
 import ButtonLayout from '../ButtonLayout/ButtonLayout';
 
 import {createDriverFactory} from '../../test-common';
-import {buttonTestkitFactory} from '../../../testkit';
-import {buttonTestkitFactory as enzymeButtonTestkitFactory} from '../../../testkit/enzyme';
+import {viewerButtonTestkitFactory} from '../../../testkit';
+import {viewerButtonTestkitFactory as enzymeButtonTestkitFactory} from '../../../testkit/enzyme';
 import {mount} from 'enzyme';
 import {Close} from '../../Icons/dist';
 
@@ -77,7 +77,7 @@ describe('testkit', () => {
     const dataHook = 'myDataHook';
     const onClick = jest.fn();
     const wrapper = div.appendChild(ReactTestUtils.renderIntoDocument(<div><Button onClick={onClick} dataHook={dataHook}/></div>));
-    const buttonTestkit = buttonTestkitFactory({wrapper, dataHook});
+    const buttonTestkit = viewerButtonTestkitFactory({wrapper, dataHook});
     expect(buttonTestkit.exists()).toBeTruthy();
   });
 });

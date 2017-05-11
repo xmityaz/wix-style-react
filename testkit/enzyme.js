@@ -45,6 +45,9 @@ export const checkboxTestkitFactory = enzymeTestkitFactoryCreator(checkboxDriver
 import buttonDriverFactory from '../src/Backoffice/Button/Button.driver';
 export const buttonTestkitFactory = enzymeTestkitFactoryCreator(buttonDriverFactory);
 
+import viewerButtonDriverFactory from '../src/Backoffice/Button/Button.driver';
+export const viewerButtonTestkitFactory = enzymeTestkitFactoryCreator(viewerButtonDriverFactory);
+
 import textLinkDriverFactory from '../src/BaseComponents/TextLink/TextLink.driver';
 export const textLinkTestkitFactory = enzymeTestkitFactoryCreator(textLinkDriverFactory);
 

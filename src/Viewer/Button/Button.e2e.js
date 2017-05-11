@@ -1,14 +1,14 @@
 import eyes from 'eyes.it';
-import {buttonTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../testkit/protractor';
+import {viewerButtonTestkitFactory, getStoryUrl, waitForVisibilityOf} from '../../../testkit/protractor';
 
 describe('Button', () => {
-  const storyUrl = getStoryUrl('Core', 'Button');
+  const storyUrl = getStoryUrl('Viewer', 'Button');
   const beforeClickState = 'Click Me!';
   const clickedState = 'Clicked!';
 
   eyes.it('should click a button', () => {
     const dataHook = 'story-button-enabled';
-    const driver = buttonTestkitFactory({dataHook});
+    const driver = viewerButtonTestkitFactory({dataHook});
 
     browser.get(storyUrl);
 
@@ -20,20 +20,14 @@ describe('Button', () => {
       });
   });
 
-  eyes.it('should render disabled, suffixIcon, prefixIcon buttons correctly', () => {
+  eyes.it('should render disabled buttons correctly', () => {
     const dataHookDisabled = 'story-button-disabled';
-    const dataHookPrefix = 'story-button-prefix';
-    const dataHookSuffix = 'story-button-suffix';
-    const driverDisabled = buttonTestkitFactory({dataHook: dataHookDisabled});
-    const driverPrefix = buttonTestkitFactory({dataHook: dataHookPrefix});
-    const driverSuffix = buttonTestkitFactory({dataHook: dataHookSuffix});
+    const driverDisabled = viewerButtonTestkitFactory({dataHook: dataHookDisabled});
 
     // browser.get(storyUrl);
-    waitForVisibilityOf([driverDisabled.element(), driverPrefix.element(), driverSuffix.element()], 'Cannot find Button')
+    waitForVisibilityOf([driverDisabled.element()], 'Cannot find Button')
       .then(() => {
         expect(driverDisabled.isButtonDisabled()).toBe(true);
-        expect(driverPrefix.isPrefixIconExists()).toBe(true);
-        expect(driverSuffix.isSuffixIconExists()).toBe(true);
       });
   });
 });
