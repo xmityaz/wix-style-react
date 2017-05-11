@@ -155,4 +155,41 @@ describe('ButtonLayout', () => {
       expect(driver.getStyle()['border-radius']).toBe(`${radius}px`);
     });
   });
+
+  describe('connected theme', () => {
+    let driver;
+    const theme = ButtonLayout.settings.CONNECTED_THEME;
+    const defaultBGColor = ButtonLayout.generateRGBAColor(ButtonLayout.settings.DEFAULT_DESIGN_BG_COLOR, 0);
+    const defaultColor = ButtonLayout.generateRGBAColor(ButtonLayout.settings.DEFAULT_DESIGN_COLOR);
+
+    beforeEach(() => {
+      driver = createDriver(someDivWithLayout({theme}));
+    });
+
+    it('should have Connected theme', () => {
+      expect(driver.doesComponentHasClass(theme)).toBeTruthy();
+    });
+
+    it('should check the default BG color ', () => {
+      expect(driver.getStyle()['background-color']).toBe(defaultBGColor);
+    });
+
+    it('should check the default TEXT color ', () => {
+      expect(driver.getStyle()['color']).toBe(defaultColor);
+    });
+
+    it('should change button color and opacity', () => {
+      const bgColor = '#ff00f0';
+      const bgOpacity = .2;
+      const expectedRGBA = 'rgba(255, 0, 240, 0.2)';
+      driver = createDriver(someDivWithLayout({theme, backgroundColor: bgColor, backgroundColorOpacity: bgOpacity}));
+      expect(driver.getStyle()['background-color']).toBe(expectedRGBA);
+    });
+
+    it('should change button radius', () => {
+      const radius = 2;
+      driver = createDriver(someDivWithLayout({theme, radius}));
+      expect(driver.getStyle()['border-radius']).toBe(`${radius}px`);
+    });
+  });
 });

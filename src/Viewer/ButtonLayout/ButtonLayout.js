@@ -70,7 +70,9 @@ const ButtonLayout = props => {
   };
 
   let selectedStyle;
+  let borderRadius;
   switch(theme) {
+    case settings.CONNECTED_THEME:
     case settings.DESIGN_THEME:
       backgroundColorOpacity = returnSelectedValue(backgroundColorOpacity, settings.DEFAULT_DESIGN_BG_OPACITY);
       backgroundColor = returnSelectedValue(backgroundColor, settings.DEFAULT_DESIGN_BG_COLOR);
@@ -78,7 +80,7 @@ const ButtonLayout = props => {
       borderWidth = returnSelectedValue(borderWidth, settings.DEFAULT_BORDER_WIDTH);
       borderColorOpacity = returnSelectedValue(borderColorOpacity, settings.DEFAULT_BORDER_OPACITY);
       color = returnSelectedValue(color, settings.DEFAULT_DESIGN_COLOR);
-      let borderRadius = `${returnSelectedValue(radius, settings.DEFAULT_RADIUS)}px`;
+      borderRadius = `${returnSelectedValue(radius, settings.DEFAULT_RADIUS)}px`;
       selectedStyle = Object.assign(commonStyle, {
         backgroundColor: generateRGBAColor(backgroundColor, backgroundColorOpacity),
         color,

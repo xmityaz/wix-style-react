@@ -46,6 +46,22 @@ class ControlledExample extends Component {
                     onClick={onClick}>{this.state.disabledClick ? 'Clicked!' : 'Click Me!'}</Button>
           </div>
         </div>
+        <div className="ltr" style={style}>
+          Connected Theme:<br/>
+          <div className="ltr">
+            <br/>Active:<br/>
+            <Button id="button" dataHook="story-button-enabled"
+                    theme="connected"
+                    onClick={onClick}>{this.state.disabledClick ? 'Clicked!' : 'Click Me!'}</Button>
+          </div>
+          <div className="ltr">
+            <br/>Disabled:<br/>
+            <Button id="connected" dataHook="story-button-disabled"
+                    theme="design"
+                    disabled={true}
+                    onClick={onClick}>{this.state.disabledClick ? 'Clicked!' : 'Click Me!'}</Button>
+          </div>
+        </div>
       </div>
     );
   }

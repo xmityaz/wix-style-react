@@ -73,6 +73,11 @@ class Button extends WixComponent {
               target.style.border = `${onHoverBorderWidth}px solid ${hoverBorderColor}`;
               target.style.color = ButtonLayout.generateRGBAColor(onHoverColor);
 
+            } else if (this.props.theme === ButtonLayout.settings.CONNECTED_THEME) {
+              const invertedColor = ButtonLayout.returnSelectedValue(color, ButtonLayout.settings.DEFAULT_DESIGN_COLOR);
+              const invertedBackgroundColor = ButtonLayout.returnSelectedValue(backgroundColor, ButtonLayout.settings.DEFAULT_DESIGN_BG_COLOR);
+              target.style.backgroundColor = invertedColor;
+              target.style.color = ButtonLayout.generateRGBAColor(invertedBackgroundColor);
             }
           }}
           onMouseLeave={event => {
@@ -93,6 +98,13 @@ class Button extends WixComponent {
               target.style.border = `${borderWidth}px solid ${borderColor}`;
               target.style.color = ButtonLayout.generateRGBAColor(color);
 
+            } else if (this.props.theme === ButtonLayout.settings.CONNECTED_THEME) {
+              color = ButtonLayout.returnSelectedValue(color, ButtonLayout.settings.DEFAULT_DESIGN_COLOR);
+              backgroundColor = ButtonLayout.returnSelectedValue(backgroundColor, ButtonLayout.settings.DEFAULT_DESIGN_BG_COLOR);
+              backgroundColorOpacity = ButtonLayout.returnSelectedValue(backgroundColorOpacity, ButtonLayout.settings.DEFAULT_DESIGN_BG_OPACITY);
+
+              target.style.backgroundColor = ButtonLayout.generateRGBAColor(backgroundColor, backgroundColorOpacity);
+              target.style.color = ButtonLayout.generateRGBAColor(color);
             }
           }}
         >

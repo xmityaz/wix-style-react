@@ -67,6 +67,32 @@ describe('Button', () => {
       expect(driver.getStyle()['color']).toBe(defaultColor);
     });
 
+  });
+
+  describe('connected theme: test hover state', () => {
+    let driver;
+    const theme = ButtonLayout.settings.CONNECTED_THEME;
+    const defaultBGColor = ButtonLayout.generateRGBAColor(ButtonLayout.settings.DEFAULT_DESIGN_BG_COLOR);
+    const defaultColor = ButtonLayout.generateRGBAColor(ButtonLayout.settings.DEFAULT_DESIGN_COLOR);
+
+    beforeEach(() => {
+      driver = createDriver(<Button theme={theme}/>);
+    });
+
+    it('should have Connected theme', () => {
+      expect(driver.doesComponentHasClass(theme)).toBeTruthy();
+    });
+
+    it('should swap the BG color on hover with the Text color', () => {
+      driver.hoverButton();
+      expect(driver.getStyle()['background-color']).toBe(defaultColor);
+    });
+
+    it('should swap the TEXT color on hover with the BG color', () => {
+      driver.hoverButton();
+      expect(driver.getStyle()['color']).toBe(defaultBGColor);
+    });
+
   })
 
 });
