@@ -14,6 +14,7 @@ export class Form extends Component {
 
   getComponent() {
     let size = this.getValidSize(this.props.size);
+    let opacity = this.getValidOpacity(this.props.opacity);
 
     return (
       <Divider
@@ -21,7 +22,7 @@ export class Form extends Component {
         size={size}
         length={this.props.length ? this.props.length : '100px'}
         color={this.props.color ? this.props.color : '#18D2DE'}
-        opacity={this.props.opacity ? this.props.opacity : 20}
+        opacity={opacity}
       >
       </Divider>
     );
@@ -35,6 +36,14 @@ export class Form extends Component {
       size = 2;
     }
     return size;
+  }
+
+  getValidOpacity(opacity) {
+    opacity = opacity ? opacity : 20;
+    if (opacity > 100) {
+      opacity = 100;
+    }
+    return opacity = opacity > 0 ? opacity : 0;
   }
 
   render() {

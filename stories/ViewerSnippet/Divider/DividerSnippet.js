@@ -48,7 +48,7 @@ class DividerSnippet extends Component {
           </div>
 
           <div className={styles.option}>
-            <Label>Length (px / %)</Label>
+            <Label>Length ('px' / '%' / none)</Label>
             <div className={styles.flex}>
               <Input
                 size="small"

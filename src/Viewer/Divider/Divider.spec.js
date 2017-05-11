@@ -73,6 +73,15 @@ describe('Divider', () => {
     expect(driver.getLength()).toBe(newLength);
   });
 
+  it('should replace the default length and add px if px and % are omitted', () => {
+    const newLength = '200';
+    const expectedLength = newLength + 'px';
+
+    const driver = createDriver(<Divider length={newLength}/>);
+
+    expect(driver.getWidth()).toBe(expectedLength);
+  });
+
   it('should return the default color', () => {
     const defaultColor = '#18d2de';
 
@@ -87,6 +96,15 @@ describe('Divider', () => {
     const driver = createDriver(<Divider color={newColor}/>);
 
     expect(driver.getColor()).toBe(newColor);
+  });
+
+  it('should replace the default color even if color do not have #', () => {
+    const newColor = '123fdc';
+    const expectedColor = '#' + newColor;
+
+    const driver = createDriver(<Divider color={newColor}/>);
+
+    expect(driver.getColor()).toBe(expectedColor);
   });
 
   it('should return the default opacity', () => {

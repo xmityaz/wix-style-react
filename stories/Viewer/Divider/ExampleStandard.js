@@ -35,7 +35,7 @@ class DividerExample extends React.Component {
               <div style={{height: '30px'}}>
                 Vertical divider with size, length, color, opacity parameters
               </div>
-              <Divider direction='vertical' color='#B1DDf8' length='200px' opacity={100} />
+              <Divider direction='vertical' color='FFDDf8' length='200px' opacity={100} />
             </Col>
           </Row>
         </Container>

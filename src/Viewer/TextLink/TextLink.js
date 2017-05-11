@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import WixComponent from '../../BaseComponents/WixComponent';
 import {BaseTextLink} from '../../BaseComponents';
+const Color = require('color');
 
 export default class TextLink extends WixComponent {
 
@@ -24,15 +25,24 @@ export default class TextLink extends WixComponent {
       download: false,
       rel: null,
       target: null,
-      color: '#18D2DE',
-      hover: '#B1DDf8'
+      color: '#18D2DE'
     }
   );
 
   render() {
+    let darkerHoverColor = Color(this.props.color).darken(0.2);
 
     return (
-      <BaseTextLink {...this.props}></BaseTextLink>
+      <BaseTextLink onMouseEnter={event => {
+                                  if(!!this.props.hover) {
+                                    event.target.style.color = this.props.hover;
+                                  } else {
+                                    event.target.style.color = darkerHoverColor;
+                                  }
+                                }}
+                    onMouseLeave={event => event.target.style.color = !!this.props.color ? this.props.color : 'inherit'}
+                    {...this.props}>
+      </BaseTextLink>
     );
   }
 }

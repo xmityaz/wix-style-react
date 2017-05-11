@@ -7,6 +7,7 @@ import Input from '../../../src/Input';
 import ToggleSwitch from '../../../src/ToggleSwitch';
 import styles from './ExampleTextLink.scss';
 import TextField from '../../../src/TextField';
+const Color = require('color');
 
 class TextLinkSnippet extends Component {
 

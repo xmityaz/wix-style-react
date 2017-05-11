@@ -9,12 +9,22 @@ import TabbedView from '../../utils/Components/TabbedView';
 import ExampleStandard from './ExampleStandard';
 import ExampleStandardRaw from '!raw!./ExampleStandard';
 
+const example =
+  <div>
+    <h1>Example</h1>
+
+    <CodeExample title="Standard" code={ExampleStandardRaw}>
+      <ExampleStandard/>
+    </CodeExample>
+
+  </div>;
+
 storiesOf('Viewer', module)
   .add('Divider', () => (
   <TabbedView tabs={['API', 'Testkit']}>
     <div>
       <Markdown source={Readme}/>
-      {ExampleStandard}
+      {example}
     </div>
     <div>
       <Markdown source={ReadmeTestkit}/>

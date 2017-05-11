@@ -13,7 +13,9 @@ export default class BaseTextLink extends WixComponent {
       rel: PropTypes.string,
       target: PropTypes.oneOf(['_blank', '_parent', '_self', '_top', 'framename']),
       ariaLabel: PropTypes.string,
-      color: PropTypes.string
+      color: PropTypes.string,
+      onMouseEnter: PropTypes.func,
+      onMouseLeave: PropTypes.func
     }
   );
 
@@ -27,17 +29,11 @@ export default class BaseTextLink extends WixComponent {
   );
 
   render() {
-    const {ariaLabel, disabled, link, children, download, rel, target} = this.props;
+    const {ariaLabel, disabled, link, children, download, rel, target, onMouseEnter, onMouseLeave} = this.props;
     const props = {
       download,
       href: `${link}`,
       onClick: event => disabled && event.preventDefault(),
-      onMouseEnter: event => {
-        if(!!this.props.hover) {
-          event.target.style.color = this.props.hover;//increase by 20%
-        }
-      },
-      onMouseLeave: event => event.target.style.color = !!this.props.color ? this.props.color : 'inherit',
       role: 'link',
       style: {
         textDecoration: 'inherit',
@@ -56,6 +52,14 @@ export default class BaseTextLink extends WixComponent {
 
     if (target) {
       props.target = target;
+    }
+
+    if (onMouseEnter) {
+      props['onMouseEnter'] = onMouseEnter;
+    }
+
+    if (onMouseLeave) {
+      props['onMouseLeave'] = onMouseLeave;
     }
 
     return (

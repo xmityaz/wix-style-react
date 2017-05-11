@@ -35,13 +35,6 @@ describe('TextLink', () => {
     expect(driver.getColor()).toBe(newColor);
   });
 
-  it('should return the default hover color on hover', () => {
-    const defaultHoverColor = 'rgb(177, 221, 248)';
-    const driver = createDriver(<TextLink link="https://www.wix.com" />);
-    driver.hoverLink();
-    expect(driver.getColor()).toBe(defaultHoverColor);
-  });
-
   it('should replace the default hover color on hover', () => {
     const newHoverColor = 'rgb(177, 221, 100)';
     const driver = createDriver(<TextLink link="https://www.wix.com" hover={newHoverColor}/>);

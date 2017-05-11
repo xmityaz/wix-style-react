@@ -25,6 +25,8 @@ export default class Divider extends WixComponent {
     let {direction, length, size, color, opacity} = this.props;
     size = this.getMaxSize(size);
     opacity = this.getFormattedOpacity(opacity);
+    color = this.getFormattedColor(color);
+    length = this.getFormattedLength(length);
     const props = {
       style: {
         boxSizing: 'border-box',
@@ -38,6 +40,14 @@ export default class Divider extends WixComponent {
     return (
       <div {...props} />
     );
+  }
+
+  getFormattedColor(color) {
+    return color.charAt(0) === '#' ? color : '#' + color;
+  }
+
+  getFormattedLength(length) {
+    return length.indexOf('px') === -1 && length.indexOf('%') === -1 ? length + 'px' : length;
   }
 
   getMaxSize(size) {
