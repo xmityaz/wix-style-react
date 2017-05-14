@@ -44,7 +44,9 @@ function loadStories() {
   require('../stories/BackOffice/TextLink');
   //Viewer
   require('../stories/Viewer/TextLink');
+  require('../stories/ViewerSnippet/TextLink/CompositeStory');
   require('../stories/Viewer/Divider');
+  require('../stories/ViewerSnippet/Divider/CompositeStory');
   // Common
   require('../stories/Composite');
   require('../stories/GridWithCardLayout');
@@ -65,8 +67,6 @@ function loadStories() {
   require('../stories/Tabs');
   require('../stories/Tooltip/Composite/CompositeStory');
   require('../stories/Notification');
-  require('../stories/ViewerSnippet/TextLink/CompositeStory');
-  require('../stories/ViewerSnippet/Divider/CompositeStory');
 
   // Animations
   require('../stories/Animations');

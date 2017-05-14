@@ -1,6 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import {Divider} from 'wix-style-react/Viewer';
+const Color = require('color');
 
 export class Form extends Component {
 
@@ -15,18 +16,32 @@ export class Form extends Component {
   getComponent() {
     let size = this.getValidSize(this.props.size);
     let opacity = this.getValidOpacity(this.props.opacity);
+    let color = this.getValidColor(this.props.color);
 
     return (
       <Divider
         direction={this.props.direction}
         size={size}
         length={this.props.length ? this.props.length : '100px'}
-        color={this.props.color ? this.props.color : '#18D2DE'}
+        color={color}
         opacity={opacity}
       >
       </Divider>
     );
   }
+
+  getValidColor(color) {
+    color = color ? color : '#18D2DE';
+    let colorObj;
+    try {
+      colorObj = Color(color);
+      //color valid, do nothing
+    } catch (e) {
+      color = '#18D2DE';
+    }
+    return color;
+  }
+
 
   getValidSize(size) {
     size = size ? size : 2;
