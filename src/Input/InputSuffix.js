@@ -50,7 +50,7 @@ const InputSuffix = ({theme, errorMessage, error, disabled, help, helpMessage, o
     },
     {
       component: () =>
-        <div onClick={onClear} className={styles.clearButton} tabIndex={0}>
+        <div onClick={onClear} className={styles.clearButton}>
           <CloseThin size={'6px'}/>
         </div>,
       isVisible: suffixRules.clearButton({isClearButtonVisible})
