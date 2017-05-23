@@ -1,5 +1,5 @@
-import TextLink from './TextLink/TextLink.js';
-import Button from './Button/Button.js';
+import TextLink from './TextLink';
+import Button from './Button';
 
 export {
   TextLink,
