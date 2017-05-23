@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {Editor} from 'slate';
-import WixComponent from '../WixComponent';
+import WixComponent from '../BaseComponents/WixComponent';
 import Tooltip from '../Tooltip';
 import SvgExclamation from '../svg/Exclamation.js';
 import RichTextEditorToolbar from './RichTextAreaToolbar';

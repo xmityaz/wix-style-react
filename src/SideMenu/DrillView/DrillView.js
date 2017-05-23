@@ -1,6 +1,6 @@
 import React, {Children} from 'react';
 import {string, node} from 'prop-types';
-import WixComponent from '../../WixComponent';
+import WixComponent from '../../BaseComponents/WixComponent';
 import SideMenu from '../index';
 import {SlideAnimation} from '../../Animations';
 import {SlideDirection} from '../../Animations/SlideAnimation';

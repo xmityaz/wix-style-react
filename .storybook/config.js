@@ -10,7 +10,8 @@ function loadStories() {
   require('../stories/AutoComplete');
   require('../stories/Breadcrubms');
   require('../stories/Badge');
-  require('../stories/Button');
+  require('../stories/BackOffice/Button');
+  require('../stories/Viewer/Button');
   require('../stories/ButtonLayout');
   require('../stories/ButtonSelection');
   require('../stories/Checkbox');
@@ -35,11 +36,18 @@ function loadStories() {
   require('../stories/SideMenu');
   require('../stories/Slider');
   require('../stories/Tag');
-  require('../stories/TextLink');
   require('../stories/TimeInput');
   // require('../stories/Toast'); DEPRECATED
   require('../stories/ToggleSwitch');
   require('../stories/Tooltip/Core');
+  //BackOffice
+  require('../stories/BackOffice/Button');
+  require('../stories/BackOffice/TextLink');
+  //Viewer
+  require('../stories/Viewer/TextLink');
+  require('../stories/ViewerSnippet/TextLink/CompositeStory');
+  require('../stories/Viewer/Divider');
+  require('../stories/ViewerSnippet/Divider/CompositeStory');
   // Common
   require('../stories/Composite');
   require('../stories/GridWithCardLayout');
@@ -55,7 +63,7 @@ function loadStories() {
   require('../stories/Range');
   require('../stories/AutoCompleteComposite');
   require('../stories/GoogleAddressInputWithLabel');
-  require('../stories/Button/CompositeStory');
+  require('../stories/BackOffice/Button/CompositeStory');
   require('../stories/Breadcrubms/CompositeStory');
   require('../stories/Tabs');
   require('../stories/Tooltip/Composite/CompositeStory');
