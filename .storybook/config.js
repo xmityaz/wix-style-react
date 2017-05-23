@@ -6,12 +6,11 @@ function loadStories() {
 
   // Introduction
   require('../stories/Introduction');
+
   // Core
   require('../stories/AutoComplete');
   require('../stories/Breadcrubms');
   require('../stories/Badge');
-  require('../stories/BackOffice/Button');
-  require('../stories/Viewer/Button');
   require('../stories/ButtonLayout');
   require('../stories/ButtonSelection');
   require('../stories/Checkbox');
@@ -40,19 +39,24 @@ function loadStories() {
   // require('../stories/Toast'); DEPRECATED
   require('../stories/ToggleSwitch');
   require('../stories/Tooltip/Core');
+
   //BackOffice
   require('../stories/BackOffice/Button');
   require('../stories/BackOffice/TextLink');
+
   //Viewer
+  require('../stories/Viewer/Button');
   require('../stories/Viewer/TextLink');
   require('../stories/ViewerSnippet/TextLink/CompositeStory');
   require('../stories/Viewer/Divider');
   require('../stories/ViewerSnippet/Divider/CompositeStory');
+
   // Common
   require('../stories/Composite');
   require('../stories/GridWithCardLayout');
   require('../stories/Icons');
   require('../stories/Common');
+
   // Composites
   require('../stories/TextField');
   require('../stories/TextArea');
