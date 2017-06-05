@@ -166,6 +166,17 @@ describe('Tooltip', () => {
     });
   });
 
+  describe('placement attribute', () => {
+    it('should be top by default', () => {
+      const driver = createDriver(<Tooltip {...{..._props}}>{children}</Tooltip>);
+      driver.mouseEnter();
+
+      return resolveIn(30).then(() => {
+        expect(document.querySelector('.arrow').className).toContain('top');
+      });
+    });
+  });
+
 
   describe('testkit', () => {
     it('should exist', () => {
