@@ -172,6 +172,37 @@ describe('Tooltip', () => {
       driver.mouseEnter();
 
       return resolveIn(30).then(() => {
+        console.log(document.querySelector('.arrow').className);
+        expect(document.querySelector('.arrow').className).toContain('bottom');
+      });
+    });
+
+    it('should be left', () => {
+      const driver = createDriver(<Tooltip {...{..._props}} placement="left">{children}</Tooltip>);
+      driver.mouseEnter();
+
+      return resolveIn(30).then(() => {
+        console.log(document.querySelector('.arrow').className);
+        expect(document.querySelector('.arrow').className).toContain('right');
+      });
+    });
+
+    it('should be right', () => {
+      const driver = createDriver(<Tooltip {...{..._props}} placement="right">{children}</Tooltip>);
+      driver.mouseEnter();
+
+      return resolveIn(30).then(() => {
+        console.log(document.querySelector('.arrow').className);
+        expect(document.querySelector('.arrow').className).toContain('left');
+      });
+    });
+
+    it('should be bottom', () => {
+      const driver = createDriver(<Tooltip {...{..._props}} placement="bottom">{children}</Tooltip>);
+      driver.mouseEnter();
+
+      return resolveIn(30).then(() => {
+        console.log(document.querySelector('.arrow').className);
         expect(document.querySelector('.arrow').className).toContain('top');
       });
     });
