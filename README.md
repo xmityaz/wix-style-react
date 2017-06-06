@@ -10,9 +10,10 @@ Storybook can be seen [here](https://wix.github.io/wix-style-react/?selectedKind
 ## Getting Started
 ### Storybook
 Storybook will allow you to see all the different components implemented, and the different usages of each one of them.
+Use node 5
 ```javascript
     npm install
-    npm start
+    npm run storybook
 ```
 ### Using in a Project
 #### Install the npm
