@@ -172,42 +172,21 @@ describe('Tooltip', () => {
       driver.mouseEnter();
 
       return resolveIn(30).then(() => {
-        console.log(document.querySelector('.arrow').className);
-        expect(document.querySelector('.arrow').className).toContain('bottom');
+        expect(driver.getPlacement()).toBe('top');
       });
     });
 
-    it('should be left', () => {
-      const driver = createDriver(<Tooltip {...{..._props}} placement="left">{children}</Tooltip>);
-      driver.mouseEnter();
+    ['top', 'bottom', 'left', 'right'].forEach(placement => {
+      it(`should be ${placement}`, () => {
+        const driver = createDriver(<Tooltip {...{..._props}} placement={placement}>{children}</Tooltip>);
+        driver.mouseEnter();
 
-      return resolveIn(30).then(() => {
-        console.log(document.querySelector('.arrow').className);
-        expect(document.querySelector('.arrow').className).toContain('right');
-      });
-    });
-
-    it('should be right', () => {
-      const driver = createDriver(<Tooltip {...{..._props}} placement="right">{children}</Tooltip>);
-      driver.mouseEnter();
-
-      return resolveIn(30).then(() => {
-        console.log(document.querySelector('.arrow').className);
-        expect(document.querySelector('.arrow').className).toContain('left');
-      });
-    });
-
-    it('should be bottom', () => {
-      const driver = createDriver(<Tooltip {...{..._props}} placement="bottom">{children}</Tooltip>);
-      driver.mouseEnter();
-
-      return resolveIn(30).then(() => {
-        console.log(document.querySelector('.arrow').className);
-        expect(document.querySelector('.arrow').className).toContain('top');
+        return resolveIn(30).then(() => {
+          expect(driver.getPlacement()).toBe(placement);
+        });
       });
     });
   });
-
 
   describe('testkit', () => {
     it('should exist', () => {
