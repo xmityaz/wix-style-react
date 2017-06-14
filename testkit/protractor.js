@@ -65,10 +65,4 @@ export const imageViewerTestkitFactory = protractorTestkitFactoryCreator(imageVi
 import textDriverFactory from '../src/Text/Text.protractor.driver';
 export const textTestkitFactory = protractorTestkitFactoryCreator(textDriverFactory);
 
-import sideMenuDriverFactory from '../src/SideMenu/core/SideMenu.driver';
-export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(sideMenuDriverFactory);
-
-import sideMenuDrillDriverFactory from '../src/SideMenu/DrillView/DrillView.driver';
-export const sideMenuDrillTestkitFactory = protractorTestkitFactoryCreator(sideMenuDrillDriverFactory);
-
 export {protractorToastTestkitFactory} from '../src/Toast/testkit/Toast.protractor';
